@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="fi-FI">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link class="virkailija-raamit-import" rel="stylesheet" type="text/css"
+          href="/virkailija-raamit/virkailija-raamit/css/virkailija-raamit-standalone.css"/>
+    <link class="virkailija-raamit-import" rel="stylesheet" type="text/css"
+          href="/virkailija-raamit/virkailija-raamit/css/virkailija-print.css"/>
+    <title msg="title">Oppijan verkkopalvelu - Virkailijan työpöytä</title>
+</head>
+<body style="background: #eee;">
+
+
+<header id="raamit-header" class="raamit-header virkailija-raamit">
+    <div class="header-content">
+        <a href="/">
+            <figure class="inline-block" id="opintopolku-logo"></figure>
+        </a>
+        <span id="environment_banner"
+              style="color: #ff0000;text-transform: uppercase;display: none; font-weight: bold; font-size: larger">Testi</span>
+        <a class="authentication float-right margin-right-2" href="javascript:void(0)"
+           onclick="window.location = '/cas/login?service=' + encodeURI(location.href);"
+           data-requires-role="anonymous" msg="login">
+            Kirjaudu sisään
+        </a>
+        <a class="authentication float-right margin-right-2" href="javascript:void(0)"
+           onclick="$.get(encodeURI(location.protocol + '//' + location.hostname + '/service-provider-app/saml/logout'), {local : true }); window.location = '/cas/logout?service=' + encodeURI(location.protocol + '//' + location.hostname + '/');"
+           data-requires-role="app.*|virkailija|" msg="logout">
+            Kirjaudu ulos
+        </a>
+    </div>
+
+    <nav class="main-navigation">
+        <ul class="navigation" style="display: none">
+
+            <!-- submenu: home -->
+
+            <div class="home">
+                <a href="javascript:void(0)" onclick="showHome()"></a>
+            </div>
+
+            <!-- submenu: organisaatiot -->
+
+            <li data-requires-role="app_organisaatiohallinta.*">
+
+                <span msg="organisaatiot">Organisaatiot</span>
+
+                <div class="dropdown">
+                    <a href="/organisaatio-ui/" data-requires-role="app_organisaatiohallinta.*" msg="organisaatiotyllapito">
+                        Organisaatiotietojen ylläpito
+                    </a>
+                </div>
+            </li>
+
+            <!-- submenu: suunnittelu ja tarjonta -->
+
+            <li data-requires-role="app_tarjonta.*|app_valintaperustekuvaustenhallinta.*|app_eperusteet.*">
+
+                <span msg="tarjonta">Suunnittelu ja tarjonta</span>
+
+                <div class="dropdown">
+                    <a href="/tarjonta-app/index.html" data-requires-role="app_tarjonta.*" msg="tarjontakoulutuksetjahaut">Koulutusten ja hakukohteiden ylläpito</a>
+                    <a href="/tarjonta-app/index.html#/valintaPerusteKuvaus/search"
+			data-requires-role="app_valintaperustekuvaustenhallinta.*|app_valintaperustekuvaustenhallinta_kk.*"
+			msg="tarjontavalinnat">Valintaperustekuvausten ylläpito</a>
+                    <a href="/eperusteet-app/" data-requires-role="app_eperusteet.*" msg="eperusteet">ePerusteet</a>
+                </div>
+            </li>
+
+            <!-- submenu: haut -->
+
+            <li data-requires-role="app_hakujenhallinta.*|app_hakemus.*">
+                <span href="#" msg="haut">Haut</span>
+
+                <div class="dropdown">
+                    <a href="/tarjonta-app/index.html#/haku" data-requires-role="app_hakujenhallinta.*" msg="hautyllapito">Haun ylläpito</a>
+                    <a href="/haku-app/virkailija/hakemus" data-requires-role="app_hakemus.*" msg="hauthakemukset">Hakemusten käsittely</a>
+                    <a href="/hakulomakkeenhallinta-ui/app/index.html#/applicationSystemForm" data-requires-role="app_hakemus.*" msg="hakulomakkeenhallinta">Hakelomakkeen hallinta</a>
+                </div>
+            </li>
+
+            <!-- submenu: valinnat -->
+
+            <li data-requires-role="app_valintaperusteet.*|app_valintojentoteuttaminen.*">
+                <span href="#" msg="valinnat">Valinnat</span>
+
+                <div class="dropdown">
+                    <a href="/valintaperusteet-ui" data-requires-role="app_valintaperusteet.*" msg="valinnatperusteet">Valintaperusteet</a>
+                    <a href="/valintalaskenta-ui" data-requires-role="app_valintojentoteuttaminen.*" msg="valinnattoteuttaminen">Valintojen toteuttaminen</a>
+                </div>
+            </li>
+
+            <!-- submenu: rekisterit ja tiedonsiirrot -->
+
+            <li data-requires-role="app_tiedonsiirto.*|app_suoritusrekisteri.*">
+                <span href="#" msg="rekisterit">Rekisterit ja tiedonsiirrot</span>
+
+                <div class="dropdown">
+                    <a data-requires-role="app_tiedonsiirto.*" href="/suoritusrekisteri/#/tiedonsiirto" msg="rekisterittiedonsiirrot">Tiedonsiirrot</a>
+                    <a data-requires-role="app_suoritusrekisteri_read.*|app_suoritusrekisteri_crud" href="/suoritusrekisteri/#/" msg="rekisteritsuoritusrekisteri">Suoritusrekisteri</a>
+                </div>
+            </li>
+
+            <!-- submenu: käytönhallinta -->
+
+            <li data-requires-role="app_yhteystietotyyppienhallinta.*|app_henkilonhallinta.*|app_anomustenhallinta.*|app_koosteroolienhallinta.*|app_koodisto.*|app_sisallonhallinta.*|app_lokalisointi*">
+                <span href="#" msg="kaytonhallinta">Käytönhallinta</span>
+
+                <div class="dropdown">
+                    <a data-requires-role="app_yhteystietotyyppienhallinta.*" href="/organisaatio-ui/html/index.html#/yhteystietotyypit" msg="kaytonhallintaytt">Yhteystietotyypit</a>
+                    <a data-requires-role="app_henkilonhallinta.*" href="/authentication-henkiloui/" msg="kaytonhallintahenkilo">Henkilötietojen käsittely</a>
+                    <a data-requires-role="app_anomustenhallinta.*" href="/authentication-henkiloui/html/index.html#/anomus" msg="kaytonhallintaanomukset">Käyttöoikeusanomukset</a>
+                    <a data-requires-role="app_koosteroolienhallinta.*" href="/authentication-groups/" msg="kaytonhallintaryhmat">Käyttöoikeusryhmien ylläpito</a>
+                    <a data-requires-role="app_koodisto.*" href="/koodisto-ui/" msg="kaytonhallintakoodisto">Koodistojen ylläpito</a>
+                    <a data-requires-role="app_sisallonhallinta.*" href="https://opintopolku.fi/wp/admin/" msg="kaytonhallintasisallonhallinta">Sisällönhallinta</a>
+                    <a data-requires-role="app_lokalisointi_crud" href="/lokalisointi/secured/index.html" msg="kaytonhallintakaannokset">Käännösten ylläpito</a>
+                </div>
+            </li>
+
+            <!-- submenu: osoitepalvelu -->
+
+            <li data-requires-role="app_osoite.*">
+                <span href="#" msg="osoitepalvelu">Osoitepalvelu</span>
+
+                <div class="dropdown">
+                    <a data-requires-role="app_osoite.*" href="/osoitekoostepalvelu/#/" msg="osoitepalvelu">Osoitepalvelu</a>
+                </div>
+            </li>
+
+            <!-- submenu: raportointi ja viestintä -->
+
+            <li data-requires-role="app_raportointi.*|app_ryhmasahkoposti.*|app_asiakirjapalvelu.*">
+                <span href="#" msg="raportointi_ja_viestinta">Raportointi ja viestintä</span>
+
+                <div class="dropdown">
+                    <a data-requires-role="app_raportointi.*" href="/virkailija-raamit/virkailija-raamit/raportointi.html" msg="raportointi">Raportointi</a>
+                    <a data-requires-role="app_ryhmasahkoposti.*" href="/viestintapalvelu-ui/#/reportMessages/list" msg="email_raportointi">Sähköpostien raportit</a>
+                    <a data-requires-role="app_asiakirjapalvelu.*" href="/viestintapalvelu-ui/#/reportLetters" msg="kirje_raportointi">Kirjeiden raportit</a>
+                    <a data-requires-role="app_asiakirjapalvelu_create_template.*" href="/viestintapalvelu-ui/#/letter-templates" msg="kirje_kirjepohjat">Kirjepohjat</a>
+                </div>
+            </li>
+
+            <!-- submenu: AITU -->
+
+            <li data-requires-role="app_aitu_[a-z_-]*_1\.2\.246\.562\.10\.2013121312395140176502">
+                <span href="#" msg="aitu" onclick="window.open('/aitu')">AITU</span>
+            </li>
+
+            <!-- submenu: AIPAL -->
+
+            <li data-requires-role="app_aipal.*">
+                <span href="#" msg="aipal" onclick="window.open('/aipal')">AIPAL</span>
+            </li>
+
+            <!-- submenu: omat sivut -->
+
+            <li data-requires-role="user_*">
+                <span href="#" msg="omatsivut">Omat sivut</span>
+
+                <div class="dropdown">
+                    <a href="/authentication-henkiloui/html/#/omattiedot" data-requires-role="user_*" msg="omatsivuttiedot">Omat tiedot</a>
+                </div>
+            </li>
+            <li data-requires-role="virkailija" class="action">
+                <span>
+                    <a href="/ohjeet" target="_blank" msg="kayttoohje">Käyttöohje</a>
+                </span>
+            </li>
+
+        </ul>
+    </nav>
+</header>
+
+<div id="raamit-container">
+
+
+</div>
+<div id="raamit-footer-container" class="raamit-footer-container virkailija-raamit">
+    <footer id="raamit-footer">
+        <table>
+        <tr>
+            <td>
+                <figure id="oph-logo"></figure>
+            </td>
+            <td>
+                <address msg="osoitehallitus">
+                    Opetushallitus <br> Hakaniemenranta 6 <br> PL 380, 00531 Helsinki <br> puhelin 029 533 1000
+                </address>
+            </td>
+            <td>
+                <figure id="okm-logo"></figure>
+            </td>
+            <td>
+                <address msg="osoiteministerio">
+                    Opetus- ja kulttuuriministeriö <br> PL 29, 00023 valtioneuvosto <br> puhelin 0295 3 30004
+                </address>
+            </td>
+        </tr>
+        </table>
+    </footer>
+    <div id="version_info" style="color: #808080; font-size: smaller; text-align: center;"> <!-- version --> </div>
+    <span id="environment_info" style="color: black; display: none; font-size: smaller"></span>
+     <!-- Piwik -->
+        <script type="text/javascript">
+
+            var siteDomain = document.domain;
+            var piwikSiteId = 2;
+            if(siteDomain=='opintopolku.fi'){
+                piwikSiteId = 4;
+            }else if(siteDomain=='virkailija.opintopolku.fi'){
+                piwikSiteId = 3;
+            }else if(siteDomain=='testi.opintopolku.fi'){
+                piwikSiteId = 1;
+            }else if(siteDomain=='testi.virkailija.opintopolku.fi'){
+                piwikSiteId = 5;
+            }
+
+            var _paq = _paq || [];
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["trackPageView"]);
+          _paq.push(["enableLinkTracking"]);
+
+            if (piwikSiteId != 2) {
+                (function() {
+                    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytiikka.opintopolku.fi/piwik/";
+                    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+                    _paq.push(["setSiteId", piwikSiteId]);
+                    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+                    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+                })();
+            }
+        </script>
+
+        <!-- End Piwik Code -->
+
+</div>
+
+</body>
+</html>

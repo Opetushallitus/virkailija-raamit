@@ -1,0 +1,1 @@
+sass --watch styles/virkailija/:virkailija-raamit/css/
