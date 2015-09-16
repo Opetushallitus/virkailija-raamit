@@ -32,9 +32,9 @@ initJQuery();
 
 function showHome() {
     oph_host = location.host.split(':')[0];
-    var homePage = '/wp/';
+    var homePage = '/virkailijan-stp-ui';
     if (oph_host.indexOf('xtest-') === 0 || oph_host.indexOf('itest-') === 0 || oph_host.indexOf('localhost') === 0) {
-        homePage = '/virkailijan-stp-ui';
+        homePage = '/virkailija-raamit/index.html';
     }
 
     location.href = location.protocol + '//' + location.host + homePage;
