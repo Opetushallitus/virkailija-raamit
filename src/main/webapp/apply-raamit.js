@@ -34,7 +34,7 @@ function showHome() {
     oph_host = location.host.split(':')[0];
     var homePage = '/wp/';
     if (oph_host.indexOf('xtest-') === 0 || oph_host.indexOf('itest-') === 0 || oph_host.indexOf('localhost') === 0) {
-        homePage = '/virkailija-raamit/index.html';
+        homePage = '/virkailijan-stp-ui';
     }
 
     location.href = location.protocol + '//' + location.host + homePage;
