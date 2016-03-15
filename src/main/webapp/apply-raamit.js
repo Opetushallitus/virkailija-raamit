@@ -43,26 +43,10 @@ function showHome() {
 
 function showEnvironmentBanner() {
     // environment name
-    oph_host = location.host.split(':')[0];
-    var bannerText;
-    if (oph_host.indexOf('koulutus') === 0) {
-        bannerText = 'koulutus';
-    } else if (oph_host.indexOf('testi') === 0) {
-        bannerText = 'QA';
-    } else if (oph_host.indexOf('xtest-') === 0) {
-        bannerText = 'Kielistudio';
-    } else if (oph_host.indexOf('test-') === 0) {
-        bannerText = 'Reppu';
-    } else if (oph_host.indexOf('itest-') === 0) {
-        bannerText = 'Luokka';
-    } else if (oph_host.indexOf('kehitys-virkailija') === 0) {
-        bannerText = 'Vagrant';
-    } else if (oph_host.indexOf('localhost') === 0) {
-        bannerText = oph_host;
-    }
-    if (bannerText) {
+    oph_host = window.location.hostname;
+    if (oph_host !== 'virkailija.opintopolku.fi') {
         var banner = $("#environment_banner");
-        banner.text(bannerText);
+        banner.text(oph_host);
         banner.show();
     }
 }
