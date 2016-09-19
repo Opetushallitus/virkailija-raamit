@@ -62,8 +62,8 @@
                     <a href="/tarjonta-app/index.html" data-requires-role="app_tarjonta.*" msg="tarjontakoulutuksetjahaut">Koulutusten ja hakukohteiden ylläpito</a>
                     <a href="/tarjonta-app/index.html#/import" data-requires-role="app_tarjonta.*" msg="tarjontakoulutuksetjahautexcel">Koulutusten ja hakukohteiden Excel-tuonti</a>
                     <a href="/tarjonta-app/index.html#/valintaPerusteKuvaus/search"
-			data-requires-role="app_valintaperustekuvaustenhallinta.*|app_valintaperustekuvaustenhallinta_kk.*"
-			msg="tarjontavalinnat">Valintaperustekuvausten ylläpito</a>
+                       data-requires-role="app_valintaperustekuvaustenhallinta.*|app_valintaperustekuvaustenhallinta_kk.*"
+                       msg="tarjontavalinnat">Valintaperustekuvausten ylläpito</a>
                     <a href="/eperusteet-app/" data-requires-role="app_eperusteet.*" msg="eperusteet">ePerusteet</a>
                     <a href="/eperusteet-ylops-app/" data-requires-role="app_eperusteet_ylops.*" msg="ops-työkalu">Ops-työkalu</a>
                     <a href="/eperusteet-amosaa-app/" data-requires-role="app_eperusteet_amosaa.*" msg="amosaa-ops-työkalu">Ammatillisen Ops-työkalu</a>
@@ -183,60 +183,60 @@
 <div id="raamit-footer-container" class="raamit-footer-container virkailija-raamit">
     <footer id="raamit-footer">
         <table>
-        <tr>
-            <td>
-                <figure id="oph-logo"></figure>
-            </td>
-            <td>
-                <address msg="osoitehallitus">
-                    Opetushallitus <br> Hakaniemenranta 6 <br> PL 380, 00531 Helsinki <br> puhelin 029 533 1000
-                </address>
-            </td>
-            <td>
-                <figure id="okm-logo"></figure>
-            </td>
-            <td>
-                <address msg="osoiteministerio">
-                    Opetus- ja kulttuuriministeriö <br> PL 29, 00023 valtioneuvosto <br> puhelin 0295 3 30004
-                </address>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <figure id="oph-logo"></figure>
+                </td>
+                <td>
+                    <address msg="osoitehallitus">
+                        Opetushallitus <br> Hakaniemenranta 6 <br> PL 380, 00531 Helsinki <br> puhelin 029 533 1000
+                    </address>
+                </td>
+                <td>
+                    <figure id="okm-logo"></figure>
+                </td>
+                <td>
+                    <address msg="osoiteministerio">
+                        Opetus- ja kulttuuriministeriö <br> PL 29, 00023 valtioneuvosto <br> puhelin 0295 3 30004
+                    </address>
+                </td>
+            </tr>
         </table>
     </footer>
     <div id="version_info" style="color: #808080; font-size: smaller; text-align: center;"> <!-- version --> </div>
     <span id="environment_info" style="color: black; display: none; font-size: smaller"></span>
-     <!-- Piwik -->
-        <script type="text/javascript">
+    <!-- Piwik -->
+    <script type="text/javascript">
 
-            var siteDomain = document.domain;
-            var piwikSiteId = 2;
-            if(siteDomain=='opintopolku.fi'){
-                piwikSiteId = 4;
-            }else if(siteDomain=='virkailija.opintopolku.fi'){
-                piwikSiteId = 3;
-            }else if(siteDomain=='testi.opintopolku.fi'){
-                piwikSiteId = 1;
-            }else if(siteDomain=='testi.virkailija.opintopolku.fi'){
-                piwikSiteId = 5;
-            }
+        var siteDomain = document.domain;
+        var piwikSiteId = 2;
+        if(siteDomain=='opintopolku.fi'){
+            piwikSiteId = 4;
+        }else if(siteDomain=='virkailija.opintopolku.fi'){
+            piwikSiteId = 3;
+        }else if(siteDomain=='testi.opintopolku.fi'){
+            piwikSiteId = 1;
+        }else if(siteDomain=='testi.virkailija.opintopolku.fi'){
+            piwikSiteId = 5;
+        }
 
-            var _paq = _paq || [];
-          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-          _paq.push(["trackPageView"]);
-          _paq.push(["enableLinkTracking"]);
+        var _paq = _paq || [];
+        _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+        _paq.push(["trackPageView"]);
+        _paq.push(["enableLinkTracking"]);
 
-            if (piwikSiteId != 2) {
-                (function() {
-                    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytiikka.opintopolku.fi/piwik/";
-                    _paq.push(["setTrackerUrl", u+"piwik.php"]);
-                    _paq.push(["setSiteId", piwikSiteId]);
-                    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-                    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-                })();
-            }
-        </script>
+        if (piwikSiteId != 2) {
+            (function() {
+                var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytiikka.opintopolku.fi/piwik/";
+                _paq.push(["setTrackerUrl", u+"piwik.php"]);
+                _paq.push(["setSiteId", piwikSiteId]);
+                var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+                g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+            })();
+        }
+    </script>
 
-        <!-- End Piwik Code -->
+    <!-- End Piwik Code -->
 
 </div>
 

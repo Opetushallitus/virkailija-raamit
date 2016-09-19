@@ -1,0 +1,36 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "apply-raamit.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "inbuild": "cross-env BABEL_ENV=lib babel src --out-dir lib --copy-files --source-maps",
+    "prebuild": "rimraf lib",
+    "build": "npm run inbuild --",
+    "bundle": "cross-env NODE_ENV=production webpack -p --progress --config node_modules/frontend-app/lib/webpack/config",
+    "dev": "webpack --progress --watch --config node_modules/frontend-app/lib/webpack/config",
+    "dev-server": "webpack-dev-server --inline --hot --config node_modules/frontend-app/lib/webpack/config",
+    "init": "node node_modules/frontend-app/lib/init"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "3",
+    "flat": "^2.0.1",
+    "frontend-app": "^0.4.6",
+    "html-webpack-plugin": "2",
+    "lodash": "^4.15.0",
+    "radium": "^0.18.1",
+    "react": "15 || 16",
+    "react-bootstrap": "0.30",
+    "react-dom": "15 || 16",
+    "react-router": "2"
+  },
+  "config": {
+    "frontendApp": {
+      "type": "react"
+    }
+  }
+}

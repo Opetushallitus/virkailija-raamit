@@ -1,0 +1,43 @@
+
+body{
+    margin: 0 !important;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.links {
+
+    text-decoration: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+
+}
+.links > a{
+    word-wrap: break-word;
+    display: block;
+    width: 100%;
+    color: #666666;
+    text-decoration: none;
+}
+.links:hover {
+    background-color: #E0F3FF;
+}
+.linkCol:not(:first-child) {
+    border-bottom: 1px solid #AAAAAA;
+}
+.linkCol:last-child{
+    border-right: 1px solid #AAAAAA;
+}
+.linkCol:first-child {
+    height: 0 !important;
+}
+.linkCol:hover {
+    background-color: #F6FBFF !important;
+}
+
+.opintopolkuLogo{
+    padding-left: 40px;
+    padding-bottom: 20px;
+}

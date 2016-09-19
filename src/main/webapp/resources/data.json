@@ -1,0 +1,75 @@
+[
+  {
+    "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
+    "title":{
+      "fi":"Organisaatioiden tiedot",
+      "sv":"asd",
+      "en":"asd"
+    },
+    "links":[
+      {
+        "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
+        "title":{
+          "fi":"sivu 1",
+          "sv":"sivu 1",
+          "en":"sivu 1"
+        },
+        "href":"index1.html"
+      },
+      {
+        "title":{
+          "fi":"Osoitepalvelu",
+          "sv":"Osoitepalvelu",
+          "en":"Osoitepalvelu"
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"dsa",
+          "sv":"dsa",
+          "en":"dsa"
+        },
+        "href":"http://google.com"
+      },
+      {
+        "title":{
+          "fi":"Osoitepalvelu",
+          "sv":"Osoitepalvelu",
+          "en":"Osoitepalvelu"
+        },
+        "href":"google.com"
+      }
+    ]
+
+  },
+  {
+    "requiresRole":["app_valintaperustee.","app_valintojent"],
+    "title":{
+      "fi":"Järjestelmän hallinta",
+      "sv":"asd",
+      "en":"asd"
+    },
+    "links":[
+      {
+        "title":{
+          "fi":"Käyttöoikeus anomukset",
+          "sv":"dsa",
+          "en":"dsa"
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Osoitepalveluasdasdasdasd",
+          "sv":"Osoitepalvelu",
+          "en":"Osoitepalvelu"
+        },
+        "href":"google.com"
+      }
+    ]
+
+  }
+
+
+]
