@@ -3,24 +3,24 @@
     "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
     "title":{
       "fi":"Organisaatioiden tiedot",
-      "sv":"asd",
-      "en":"asd"
+      "sv":"",
+      "en":""
     },
     "links":[
       {
         "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
         "title":{
-          "fi":"sivu 1",
-          "sv":"sivu 1",
-          "en":"sivu 1"
+          "fi":"Oman organisaation tiedot",
+          "sv":"",
+          "en":""
         },
-        "href":"index1.html"
+        "href":"/organisaatio-ui/"
       },
       {
         "title":{
           "fi":"Osoitepalvelu",
-          "sv":"Osoitepalvelu",
-          "en":"Osoitepalvelu"
+          "sv":"",
+          "en":""
         },
         "href":"google.com"
       },
@@ -34,9 +34,9 @@
       },
       {
         "title":{
-          "fi":"Osoitepalvelu",
-          "sv":"Osoitepalvelu",
-          "en":"Osoitepalvelu"
+          "fi":"Yhteystietotyypit",
+          "sv":"",
+          "en":""
         },
         "href":"google.com"
       }
@@ -47,28 +47,279 @@
     "requiresRole":["app_valintaperustee.","app_valintojent"],
     "title":{
       "fi":"Järjestelmän hallinta",
-      "sv":"asd",
-      "en":"asd"
+      "sv":"",
+      "en":""
     },
     "links":[
       {
         "title":{
           "fi":"Käyttöoikeus anomukset",
-          "sv":"dsa",
-          "en":"dsa"
+          "sv":"",
+          "en":""
         },
         "href":"google.com"
       },
       {
         "title":{
-          "fi":"Osoitepalveluasdasdasdasd",
-          "sv":"Osoitepalvelu",
-          "en":"Osoitepalvelu"
+          "fi":"Käyttöoikeusryhmien ylläpito",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Henkilötietojen käsittely",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Koodistojen hallinta",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Käännösten ylläpito",
+          "sv":"",
+          "en":""
         },
         "href":"google.com"
       }
     ]
 
+  },
+  {
+    "requiresRole":["app_valintaperustee.","app_valintojent"],
+    "title":{
+      "fi":"ePerusteet",
+      "sv":"",
+      "en":""
+    },
+    "links":[
+      {
+        "title":{
+          "fi":"Perusteiden hallinta",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"OPS-työkalut",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"AMOSAA-työkalu",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      }
+    ]
+
+  },
+  {
+    "requiresRole":["app_valintaperustee.","app_valintojent"],
+    "title":{
+      "fi":"Koulutustarjonta",
+      "sv":"",
+      "en":""
+    },
+    "links":[
+      {
+        "title":{
+          "fi":"Koulutusten ha hakukohteiden ylläpito",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Haun ylläpito",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Valintaperustekuvausten ylläpito",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Koulutusten ja hakukohteinden Excel-tuonti",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      }
+    ]
+  },
+  {
+    "requiresRole":["app_valintaperustee.","app_valintojent"],
+    "title":{
+      "fi":"Hakemukset ja valinnat",
+      "sv":"",
+      "en":""
+    },
+    "links":[
+      {
+        "title":{
+          "fi":"Hakemusten käsittely",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Hakulomakkeen muokkaus",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Maksuperusteet",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Valintaperusteet",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Valintojen toteuttaminen",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Valintalaskennan hallinta",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      }
+    ]
+  },
+  {
+    "requiresRole":["app_valintaperustee.","app_valintojent"],
+    "title":{
+      "fi":"Raportointi ja viestintä",
+      "sv":"",
+      "en":""
+    },
+    "links":[
+      {
+        "title":{
+          "fi":"AIPAL",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Kirjeiden raportointi",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Kirjepohjat",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Raportionti",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Sähköpostien raportointi",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      }
+    ]
+  },
+  {
+    "requiresRole":["app_valintaperustee.","app_valintojent"],
+    "title":{
+      "fi":"Rekisterit ja tiedonsiirrot",
+      "sv":"",
+      "en":""
+    },
+    "links":[
+      {
+        "title":{
+          "fi":"AITU",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"KOSKI",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Suoritusrekisterit",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      },
+      {
+        "title":{
+          "fi":"Tiedonsiirrot",
+          "sv":"",
+          "en":""
+        },
+        "href":"google.com"
+      }
+    ]
   }
 
 
