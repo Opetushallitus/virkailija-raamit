@@ -22,15 +22,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
-      },
-      {
-        "title":{
-          "fi":"dsa",
-          "sv":"dsa",
-          "en":"dsa"
-        },
-        "href":"http://google.com"
+        "href":"/osoitekoostepalvelu/#/"
       },
       {
         "title":{
@@ -38,13 +30,13 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/organisaatio-ui/html/index.html#/yhteystietotyypit"
       }
     ]
 
   },
   {
-    "requiresRole":["app_valintaperustee.","app_valintojent"],
+    "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
     "title":{
       "fi":"Järjestelmän hallinta",
       "sv":"",
@@ -57,7 +49,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/authentication-henkiloui/html/index.html#/anomus"
       },
       {
         "title":{
@@ -65,7 +57,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/authentication-groups/"
       },
       {
         "title":{
@@ -73,7 +65,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/authentication-henkiloui/"
       },
       {
         "title":{
@@ -81,7 +73,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/koodisto-ui/"
       },
       {
         "title":{
@@ -89,13 +81,13 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/lokalisointi/secured/index.html"
       }
     ]
 
   },
   {
-    "requiresRole":["app_valintaperustee.","app_valintojent"],
+    "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
     "title":{
       "fi":"ePerusteet",
       "sv":"",
@@ -108,7 +100,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/eperusteet-app/"
       },
       {
         "title":{
@@ -116,7 +108,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/eperusteet-ylops-app/"
       },
       {
         "title":{
@@ -124,13 +116,13 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/eperusteet-amosaa-app/"
       }
     ]
 
   },
   {
-    "requiresRole":["app_valintaperustee.","app_valintojent"],
+
     "title":{
       "fi":"Koulutustarjonta",
       "sv":"",
@@ -143,7 +135,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/tarjonta-app/index.html"
       },
       {
         "title":{
@@ -151,7 +143,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/tarjonta-app/index.html#/haku"
       },
       {
         "title":{
@@ -159,7 +151,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/tarjonta-app/index.html#/valintaPerusteKuvaus/search"
       },
       {
         "title":{
@@ -167,12 +159,11 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/tarjonta-app/index.html#/import"
       }
     ]
   },
   {
-    "requiresRole":["app_valintaperustee.","app_valintojent"],
     "title":{
       "fi":"Hakemukset ja valinnat",
       "sv":"",
@@ -185,7 +176,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/haku-app/virkailija/hakemus"
       },
       {
         "title":{
@@ -193,7 +184,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/hakulomakkeenhallinta-ui/app/index.html#/applicationSystemForm"
       },
       {
         "title":{
@@ -201,7 +192,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/hakuperusteetadmin"
       },
       {
         "title":{
@@ -209,7 +200,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/valintaperusteet-ui"
       },
       {
         "title":{
@@ -217,7 +208,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/valintalaskenta-ui"
       },
       {
         "title":{
@@ -225,12 +216,11 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/valintalaskenta-ui/app/jono/hallinta.html"
       }
     ]
   },
   {
-    "requiresRole":["app_valintaperustee.","app_valintojent"],
     "title":{
       "fi":"Raportointi ja viestintä",
       "sv":"",
@@ -243,7 +233,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/aipal"
       },
       {
         "title":{
@@ -251,7 +241,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/viestintapalvelu-ui/#/reportLetters"
       },
       {
         "title":{
@@ -259,7 +249,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/viestintapalvelu-ui/#/letter-templates"
       },
       {
         "title":{
@@ -267,7 +257,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"virkailija-raamit/virkailija-raamit/raportointi.html"
       },
       {
         "title":{
@@ -275,12 +265,11 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/viestintapalvelu-ui/#/reportMessages/list"
       }
     ]
   },
   {
-    "requiresRole":["app_valintaperustee.","app_valintojent"],
     "title":{
       "fi":"Rekisterit ja tiedonsiirrot",
       "sv":"",
@@ -293,7 +282,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/aitu/"
       },
       {
         "title":{
@@ -301,7 +290,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/koski"
       },
       {
         "title":{
@@ -309,7 +298,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/suoritusrekisteri/#/"
       },
       {
         "title":{
@@ -317,7 +306,7 @@
           "sv":"",
           "en":""
         },
-        "href":"google.com"
+        "href":"/suoritusrekisteri/#/tiedonsiirto"
       }
     ]
   }
