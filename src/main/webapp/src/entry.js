@@ -1,7 +1,6 @@
 import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import App from './components/App';
-import 'bootstrap/dist/css/bootstrap.css';
 import '../virkailija-raamit/css/styles.css';
 
 function addStyle(href) {

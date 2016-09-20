@@ -1,18 +1,22 @@
 import Flatten from 'flat'
-import _ from 'lodash'
+import isEmpty from 'lodash/isEmpty'
+import reduce from 'lodash/reduce'
+import extend from 'lodash/extend'
+import mixin from 'lodash/mixin'
+import merge from 'lodash/merge'
 import * as translations from '../../resources/data.json'
 import text from '../../resources/text.json'
 import {getCookie, setCookie} from './util.js'
 
-_.mixin({
+mixin({
   merge : function() {
-    return _.reduce(arguments, function(list, obj){
-      return _.extend(list, obj);
+    return reduce(arguments, function(list, obj){
+      return extend(list, obj);
     }, {});
   }
 });
 
-const flatTrans = Flatten(_.merge(translations,text));
+const flatTrans = Flatten(merge(translations,text));
 console.log(flatTrans);
 export function translation(key, lang=resolveLang()) {
   var fullKey = key + "." + lang;
@@ -20,7 +24,7 @@ export function translation(key, lang=resolveLang()) {
     fullKey = key[lang];
   }
   const trans = flatTrans[fullKey];
-  if (_.isEmpty(trans)) {
+  if (isEmpty(trans)) {
     //console.log("Missing key " + fullKey);
     return fullKey
   } else {

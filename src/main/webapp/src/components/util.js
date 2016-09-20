@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import zipObject from 'lodash/zipObject'
 
 
 export function getCookie(name) {
@@ -13,5 +13,5 @@ export function setCookie(name, val){
 
 export function getUrlParameters(){
   var pairs = location.search.substr(1).split('&').map(item => item.split('='));
-  return _.zipObject(pairs)
+  return zipObject(pairs)
 }
