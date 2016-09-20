@@ -23,7 +23,9 @@ export default class App extends React.Component {
     async getRoles(){
 
         try {
-            const response = await fetch("/cas/myroles");
+            const response = await fetch("/cas/myroles",{
+                credentials: 'include'
+            });
             this.setState({
                 roles: await response.json()
             });
@@ -43,7 +45,9 @@ export default class App extends React.Component {
     async getUserData(){
 
         try {
-            const response = await fetch("/authentication-service/resources/omattiedot");
+            const response = await fetch("/authentication-service/resources/omattiedot",{
+                credentials: 'include'
+            });
             this.setState({
                 userData: await response.json()
             });
