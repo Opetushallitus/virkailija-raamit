@@ -2,7 +2,19 @@ import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../virkailija-raamit/css/styles.css';
+
+function addStyle(href) {
+    var ss = document.createElement("link");
+    ss.type = "text/css";
+    ss.rel = "stylesheet";
+    ss.href = href;
+    document.getElementsByTagName("head")[0].appendChild(ss);
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
+    addStyle("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+    addStyle(`${process.env.NODE_ENV === 'production' ? '/virkailija-raamit/build/' : '/build/'}bundle.css`);
     const root = document.body.insertBefore(document.createElement('div'),document.body.firstChild);
     function renderer() {
         render(

@@ -1,10 +1,15 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const production = process.env.NODE_ENV === 'production';
 
 module.exports = {
     output: {
-        path: process.cwd(),
-        filename: "apply-raamit.js",
-        publicPath: '/virkailija-raamit/build/'
+        publicPath: production ? '/virkailija-raamit/' : '/build/'
+    },
+    devServer: {
+        // Disable frontend-app built-in proxy options for historyApiFallback.
+        proxy: {},
+        // Webpack Dev Server needs generated index.html in /build directory for historyApiFallback to work.
+        historyApiFallback: true
     }
 };
 

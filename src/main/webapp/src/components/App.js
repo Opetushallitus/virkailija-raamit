@@ -67,23 +67,27 @@ export default class App extends React.Component {
     render() {
         const user = this.state.userData;
         const filteredData = data.filter(item => {
-            return this.state.roles.some(myRole=>
-                item.requiresRole.some(requiredRole=>
-                {
-                    if(requiredRole.toUpperCase().startsWith(myRole.toUpperCase())){
-                        const links = item.links.filter(link =>{
-                            if(link.requiresRole){
-                                return link.requiresRole.some(linkRequiredRole=>{
-                                    return linkRequiredRole.toUpperCase().startsWith(myRole.toUpperCase());
-                                })
-                            }else {
-                                return true;
+            return this.state.roles.some(myRole=> {
+                    if (item.requiresRole) {
+                        return item.requiresRole.some(requiredRole=> {
+                            if (requiredRole.toUpperCase().startsWith(myRole.toUpperCase())) {
+                                const links = item.links.filter(link => {
+                                    if (link.requiresRole) {
+                                        return link.requiresRole.some(linkRequiredRole=> {
+                                            return linkRequiredRole.toUpperCase().startsWith(myRole.toUpperCase());
+                                        })
+                                    } else {
+                                        return true;
+                                    }
+                                });
+                                item.links = links;
                             }
-                        });
-                        item.links = links;
+                            return requiredRole.toUpperCase().startsWith(myRole.toUpperCase());
+                        })
+                    } else {
+                        return true;
                     }
-                    return requiredRole.toUpperCase().startsWith(myRole.toUpperCase());
-                })
+                }
             )});
 
         const margin = 30;
