@@ -29,5 +29,5 @@ export default (userData) =>{
             <img style={{...logout,...settingsImage}} src={ratas}/>{userName}
         </a>
         |
-        <a href="/login" style={logout}>{translation("logout")}</a></div>;
+        <a href="/service-provider-app/saml/logout" style={logout}>{translation("logout")}</a></div>;
 }
