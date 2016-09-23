@@ -64,9 +64,11 @@ export default class App extends React.Component {
         }
     }
 
-    toggleHover= () =>{
-        this.setState({hover: !this.state.hover});
-    };
+    Show= () => this.setState({hover: true})
+
+    Hide= () => this.setState({hover: false})
+
+
 
     render() {
         const user = this.state.userData;
@@ -169,8 +171,8 @@ export default class App extends React.Component {
             <div style={headerStyle}>
                 <img className="opintopolkuLogo" src={opintopolkuLogo}/>
                 {SignOut(this.state.userData)}
-                <div style={base} onMouseEnter={this.toggleHover}
-                     onMouseLeave={this.toggleHover} >
+                <div style={base} onMouseEnter={this.Show}
+                     onMouseLeave={this.Hide} >
 
                     <div>
 
