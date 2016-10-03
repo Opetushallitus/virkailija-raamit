@@ -3,20 +3,25 @@ import data from '../../resources/data.json';
 import Header from './Header';
 import Link from './Link';
 import SignOut from './SignOut';
-import roles from '../../virkailija-raamit/myroles.json'
-import userData from '../../virkailija-raamit/myUserData.json'
-import homeLogo from '../../virkailija-raamit/img/koti.png'
-import opintopolkuLogo from '../../virkailija-raamit/img/opintopolkufi.png'
+import Translations from './Translations';
+import roles from '../../virkailija-raamit/myroles.json';
+import userData from '../../virkailija-raamit/myUserData.json';
+import translation from '../../virkailija-raamit/translation.json';
+import homeLogo from '../../virkailija-raamit/img/koti.png';
+import opintopolkuLogo from '../../virkailija-raamit/img/opintopolkufi.png';
 
 
 export default class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            roles: []
+            roles: [],
+            userData: []
         };
+
         this.getRoles();
         this.getUserData();
+        this.getTranslate();
     }
 
 
@@ -64,9 +69,38 @@ export default class App extends React.Component {
         }
     }
 
-    Show= () => this.setState({hover: true})
+    async getTranslate(){
+        var lang='fi';
+        /*
+        for (var i = 0; i < window.myroles.length; i++) {
+            if (this.state[i].indexOf('LANG_') === 0) {
+                lang = window.myroles[i].substring(5);
+            }
+        }
+        */
 
-    Hide= () => this.setState({hover: false})
+        try {
+            const response = await fetch("/lokalisointi/cxf/rest/v1/localisation?category=virkailijaraamit&locale="+lang,{
+                credentials: 'include'
+            });
+            Translations.setTranslations(await response.json());
+        } catch (error) {
+            if (location.host.indexOf('localhost') === 0) { // dev mode (copypaste from upper)
+                Translations.setTranslations(translation);
+            } else { // real usage
+                if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
+                    alert('Problems with login, please reload page or log out and try again');
+                } else {
+                    window.location.href = "/cas/login?service=" + location.href;
+                }
+            }
+        }
+    }
+
+
+    Show= () => this.setState({hover: true});
+
+    Hide= () => this.setState({hover: false});
 
 
 
@@ -97,7 +131,9 @@ export default class App extends React.Component {
             )});
 
         const margin = 30;
-        const borderColor = "1px solid #AAAAAA";
+        const headerBorderColor = "1px solid #56B6D6";
+
+        const borderColor = "1px solid #F0F0F0";
         const headerStyle={
 
             //paddingLeft: "10%",
@@ -118,7 +154,7 @@ export default class App extends React.Component {
             width: 27
         };
         const style={
-
+            fontSize: '14px',
             display:`inline-block`,
             width:`${100/(filteredData.length+1)}%`,
             maxWidth:300,
@@ -126,22 +162,19 @@ export default class App extends React.Component {
             wordWrap: 'break-word',
             paddingBottom: 10,
             verticalAlign: 'bottom',
-            borderLeft: borderColor,
+            borderLeft: headerBorderColor,
 
         };
         const linkStyle={
-
+            fontSize: '14px',
             display:`inline-block`,
             width:`${100/(filteredData.length+1)}%`,
             maxWidth:300,
             verticalAlign: 'top',
             height: '100%',
-
-            //marginLeft: 10,
-            //paddingLeft: 10,
-            //marginRight: 5,
             borderLeft: borderColor,
             backgroundColor: 'white',
+            boxShadow: '0px 1px 4px 0px rgba(0,0,0,0.20)',
 
         };
         const linkBase={

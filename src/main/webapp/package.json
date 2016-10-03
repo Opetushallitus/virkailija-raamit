@@ -19,16 +19,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "3",
     "flat": "^2.0.1",
     "frontend-app": "^0.4.6",
     "html-webpack-plugin": "2",
     "lodash": "^4.16.0",
-    "radium": "^0.18.1",
     "react": "15 || 16",
-    "react-bootstrap": "0.30",
-    "react-dom": "15 || 16",
-    "react-router": "2"
+    "react-dom": "15 || 16"
   },
   "config": {
     "frontendApp": {

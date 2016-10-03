@@ -1,4 +1,4 @@
-import {translation} from './translations';
+import Translation from './Translations';
 import ratas from '../../virkailija-raamit/img/ratas.png'
 const style ={
     float: "right",
@@ -29,5 +29,5 @@ export default (userData) =>{
             <img style={{...logout,...settingsImage}} src={ratas}/>{userName}
         </a>
         |
-        <a href="/service-provider-app/saml/logout" style={logout}>{translation("logout")}</a></div>;
+        <a href="/service-provider-app/saml/logout" style={logout}><Translation trans="logout"/></a></div>;
 }

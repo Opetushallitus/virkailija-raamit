@@ -1,4 +1,4 @@
-import {translation} from './translations';
+import Translation from './Translations';
 
 const style={
     paddingLeft: 10,
@@ -8,6 +8,6 @@ const style={
 };
 
 
-export default ({title,href}, index) =>{
-    return <div className="links" key={index}><a href={href}>{translation(title)}</a></div>;
+export default ({key,href}, index) =>{
+    return <div className="links" key={index}><a href={href}><Translation trans={key}/></a></div>;
 }
