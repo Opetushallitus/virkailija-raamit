@@ -1,311 +1,162 @@
 [
   {
     "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
-    "title":{
-      "fi":"Organisaatioiden tiedot",
-      "sv":"",
-      "en":""
-    },
+    "key":"organisaatiot",
     "links":[
       {
+        "key":"organisaatiotyllapito",
         "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
-        "title":{
-          "fi":"Oman organisaation tiedot",
-          "sv":"",
-          "en":""
-        },
         "href":"/organisaatio-ui/"
       },
       {
-        "title":{
-          "fi":"Osoitepalvelu",
-          "sv":"",
-          "en":""
-        },
+        "key":"osoitepalvelu",
         "href":"/osoitekoostepalvelu/#/"
       },
       {
-        "title":{
-          "fi":"Yhteystietotyypit",
-          "sv":"",
-          "en":""
-        },
+        "key":"kaytonhallintaytt",
         "href":"/organisaatio-ui/html/index.html#/yhteystietotyypit"
       }
     ]
 
   },
   {
+    "key":"jarjestelmanhallinta",
     "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
-    "title":{
-      "fi":"Järjestelmän hallinta",
-      "sv":"",
-      "en":""
-    },
     "links":[
       {
-        "title":{
-          "fi":"Käyttöoikeus anomukset",
-          "sv":"",
-          "en":""
-        },
+        "key":"kaytonhallintaanomukset",
         "href":"/authentication-henkiloui/html/index.html#/anomus"
       },
       {
-        "title":{
-          "fi":"Käyttöoikeusryhmien ylläpito",
-          "sv":"",
-          "en":""
-        },
+        "key":"kaytonhallintaryhmat",
         "href":"/authentication-groups/"
       },
       {
-        "title":{
-          "fi":"Henkilötietojen käsittely",
-          "sv":"",
-          "en":""
-        },
+        "key":"kaytonhallintahenkilo",
         "href":"/authentication-henkiloui/"
       },
       {
-        "title":{
-          "fi":"Koodistojen hallinta",
-          "sv":"",
-          "en":""
-        },
+        "key":"kaytonhallintakoodisto",
         "href":"/koodisto-ui/"
       },
       {
-        "title":{
-          "fi":"Käännösten ylläpito",
-          "sv":"",
-          "en":""
-        },
+        "key":"kaytonhallintakaannokset",
         "href":"/lokalisointi/secured/index.html"
       }
     ]
 
   },
   {
+    "key":"eperusteet",
     "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
-    "title":{
-      "fi":"ePerusteet",
-      "sv":"",
-      "en":""
-    },
     "links":[
       {
-        "title":{
-          "fi":"Perusteiden hallinta",
-          "sv":"",
-          "en":""
-        },
+        "key":"eperusteet",
         "href":"/eperusteet-app/"
       },
       {
-        "title":{
-          "fi":"OPS-työkalut",
-          "sv":"",
-          "en":""
-        },
+        "key":"ops-ty\u00f6kalu",
         "href":"/eperusteet-ylops-app/"
       },
       {
-        "title":{
-          "fi":"AMOSAA-työkalu",
-          "sv":"",
-          "en":""
-        },
+        "key":"amosaa-ops-ty\u00f6kalu",
         "href":"/eperusteet-amosaa-app/"
       }
     ]
 
   },
   {
-
-    "title":{
-      "fi":"Koulutustarjonta",
-      "sv":"",
-      "en":""
-    },
+    "key":"koulutustarjonta",
     "links":[
       {
-        "title":{
-          "fi":"Koulutusten ja hakukohteiden ylläpito",
-          "sv":"",
-          "en":""
-        },
+        "key":"tarjontakoulutuksetjahaut",
         "href":"/tarjonta-app/index.html"
       },
       {
-        "title":{
-          "fi":"Haun ylläpito",
-          "sv":"",
-          "en":""
-        },
+        "key":"hautyllapito",
         "href":"/tarjonta-app/index.html#/haku"
       },
       {
-        "title":{
-          "fi":"Valintaperustekuvausten ylläpito",
-          "sv":"",
-          "en":""
-        },
+        "key":"tarjontavalinnat",
         "href":"/tarjonta-app/index.html#/valintaPerusteKuvaus/search"
       },
       {
-        "title":{
-          "fi":"Koulutusten ja hakukohteinden Excel-tuonti",
-          "sv":"",
-          "en":""
-        },
+        "key":"tarjontakoulutuksetjahautexcel",
         "href":"/tarjonta-app/index.html#/import"
       }
     ]
   },
   {
-    "title":{
-      "fi":"Hakemukset ja valinnat",
-      "sv":"",
-      "en":""
-    },
+    "key":"hakemuksetjavalinnat",
     "links":[
       {
-        "title":{
-          "fi":"Hakemusten käsittely",
-          "sv":"",
-          "en":""
-        },
+        "key":"hauthakemukset",
         "href":"/haku-app/virkailija/hakemus"
       },
       {
-        "title":{
-          "fi":"Hakulomakkeen muokkaus",
-          "sv":"",
-          "en":""
-        },
+        "key":"hakulomakkeenhallinta",
         "href":"/hakulomakkeenhallinta-ui/app/index.html#/applicationSystemForm"
       },
       {
-        "title":{
-          "fi":"Maksuperusteet",
-          "sv":"",
-          "en":""
-        },
+        "key":"hakuperusteet",
         "href":"/hakuperusteetadmin"
       },
       {
-        "title":{
-          "fi":"Valintaperusteet",
-          "sv":"",
-          "en":""
-        },
+        "key":"valinnatperusteet",
         "href":"/valintaperusteet-ui"
       },
       {
-        "title":{
-          "fi":"Valintojen toteuttaminen",
-          "sv":"",
-          "en":""
-        },
+        "key":"valinnattoteuttaminen",
         "href":"/valintalaskenta-ui"
       },
       {
-        "title":{
-          "fi":"Valintalaskennan hallinta",
-          "sv":"",
-          "en":""
-        },
+        "key":"valintajononhallinta",
         "href":"/valintalaskenta-ui/app/jono/hallinta.html"
       }
     ]
   },
   {
-    "title":{
-      "fi":"Raportointi ja viestintä",
-      "sv":"",
-      "en":""
-    },
+    "key":"raportointi_ja_viestinta",
     "links":[
       {
-        "title":{
-          "fi":"AIPAL",
-          "sv":"",
-          "en":""
-        },
+        "key":"aipal",
         "href":"/aipal"
       },
       {
-        "title":{
-          "fi":"Kirjeiden raportointi",
-          "sv":"",
-          "en":""
-        },
+        "key":"kirje_raportointi",
         "href":"/viestintapalvelu-ui/#/reportLetters"
       },
       {
-        "title":{
-          "fi":"Kirjepohjat",
-          "sv":"",
-          "en":""
-        },
+        "key":"kirje_kirjepohjat",
         "href":"/viestintapalvelu-ui/#/letter-templates"
       },
       {
-        "title":{
-          "fi":"Raportionti",
-          "sv":"",
-          "en":""
-        },
+        "key":"raportointi",
         "href":"virkailija-raamit/virkailija-raamit/raportointi.html"
       },
       {
-        "title":{
-          "fi":"Sähköpostien raportointi",
-          "sv":"",
-          "en":""
-        },
+        "key":"email_raportointi",
         "href":"/viestintapalvelu-ui/#/reportMessages/list"
       }
     ]
   },
   {
-    "title":{
-      "fi":"Rekisterit ja tiedonsiirrot",
-      "sv":"",
-      "en":""
-    },
+    "key":"rekisterit",
     "links":[
       {
-        "title":{
-          "fi":"AITU",
-          "sv":"",
-          "en":""
-        },
+        "key":"aitu",
         "href":"/aitu/"
       },
       {
-        "title":{
-          "fi":"KOSKI",
-          "sv":"",
-          "en":""
-        },
+        "key":"koski",
         "href":"/koski"
       },
       {
-        "title":{
-          "fi":"Suoritusrekisterit",
-          "sv":"",
-          "en":""
-        },
+        "key":"rekisteritsuoritusrekisteri",
         "href":"/suoritusrekisteri/#/"
       },
       {
-        "title":{
-          "fi":"Tiedonsiirrot",
-          "sv":"",
-          "en":""
-        },
+        "key":"rekisterittiedonsiirrot",
         "href":"/suoritusrekisteri/#/tiedonsiirto"
       }
     ]
