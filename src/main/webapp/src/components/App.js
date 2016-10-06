@@ -71,13 +71,13 @@ export default class App extends React.Component {
 
     async getTranslate(){
         var lang='fi';
-        /*
-        for (var i = 0; i < window.myroles.length; i++) {
+
+        for (var i = 0; i < this.state.roles.length; i++) {
             if (this.state[i].indexOf('LANG_') === 0) {
-                lang = window.myroles[i].substring(5);
+                lang = this.state.roles[i].substring(5);
             }
         }
-        */
+
 
         try {
             const response = await fetch("/lokalisointi/cxf/rest/v1/localisation?category=virkailijaraamit&locale="+lang,{
@@ -135,7 +135,8 @@ export default class App extends React.Component {
 
         const borderColor = "1px solid #F0F0F0";
         const headerStyle={
-
+            fontSize: '14px !important',
+            marginBottom: 20,
             //paddingLeft: "10%",
             paddingTop: 10,
             paddingLeft: margin,
@@ -144,7 +145,8 @@ export default class App extends React.Component {
             paddingRight: margin,
             marginRight: -margin,
             backgroundColor:"#159ECB",
-            color: "white"
+            color: "white",
+            boxSizing: "initial",
         };
         const imageStyle={
             display:`inline-block`,
@@ -154,7 +156,7 @@ export default class App extends React.Component {
             width: 27
         };
         const style={
-            fontSize: '14px',
+
             display:`inline-block`,
             width:`${100/(filteredData.length+1)}%`,
             maxWidth:300,
@@ -166,8 +168,8 @@ export default class App extends React.Component {
 
         };
         const linkStyle={
-            fontSize: '14px',
-            display:`inline-block`,
+            //fontSize: '14px',
+            display:`inline-table`,
             width:`${100/(filteredData.length+1)}%`,
             maxWidth:300,
             verticalAlign: 'top',
@@ -179,6 +181,7 @@ export default class App extends React.Component {
         };
         const linkBase={
 
+            height: '100%',
             width: '100%',
             position:'absolute',
             display:this.state.hover?'table':'none',
@@ -188,7 +191,7 @@ export default class App extends React.Component {
             marginLeft: margin,
             marginRight: margin,
             position: "relative",
-            zIndex:1,
+            zIndex:100,
         };
 
         const shadow={
@@ -197,25 +200,23 @@ export default class App extends React.Component {
             width: "100%",
             height: "100%",
             backgroundColor: "rgba(0, 0, 0, 0.1)",
-
+            zIndex:99,
         };
 
         return(
             <div style={headerStyle}>
                 <img className="opintopolkuLogo" src={opintopolkuLogo}/>
                 {SignOut(this.state.userData)}
-                <div style={base} onMouseEnter={this.Show}
-                     onMouseLeave={this.Hide} >
-
-                    <div>
-
+                <div style={base}>
+                    <div onMouseEnter={this.Show}
+                         onMouseLeave={this.Hide}>
                         <a href="index.html" style={{...imageStyle, borderBottom: window.location.href.indexOf("index.html") > -1 ? '3px solid white':''}}><img src={homeLogo}/></a>
                         {filteredData.map((item, ...rest) => Header({...item, style}, ...rest))}
                     </div>
 
                     <div style={linkBase}>
-                        <div style={imageStyle} className="linkCol"></div>
-                        {filteredData.map(({links}, index) => <div style={linkStyle} className="linkCol" key={index}>{links.map(Link)}</div>)}
+                        <div style={imageStyle} className="linkCol" onMouseEnter={this.Show} onMouseLeave={this.Hide}></div>
+                        {filteredData.map(({links}, index) => <div style={linkStyle} className="linkCol" key={index} onMouseEnter={this.Show} onMouseLeave={this.Hide}>{links.map(Link)}</div>)}
                     </div>
                 </div>
                 <div style={shadow}></div>
