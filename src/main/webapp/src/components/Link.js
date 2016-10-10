@@ -9,5 +9,5 @@ const style={
 
 
 export default ({key,href}, index) =>{
-    return <div className="links" key={index}><a href={href}><Translation trans={key}/></a></div>;
+    return <a href={href}><div className="links" key={index}><Translation trans={key}/></div></a>;
 }

@@ -35,6 +35,7 @@ export default class App extends React.Component {
                 roles: await response.json()
             });
         } catch (error) {
+
             if (location.host.indexOf('localhost') === 0) { // dev mode (copypaste from upper)
                 this.setState({roles});
             } else { // real usage
@@ -111,16 +112,18 @@ export default class App extends React.Component {
                     if (item.requiresRole) {
                         return item.requiresRole.some(requiredRole=> {
                             if (requiredRole.toUpperCase().startsWith(myRole.toUpperCase())) {
-                                const links = item.links.filter(link => {
-                                    if (link.requiresRole) {
-                                        return link.requiresRole.some(linkRequiredRole=> {
-                                            return linkRequiredRole.toUpperCase().startsWith(myRole.toUpperCase());
-                                        })
-                                    } else {
-                                        return true;
-                                    }
-                                });
-                                item.links = links;
+
+                                    const links = item.links.filter(link => {
+                                        if (link.requiresRole) {
+                                            return link.requiresRole.some(linkRequiredRole=> {
+                                                return linkRequiredRole.toUpperCase().startsWith(myRole.toUpperCase());
+                                            })
+                                        } else {
+                                            return true;
+                                        }
+                                    });
+                                    item.links = links;
+
                             }
                             return requiredRole.toUpperCase().startsWith(myRole.toUpperCase());
                         })
@@ -129,14 +132,14 @@ export default class App extends React.Component {
                     }
                 }
             )});
-
+        console.log(filteredData);
         const margin = 30;
         const headerBorderColor = "1px solid #56B6D6";
-
+        const fontSize = 12;
         const borderColor = "1px solid #F0F0F0";
         const headerStyle={
-            fontSize: '14px !important',
             marginBottom: 20,
+
             //paddingLeft: "10%",
             paddingTop: 10,
             paddingLeft: margin,
@@ -156,7 +159,9 @@ export default class App extends React.Component {
             width: 27
         };
         const style={
-
+            paddingTop: 5,
+            textAlign: 'center',
+            fontSize: fontSize,
             display:`inline-block`,
             width:`${100/(filteredData.length+1)}%`,
             maxWidth:300,
@@ -168,7 +173,7 @@ export default class App extends React.Component {
 
         };
         const linkStyle={
-            //fontSize: '14px',
+            fontSize: fontSize,
             display:`inline-table`,
             width:`${100/(filteredData.length+1)}%`,
             maxWidth:300,
@@ -199,7 +204,7 @@ export default class App extends React.Component {
             position: "absolute",
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.1)",
+            backgroundColor: "rgba(125, 125, 125, 0.25)",
             zIndex:99,
         };
 
@@ -210,13 +215,13 @@ export default class App extends React.Component {
                 <div style={base}>
                     <div onMouseEnter={this.Show}
                          onMouseLeave={this.Hide}>
-                        <a href="index.html" style={{...imageStyle, borderBottom: window.location.href.indexOf("index.html") > -1 ? '3px solid white':''}}><img src={homeLogo}/></a>
+                        <a href="/virkailijan-stp-ui/html/#/etusivu" style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><img src={homeLogo}/></a>
                         {filteredData.map((item, ...rest) => Header({...item, style}, ...rest))}
                     </div>
 
                     <div style={linkBase}>
                         <div style={imageStyle} className="linkCol" onMouseEnter={this.Show} onMouseLeave={this.Hide}></div>
-                        {filteredData.map(({links}, index) => <div style={linkStyle} className="linkCol" key={index} onMouseEnter={this.Show} onMouseLeave={this.Hide}>{links.map(Link)}</div>)}
+                        {filteredData.map(({links}, index) => links?<div style={linkStyle} className="linkCol" key={index} onMouseEnter={this.Show} onMouseLeave={this.Hide}>{links.map(Link)}</div>:'')}
                     </div>
                 </div>
                 <div style={shadow}></div>

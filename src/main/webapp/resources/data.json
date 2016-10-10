@@ -120,7 +120,7 @@
     "links":[
       {
         "key":"aipal",
-        "href":"/aipal"
+        "href":"/aipal/"
       },
       {
         "key":"kirje_raportointi",
@@ -144,10 +144,6 @@
     "key":"rekisterit",
     "links":[
       {
-        "key":"aitu",
-        "href":"/aitu/"
-      },
-      {
         "key":"koski",
         "href":"/koski"
       },
@@ -160,6 +156,10 @@
         "href":"/suoritusrekisteri/#/tiedonsiirto"
       }
     ]
+  },
+  {
+    "key":"aitu",
+    "href":"/aitu/"
   }
 
 
