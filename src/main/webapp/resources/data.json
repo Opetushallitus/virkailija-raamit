@@ -119,10 +119,6 @@
     "key":"raportointi_ja_viestinta",
     "links":[
       {
-        "key":"aipal",
-        "href":"/aipal/"
-      },
-      {
         "key":"kirje_raportointi",
         "href":"/viestintapalvelu-ui/#/reportLetters"
       },
@@ -158,9 +154,17 @@
     ]
   },
   {
-    "key":"aitu",
-    "href":"/aitu/"
+    "key":"aitujaaipal",
+    "links":[
+      {
+        "key":"aitu",
+        "href":"/aitu/"
+      },
+      {
+        "key":"aipal",
+        "href":"/aipal/"
+      }
+    ]
   }
-
 
 ]

@@ -1,5 +1,6 @@
 import Translation from './Translations';
 import ratas from '../../virkailija-raamit/img/ratas.png'
+import help from '../../virkailija-raamit/img/help.png'
 const style ={
     float: "right",
     marginRight: 20,
@@ -25,6 +26,10 @@ export default (userData) =>{
     }
 
     return <div style={style}>
+        <a href="/ohjeet" style={logout}>
+            <img style={{...logout,...settingsImage}} src={help}/>
+        </a>
+        |
         <a href="/authentication-henkiloui/html/#/omattiedot" style={logout}>
             <img style={{...logout,...settingsImage}} src={ratas}/>{userName}
         </a>
