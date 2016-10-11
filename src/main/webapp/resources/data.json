@@ -94,24 +94,24 @@
         "href":"/haku-app/virkailija/hakemus"
       },
       {
-        "key":"hakulomakkeenhallinta",
-        "href":"/hakulomakkeenhallinta-ui/app/index.html#/applicationSystemForm"
+        "key":"valinnattoteuttaminen",
+        "href":"/valintalaskenta-ui"
       },
       {
-        "key":"hakuperusteet",
-        "href":"/hakuperusteetadmin"
+        "key":"hakulomakkeenhallinta",
+        "href":"/hakulomakkeenhallinta-ui/app/index.html#/applicationSystemForm"
       },
       {
         "key":"valinnatperusteet",
         "href":"/valintaperusteet-ui"
       },
       {
-        "key":"valinnattoteuttaminen",
-        "href":"/valintalaskenta-ui"
-      },
-      {
         "key":"valintajononhallinta",
         "href":"/valintalaskenta-ui/app/jono/hallinta.html"
+      },
+      {
+        "key":"hakuperusteet",
+        "href":"/hakuperusteetadmin"
       }
     ]
   },
@@ -119,20 +119,20 @@
     "key":"raportointi_ja_viestinta",
     "links":[
       {
-        "key":"kirje_raportointi",
-        "href":"/viestintapalvelu-ui/#/reportLetters"
-      },
-      {
-        "key":"kirje_kirjepohjat",
-        "href":"/viestintapalvelu-ui/#/letter-templates"
-      },
-      {
         "key":"raportointi",
         "href":"virkailija-raamit/virkailija-raamit/raportointi.html"
       },
       {
+        "key":"kirje_raportointi",
+        "href":"/viestintapalvelu-ui/#/reportLetters"
+      },
+      {
         "key":"email_raportointi",
         "href":"/viestintapalvelu-ui/#/reportMessages/list"
+      },
+      {
+        "key":"kirje_kirjepohjat",
+        "href":"/viestintapalvelu-ui/#/letter-templates"
       }
     ]
   },
