@@ -6,7 +6,7 @@
       {
         "key":"organisaatiotyllapito",
         "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
-        "href":"/organisaatio-ui/"
+        "href":"/index1.html"
       },
       {
         "key":"osoitepalvelu",
@@ -154,17 +154,12 @@
     ]
   },
   {
-    "key":"aitujaaipal",
-    "links":[
-      {
-        "key":"aitu",
-        "href":"/aitu/"
-      },
-      {
-        "key":"aipal",
-        "href":"/aipal/"
-      }
-    ]
+    "key":"aitu",
+    "href":"/aitu/"
+  },
+  {
+    "key":"aipal",
+    "href":"/aipal/"
   }
 
 ]

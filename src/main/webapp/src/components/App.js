@@ -138,6 +138,7 @@ export default class App extends React.Component {
         const fontSize = 12;
         const borderColor = "1px solid #F0F0F0";
         const headerStyle={
+            fontSize: fontSize,
             marginBottom: 20,
 
             //paddingLeft: "10%",
@@ -154,8 +155,8 @@ export default class App extends React.Component {
         const imageStyle={
             display:`inline-block`,
             height: 30,
-            paddingLeft: 10,
-            paddingRight: 10,
+            marginLeft: 10,
+            marginRight: 10,
             width: 27
         };
         const style={

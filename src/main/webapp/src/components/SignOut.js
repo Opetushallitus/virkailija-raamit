@@ -1,4 +1,5 @@
 import Translation from './Translations';
+import Icon from './Icon';
 import ratas from '../../virkailija-raamit/img/ratas.png'
 import help from '../../virkailija-raamit/img/help.png'
 const style ={
@@ -9,8 +10,8 @@ const style ={
 };
 
 const logout={
-    paddingLeft: 10,
-    paddingRight: 10,
+    marginLeft: 10,
+    marginRight: 10,
     color: "white",
     textDecoration: "none"
 };
@@ -26,13 +27,15 @@ export default (userData) =>{
     }
 
     return <div style={style}>
+
         <a href="/ohjeet" style={logout}>
-            <img style={{...logout,...settingsImage}} src={help}/>
+            <Icon name="help"/><Translation trans="ohjeet"/>
         </a>
         |
         <a href="/authentication-henkiloui/html/#/omattiedot" style={logout}>
-            <img style={{...logout,...settingsImage}} src={ratas}/>{userName}
+            <Icon name="settings"/>{userName}
         </a>
         |
-        <a href="/service-provider-app/saml/logout" style={logout}><Translation trans="logout"/></a></div>;
+
+        <a href="/service-provider-app/saml/logout" style={logout}><Icon name="logout"/><Translation trans="logout"/></a></div>;
 }
