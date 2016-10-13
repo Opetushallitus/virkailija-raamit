@@ -21,7 +21,7 @@ export default class App extends React.Component {
 
         this.getRoles();
         this.getUserData();
-        this.getTranslate();
+
     }
 
 
@@ -31,13 +31,20 @@ export default class App extends React.Component {
             const response = await fetch("/cas/myroles",{
                 credentials: 'include'
             });
+            const roles = await response.json();
             this.setState({
-                roles: await response.json()
+                roles: roles
             });
+            if(roles){
+                this.getTranslate();
+            }
         } catch (error) {
 
             if (location.host.indexOf('localhost') === 0) { // dev mode (copypaste from upper)
                 this.setState({roles});
+                if(roles){
+                    this.getTranslate();
+                }
             } else { // real usage
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
@@ -74,7 +81,7 @@ export default class App extends React.Component {
         var lang='fi';
 
         for (var i = 0; i < this.state.roles.length; i++) {
-            if (this.state[i].indexOf('LANG_') === 0) {
+            if (this.state.roles[i].indexOf('LANG_') === 0) {
                 lang = this.state.roles[i].substring(5);
             }
         }

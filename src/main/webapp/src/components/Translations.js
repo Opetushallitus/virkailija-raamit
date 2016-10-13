@@ -24,7 +24,7 @@ export default class Translation extends Component {
   }
 
   setTranslation(translations) {
-    console.log(this.props.trans,translations);
+    //console.log(this.props.trans,translations);
     var trans = translations.find(({key}) => key === this.props.trans);
     this.setState({
       value: trans ? trans.value : this.props.trans
