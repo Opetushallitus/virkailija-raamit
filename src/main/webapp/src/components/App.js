@@ -108,7 +108,7 @@ export default class App extends React.Component {
 
     Show= () => this.setState({hover: true});
 
-    Hide= () => this.setState({hover: false});
+    Hide= () => this.setState({hover: true});
 
 
 
@@ -171,6 +171,7 @@ export default class App extends React.Component {
             textAlign: 'center',
             fontSize: fontSize,
             display:`inline-block`,
+            wordBreak: 'break-all',
             width:`${100/(filteredData.length+1)}%`,
             maxWidth:300,
 
@@ -183,6 +184,7 @@ export default class App extends React.Component {
         const linkStyle={
             fontSize: fontSize,
             display:`inline-table`,
+            wordBreak: 'break-all',
             width:`${100/(filteredData.length+1)}%`,
             maxWidth:300,
             verticalAlign: 'top',
