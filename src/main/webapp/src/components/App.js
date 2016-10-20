@@ -108,7 +108,7 @@ export default class App extends React.Component {
 
     Show= () => this.setState({hover: true});
 
-    Hide= () => this.setState({hover: true});
+    Hide= () => this.setState({hover: false);
 
 
 
