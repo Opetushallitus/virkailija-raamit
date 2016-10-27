@@ -150,13 +150,14 @@ export default class App extends React.Component {
             //paddingLeft: "10%",
             paddingTop: 10,
             paddingLeft: margin,
-            marginLeft: -margin,
+
             //paddingRight: "10%",
             paddingRight: margin,
-            marginRight: -margin,
+            //marginRight: -margin,
             backgroundColor:"#159ECB",
             color: "white",
             boxSizing: "initial",
+            width: "99%",
         };
         const imageStyle={
             display:`inline-block`,

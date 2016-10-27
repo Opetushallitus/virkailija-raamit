@@ -39,7 +39,6 @@ export default ({key, links, href, style},hover, show, hide, index) =>{
         height: hover?'100%':'0',
         backgroundColor: 'white',
         boxShadow: '0px 1px 4px 0px rgba(0,0,0,0.20)',
-        display:`inline-table`,
         width:'100%',
         borderLeft: borderColor,
         textAlign: 'left',
