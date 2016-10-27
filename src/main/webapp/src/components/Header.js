@@ -45,9 +45,9 @@ export default ({key, links, href, style},hover, show, hide, index) =>{
     };
 
 
-    return <div style={{...style, backgroundColor:currentPage.indexOf(true)>-1?'#1194bf':''}} key={index}>
+    return <div style={{...style}} key={index}>
             <div onMouseEnter={show}
-                  onMouseLeave={hide} style={textStyle}>
+                  onMouseLeave={hide} style={{...textStyle, backgroundColor:currentPage.indexOf(true)>-1?'#1194bf':''}}>
                 {
                 href?
                     <a href={href} style={textLinkStyle}><Translation trans={key}/></a>:<Translation trans={key}/>
