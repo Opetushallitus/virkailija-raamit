@@ -26,7 +26,7 @@ export default ({key, links, href, style},hover, show, hide, index) =>{
         textDecoration:'none',
         color: 'white',
 
-        textAlign: 'center',
+        textAlign: 'left',
         height:40
     };
     const textLinkStyle={
@@ -42,6 +42,7 @@ export default ({key, links, href, style},hover, show, hide, index) =>{
         display:`inline-table`,
         width:'100%',
         borderLeft: borderColor,
+        textAlign: 'left',
     };
 
 
