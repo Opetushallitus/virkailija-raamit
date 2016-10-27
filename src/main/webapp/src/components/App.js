@@ -40,7 +40,7 @@ export default class App extends React.Component {
             }
         } catch (error) {
 
-            if (location.host.indexOf('localhost') === 0) { // dev mode (copypaste from upper)
+            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 this.setState({roles});
                 if(roles){
                     this.getTranslate();
@@ -65,7 +65,7 @@ export default class App extends React.Component {
                 userData: await response.json()
             });
         } catch (error) {
-            if (location.host.indexOf('localhost') === 0) { // dev mode (copypaste from upper)
+            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 this.setState({userData});
             } else { // real usage
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
@@ -93,7 +93,7 @@ export default class App extends React.Component {
             });
             Translations.setTranslations(await response.json());
         } catch (error) {
-            if (location.host.indexOf('localhost') === 0) { // dev mode (copypaste from upper)
+            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 Translations.setTranslations(translation);
             } else { // real usage
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
@@ -119,18 +119,18 @@ export default class App extends React.Component {
                     if (item.requiresRole) {
                         return item.requiresRole.some(requiredRole=> {
                             if (requiredRole.toUpperCase().startsWith(myRole.toUpperCase())) {
-
-                                    const links = item.links.filter(link => {
-                                        if (link.requiresRole) {
-                                            return link.requiresRole.some(linkRequiredRole=> {
-                                                return linkRequiredRole.toUpperCase().startsWith(myRole.toUpperCase());
-                                            })
-                                        } else {
-                                            return true;
-                                        }
-                                    });
-                                    item.links = links;
-
+                                    if(item.links){
+                                        const links = item.links.filter(link => {
+                                            if (link.requiresRole) {
+                                                return link.requiresRole.some(linkRequiredRole=> {
+                                                    return linkRequiredRole.toUpperCase().startsWith(myRole.toUpperCase());
+                                                })
+                                            } else {
+                                                return true;
+                                            }
+                                        });
+                                        item.links = links;
+                                    }
                             }
                             return requiredRole.toUpperCase().startsWith(myRole.toUpperCase());
                         })
@@ -144,21 +144,18 @@ export default class App extends React.Component {
         const fontSize = 12;
 
         const headerStyle={
+            position: 'relative',
             fontSize: fontSize,
             height: 105,
-            marginLeft: -9,
-            marginRight: -9,
-            //paddingLeft: "10%",
+            marginLeft: -8,
+            marginRight: -8,
             paddingTop: 10,
             paddingLeft: margin,
-
-            //paddingRight: "10%",
             paddingRight: margin,
-            //marginRight: -margin,
             backgroundColor:"#159ECB",
             color: "white",
             boxSizing: "initial",
-
+            zIndex: 100
         };
         const imageStyle={
             display:`inline-block`,
@@ -182,23 +179,21 @@ export default class App extends React.Component {
 
         const base={
             float: 'left',
-            //marginLeft: margin,
-            //marginRight: margin,
             position: "absolute",
             zIndex:100,
             top: 70,
             width: '99%',
-
         };
 
         const shadow={
             display:this.state.hover?'':'none',
-            position: "absolute",
+            position: "fixed",
             width: "100%",
             height: "100%",
             backgroundColor: "rgba(125, 125, 125, 0.25)",
             zIndex:99,
-            left: 0
+            left: 0,
+            top: 0
         };
 
         return(

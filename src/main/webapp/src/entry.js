@@ -13,7 +13,6 @@ function addStyle(href) {
 
 document.addEventListener("DOMContentLoaded", function(event) {
     addStyle("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
-    console.log("asdasd");
     addStyle(`${process.env.NODE_ENV === 'production' ? '/virkailija-raamit/build/' : '/build/'}bundle.css`);
     const root = document.body.insertBefore(document.createElement('div'),document.body.firstChild);
     function renderer() {
