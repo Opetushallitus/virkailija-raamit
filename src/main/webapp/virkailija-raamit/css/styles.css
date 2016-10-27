@@ -4,13 +4,13 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
-
 .links {
 
     text-decoration: none;
     padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
 
 
 }

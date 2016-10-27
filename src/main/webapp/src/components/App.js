@@ -139,14 +139,13 @@ export default class App extends React.Component {
                     }
                 }
             )});
-        console.log(filteredData);
         const margin = 30;
-        const headerBorderColor = "1px solid #56B6D6";
+
         const fontSize = 12;
-        const borderColor = "1px solid #F0F0F0";
+
         const headerStyle={
             fontSize: fontSize,
-            marginBottom: 20,
+            height: 105,
 
             //paddingLeft: "10%",
             paddingTop: 10,
@@ -171,42 +170,22 @@ export default class App extends React.Component {
             textAlign: 'center',
             fontSize: fontSize,
             display:`inline-block`,
-            wordBreak: 'break-all',
-            width:`${100/(filteredData.length+1)}%`,
             maxWidth:300,
-
+            textDecoration:'none',
             wordWrap: 'break-word',
             paddingBottom: 10,
-            verticalAlign: 'bottom',
-            borderLeft: headerBorderColor,
-
-        };
-        const linkStyle={
-            fontSize: fontSize,
-            display:`inline-table`,
-            wordBreak: 'break-all',
-            width:`${100/(filteredData.length+1)}%`,
-            maxWidth:300,
             verticalAlign: 'top',
-            height: '100%',
-            borderLeft: borderColor,
-            backgroundColor: 'white',
-            boxShadow: '0px 1px 4px 0px rgba(0,0,0,0.20)',
-
+            heigth:'100%',
         };
-        const linkBase={
 
-            height: '100%',
-            width: '100%',
-            position:'absolute',
-            display:this.state.hover?'table':'none',
-
-        };
         const base={
+            float: 'left',
             marginLeft: margin,
             marginRight: margin,
-            position: "relative",
+            position: "absolute",
             zIndex:100,
+            top: 70,
+
         };
 
         const shadow={
@@ -216,23 +195,22 @@ export default class App extends React.Component {
             height: "100%",
             backgroundColor: "rgba(125, 125, 125, 0.25)",
             zIndex:99,
+            left: 0
         };
 
         return(
-            <div style={headerStyle}>
-                <img className="opintopolkuLogo" src={opintopolkuLogo}/>
-                {SignOut(this.state.userData)}
+            <div>
+                <div style={headerStyle}>
+
+                    <img className="opintopolkuLogo" src={opintopolkuLogo}/>
+                    {SignOut(this.state.userData)}
+                </div>
                 <div style={base}>
-                    <div onMouseEnter={this.Show}
-                         onMouseLeave={this.Hide}>
+                    <div  style={{position: 'static', display: 'flex'}}>
                         <a href="/virkailijan-stp-ui/html/#/etusivu" style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><img src={homeLogo}/></a>
-                        {filteredData.map((item, ...rest) => Header({...item, style}, ...rest))}
+                        {filteredData.map((item, ...rest) => Header({...item, style}, this.state.hover, this.Show, this.Hide, ...rest))}
                     </div>
 
-                    <div style={linkBase}>
-                        <div style={imageStyle} className="linkCol" onMouseEnter={this.Show} onMouseLeave={this.Hide}></div>
-                        {filteredData.map(({links}, index) => links?<div style={linkStyle} className="linkCol" key={index} onMouseEnter={this.Show} onMouseLeave={this.Hide}>{links.map(Link)}</div>:'')}
-                    </div>
                 </div>
                 <div style={shadow}></div>
             </div>
