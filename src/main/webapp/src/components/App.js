@@ -181,8 +181,8 @@ export default class App extends React.Component {
 
         const base={
             float: 'left',
-            marginLeft: margin,
-            marginRight: margin,
+            //marginLeft: margin,
+            //marginRight: margin,
             position: "absolute",
             zIndex:100,
             top: 70,
