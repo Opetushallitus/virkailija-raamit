@@ -1,49 +1,49 @@
 [
   {
-    "requiresRole":["app_organisaatiohallinta."],
+    "requiresRole":["app_organisaatiohallinta"],
     "key":"organisaatiot",
     "links":[
       {
         "key":"organisaatiotyllapito",
-        "requiresRole":["app_organisaatiohallinta."],
+        "requiresRole":["app_organisaatiohallinta"],
         "href":"/organisaatio-ui/"
       },
       {
         "key":"osoitepalvelu",
         "href":"/osoitekoostepalvelu/#/",
-        "requiresRole":["app_osoite."]
+        "requiresRole":["app_osoite"]
       },
       {
         "key":"kaytonhallintaytt",
         "href":"/organisaatio-ui/html/index.html#/yhteystietotyypit",
-        "requiresRole":["app_yhteystietotyyppienhallinta."]
+        "requiresRole":["app_yhteystietotyyppienhallinta"]
       }
     ]
 
   },
   {
     "key":"jarjestelmanhallinta",
-    "requiresRole":["app_valintaperusteet.","app_valintojentoteuttaminen."],
+    "requiresRole":["app_valintaperusteet","app_valintojentoteuttaminen"],
     "links":[
       {
         "key":"kaytonhallintaanomukset",
         "href":"/authentication-henkiloui/html/index.html#/anomus",
-        "requiresRole":["app_anomustenhallinta."]
+        "requiresRole":["app_anomustenhallinta"]
       },
       {
         "key":"kaytonhallintaryhmat",
         "href":"/authentication-groups/",
-        "requiresRole":["app_koosteroolienhallinta."]
+        "requiresRole":["app_koosteroolienhallinta"]
       },
       {
         "key":"kaytonhallintahenkilo",
         "href":"/authentication-henkiloui/",
-        "requiresRole":["app_henkilonhallinta."]
+        "requiresRole":["app_henkilonhallinta"]
       },
       {
         "key":"kaytonhallintakoodisto",
         "href":"/koodisto-ui/",
-        "requiresRole":["app_koodisto."]
+        "requiresRole":["app_koodisto"]
       },
       {
         "key":"kaytonhallintakaannokset",
@@ -55,122 +55,122 @@
   },
   {
     "key":"eperusteet",
-    "requiresRole":["app_eperusteet."],
+    "requiresRole":["app_eperusteet"],
     "links":[
       {
         "key":"eperusteet",
         "href":"/eperusteet-app/",
-        "requiresRole":["app_eperusteet."]
+        "requiresRole":["app_eperusteet"]
       },
       {
         "key":"ops-ty\u00f6kalu",
         "href":"/eperusteet-ylops-app/",
-        "requiresRole":["app_eperusteet_ylops."]
+        "requiresRole":["app_eperusteet_ylops"]
       },
       {
         "key":"amosaa-ops-ty\u00f6kalu",
         "href":"/eperusteet-amosaa-app/",
-        "requiresRole":["app_eperusteet_amosaa."]
+        "requiresRole":["app_eperusteet_amosaa"]
       }
     ]
 
   },
   {
     "key":"koulutustarjonta",
-    "requiresRole":["app_tarjonta."],
+    "requiresRole":["app_tarjonta"],
     "links":[
       {
         "key":"tarjontakoulutuksetjahaut",
         "href":"/tarjonta-app/index.html",
-        "requiresRole":["app_tarjonta."]
+        "requiresRole":["app_tarjonta"]
       },
       {
         "key":"hautyllapito",
         "href":"/tarjonta-app/index.html#/haku",
-        "requiresRole":["app_hakujenhallinta."]
+        "requiresRole":["app_hakujenhallinta"]
       },
       {
         "key":"tarjontavalinnat",
         "href":"/tarjonta-app/index.html#/valintaPerusteKuvaus/search",
-        "requiresRole":["app_valintaperustekuvaustenhallinta.,app_valintaperustekuvaustenhallinta_kk."]
+        "requiresRole":["app_valintaperustekuvaustenhallinta.,app_valintaperustekuvaustenhallinta_kk"]
       },
       {
         "key":"tarjontakoulutuksetjahautexcel",
         "href":"/tarjonta-app/index.html#/import",
-        "requiresRole":["app_tarjonta."]
+        "requiresRole":["app_tarjonta"]
       }
     ]
   },
   {
     "key":"hakemuksetjavalinnat",
-    "requiresRole":["app_hakemus."],
+    "requiresRole":["app_hakemus"],
     "links":[
       {
         "key":"hauthakemukset",
         "href":"/haku-app/virkailija/hakemus",
-        "requiresRole":["app_hakujenhallinta.,app_hakemus."]
+        "requiresRole":["app_hakujenhallinta.,app_hakemus"]
       },
       {
         "key":"valinnattoteuttaminen",
         "href":"/valintalaskenta-ui",
-        "requiresRole":["app_valintojentoteuttaminen."]
+        "requiresRole":["app_valintojentoteuttaminen"]
       },
       {
         "key":"hakulomakkeenhallinta",
         "href":"/hakulomakkeenhallinta-ui/app/index.html#/applicationSystemForm",
-        "requiresRole":["app_hakemus."]
+        "requiresRole":["app_hakemus"]
       },
       {
         "key":"valinnatperusteet",
         "href":"/valintaperusteet-ui",
-        "requiresRole":["app_valintaperusteet."]
+        "requiresRole":["app_valintaperusteet"]
       },
       {
         "key":"valintajononhallinta",
         "href":"/valintalaskenta-ui/app/jono/hallinta.html",
-        "requiresRole":["app_valintojentoteuttaminen_crud_1.2.246.562.10.00000000001,app_valintojentoteuttaminenkk_crud."]
+        "requiresRole":["app_valintojentoteuttaminen_crud_1.2.246.562.10.00000000001,app_valintojentoteuttaminenkk_crud"]
       },
       {
         "key":"hakuperusteet",
         "href":"/hakuperusteetadmin",
-        "requiresRole":["app_hakuperusteetadmin."]
+        "requiresRole":["app_hakuperusteetadmin"]
       }
     ]
   },
   {
     "key":"raportointi_ja_viestinta",
-    "requiresRole":["app_raportointi.,app_ryhmasahkoposti.,app_asiakirjapalvelu."],
+    "requiresRole":["app_raportointi.,app_ryhmasahkoposti.,app_asiakirjapalvelu"],
     "links":[
       {
         "key":"raportointi",
         "href":"virkailija-raamit/virkailija-raamit/raportointi.html",
-        "requiresRole":["app_raportointi."]
+        "requiresRole":["app_raportointi"]
       },
       {
         "key":"kirje_raportointi",
         "href":"/viestintapalvelu-ui/#/reportLetters",
-        "requiresRole":["app_asiakirjapalvelu."]
+        "requiresRole":["app_asiakirjapalvelu"]
       },
       {
         "key":"email_raportointi",
         "href":"/viestintapalvelu-ui/#/reportMessages/list",
-        "requiresRole":["app_ryhmasahkoposti."]
+        "requiresRole":["app_ryhmasahkoposti"]
       },
       {
         "key":"kirje_kirjepohjat",
         "href":"/viestintapalvelu-ui/#/letter-templates",
-        "requiresRole":["app_asiakirjapalvelu_create_template."]
+        "requiresRole":["app_asiakirjapalvelu_create_template"]
       }
     ]
   },
   {
     "key":"rekisterit",
-    "requiresRole":["app_tiedonsiirto.,app_suoritusrekisteri."],
+    "requiresRole":["app_tiedonsiirto.,app_suoritusrekisteri"],
     "links":[
       {
         "key":"koski",
         "href":"/koski",
-        "requiresRole":["app_koski."]
+        "requiresRole":["app_koski"]
       },
       {
         "key":"rekisteritsuoritusrekisteri",
@@ -180,19 +180,19 @@
       {
         "key":"rekisterittiedonsiirrot",
         "href":"/suoritusrekisteri/#/tiedonsiirto",
-        "requiresRole":["app_tiedonsiirto."]
+        "requiresRole":["app_tiedonsiirto"]
       }
     ]
   },
   {
     "key":"aitu",
     "href":"/aitu/",
-    "requiresRole":["app_aitu."]
+    "requiresRole":["app_aitu"]
   },
   {
     "key":"aipal",
     "href":"/aipal/",
-    "requiresRole":["app_aipal."]
+    "requiresRole":["app_aipal"]
   }
 
 ]
