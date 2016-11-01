@@ -114,31 +114,33 @@ export default class App extends React.Component {
 
     render() {
         const user = this.state.userData;
+        const myRole = this.state.roles;
         const filteredData = data.filter(item => {
-            return this.state.roles.some(myRole=> {
-                    if (item.requiresRole) {
-                        return item.requiresRole.some(requiredRole=> {
-                            if (requiredRole.toUpperCase().startsWith(myRole.toUpperCase())) {
-                                    if(item.links){
-                                        const links = item.links.filter(link => {
-                                            if (link.requiresRole) {
-                                                return link.requiresRole.some(linkRequiredRole=> {
-                                                    return linkRequiredRole.toUpperCase().startsWith(myRole.toUpperCase());
-                                                })
-                                            } else {
-                                                return true;
-                                            }
-                                        });
-                                        item.links = links;
-                                    }
-                            }
-                            return requiredRole.toUpperCase().startsWith(myRole.toUpperCase());
-                        })
-                    } else {
-                        return true;
-                    }
+
+                if (item.requiresRole) {
+                    return item.requiresRole.some(requiredRole=> {
+                        if (myRole.indexOf(requiredRole.toUpperCase()) > -1) {
+                                if(item.links){
+                                    const links = item.links.filter(link => {
+                                        if (link.requiresRole) {
+                                            return link.requiresRole.some(linkRequiredRole=> {
+                                                //console.log(linkRequiredRole.toUpperCase(), myRole.toUpperCase());
+                                                return myRole.indexOf(linkRequiredRole.toUpperCase()) > -1;
+                                            })
+                                        } else {
+                                            return true;
+                                        }
+                                    });
+                                    item.links = links;
+                                }
+                        }
+                        return myRole.indexOf(requiredRole.toUpperCase()) > -1;
+                    })
+                } else {
+                    return true;
                 }
-            )});
+
+            });
         const margin = 30;
 
         const fontSize = 12;
