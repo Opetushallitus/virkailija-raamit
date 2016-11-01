@@ -92,7 +92,7 @@
       {
         "key":"tarjontavalinnat",
         "href":"/tarjonta-app/index.html#/valintaPerusteKuvaus/search",
-        "requiresRole":["app_valintaperustekuvaustenhallinta.,app_valintaperustekuvaustenhallinta_kk"]
+        "requiresRole":["app_valintaperustekuvaustenhallinta","app_valintaperustekuvaustenhallinta_kk"]
       },
       {
         "key":"tarjontakoulutuksetjahautexcel",
@@ -108,7 +108,7 @@
       {
         "key":"hauthakemukset",
         "href":"/haku-app/virkailija/hakemus",
-        "requiresRole":["app_hakujenhallinta.,app_hakemus"]
+        "requiresRole":["app_hakujenhallinta","app_hakemus"]
       },
       {
         "key":"valinnattoteuttaminen",
@@ -139,7 +139,7 @@
   },
   {
     "key":"raportointi_ja_viestinta",
-    "requiresRole":["app_raportointi.,app_ryhmasahkoposti.,app_asiakirjapalvelu"],
+    "requiresRole":["app_raportointi","app_ryhmasahkoposti","app_asiakirjapalvelu"],
     "links":[
       {
         "key":"raportointi",
@@ -165,7 +165,7 @@
   },
   {
     "key":"rekisterit",
-    "requiresRole":["app_tiedonsiirto.,app_suoritusrekisteri"],
+    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri"],
     "links":[
       {
         "key":"koski",
@@ -175,7 +175,7 @@
       {
         "key":"rekisteritsuoritusrekisteri",
         "href":"/suoritusrekisteri/#/",
-        "requiresRole":["app_suoritusrekisteri_read.,app_suoritusrekisteri_crud"]
+        "requiresRole":["app_suoritusrekisteri_read","app_suoritusrekisteri_crud"]
       },
       {
         "key":"rekisterittiedonsiirrot",
