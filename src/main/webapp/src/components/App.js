@@ -156,7 +156,6 @@ export default class App extends React.Component {
             marginLeft: -8,
             marginRight: -8,
             paddingTop: 10,
-
             backgroundColor:"#159ECB",
             color: "white",
             boxSizing: "initial",
@@ -241,7 +240,6 @@ export default class App extends React.Component {
             <div>
                 <MediaQuery minWidth={1224}>
                 <div style={headerStyle}>
-
                     <img className="opintopolkuLogo" src={opintopolkuLogo}/>
                     {SignOut({
                         userData:this.state.userData,
@@ -262,8 +260,8 @@ export default class App extends React.Component {
                     <div style={headerTabStyle}>
 
                         <img className="opintopolkuLogo" src={opintopolkuLogo}/>
-                        <div style={{float:'right',marginTop: 10,marginRight:20, fontSize: 20}} onClick={this.toggleHover}>
-                            <Icon name="logout"/>
+                        <div style={{float:'right', padding:20, paddingTop:10, fontSize: 20}} onClick={this.toggleHover}>
+                            <Icon name="bars"/>
                         </div>
                         {SignOut({userData:this.state.userData, signOutStyle:tabSignOutStyle, device:'tab'})}
                         <div  style={{position: 'absolute', top:60, width:'100%', display: this.state.hover?'':'none', backgroundColor:"white"}}>
@@ -288,8 +286,8 @@ export default class App extends React.Component {
                     <div style={headerTabStyle}>
 
                         <img className="opintopolkuLogo" src={opintopolkuLogo}/>
-                        <div style={{float:'right',marginTop: 10,marginRight:20, fontSize: 20}} onClick={this.toggleHover}>
-                            <Icon name="logout"/>
+                        <div style={{float:'right', padding:20, paddingTop:10, fontSize: 20}} onClick={this.toggleHover}>
+                            <Icon name="bars"/>
                         </div>
 
                         <div  style={{position: 'absolute', top:60, width:'100%', display: this.state.hover?'':'none', backgroundColor:"white"}}>

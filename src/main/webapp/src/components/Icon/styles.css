@@ -33,3 +33,9 @@
 .icon-logout:before{
     content: "\f011";
 }
+.icon-bars:before{
+    content: "\f0c9";
+}
+.icon-house:before{
+    content: "\20";
+}
