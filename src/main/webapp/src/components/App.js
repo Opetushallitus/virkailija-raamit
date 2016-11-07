@@ -262,7 +262,7 @@ export default class App extends React.Component {
                     <div style={headerTabStyle}>
 
                         <img className="opintopolkuLogo" src={opintopolkuLogo}/>
-                        <div style={{float:'right',marginTop: 10,marginRight:20}} onClick={this.toggleHover}>
+                        <div style={{float:'right',marginTop: 10,marginRight:20, fontSize: 20}} onClick={this.toggleHover}>
                             <Icon name="logout"/>
                         </div>
                         {SignOut({userData:this.state.userData, signOutStyle:tabSignOutStyle, device:'tab'})}
@@ -288,7 +288,7 @@ export default class App extends React.Component {
                     <div style={headerTabStyle}>
 
                         <img className="opintopolkuLogo" src={opintopolkuLogo}/>
-                        <div style={{float:'right',marginTop: 10,marginRight:20}} onClick={this.toggleHover}>
+                        <div style={{float:'right',marginTop: 10,marginRight:20, fontSize: 20}} onClick={this.toggleHover}>
                             <Icon name="logout"/>
                         </div>
 
