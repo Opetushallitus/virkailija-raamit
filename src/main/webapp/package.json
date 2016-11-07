@@ -24,7 +24,8 @@
     "html-webpack-plugin": "2",
     "lodash": "^4.16.0",
     "react": "15 || 16",
-    "react-dom": "15 || 16"
+    "react-dom": "15 || 16",
+    "react-responsive": "^1.2.1"
   },
   "config": {
     "frontendApp": {

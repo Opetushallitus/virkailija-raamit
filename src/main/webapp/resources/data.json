@@ -15,7 +15,7 @@
       },
       {
         "key":"kaytonhallintaytt",
-        "href":"/organisaatio-ui/html/index.html#/yhteystietotyypit",
+        "href":"/organisaatio-ui/html/index.html/yhteystietotyypit",
         "requiresRole":["app_yhteystietotyyppienhallinta"]
       }
     ]

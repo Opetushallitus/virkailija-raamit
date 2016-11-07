@@ -1,4 +1,3 @@
-
 import data from '../../resources/data.json';
 import Header from './Header';
 import Link from './Link';
@@ -9,7 +8,8 @@ import userData from '../../virkailija-raamit/myUserData.json';
 import translation from '../../virkailija-raamit/translation.json';
 import homeLogo from '../../virkailija-raamit/img/koti.png';
 import opintopolkuLogo from '../../virkailija-raamit/img/opintopolkufi.png';
-
+import MediaQuery from'react-responsive';
+import Icon from './Icon';
 
 export default class App extends React.Component {
     constructor(props){
@@ -110,6 +110,10 @@ export default class App extends React.Component {
 
     Hide= () => this.setState({hover: false});
 
+    toggleHover= () =>{
+        //this.setState({hover: true});
+      this.setState({hover: !this.state.hover});
+    };
 
 
     render() {
@@ -152,13 +156,41 @@ export default class App extends React.Component {
             marginLeft: -8,
             marginRight: -8,
             paddingTop: 10,
-            paddingLeft: margin,
-            paddingRight: margin,
+
             backgroundColor:"#159ECB",
             color: "white",
             boxSizing: "initial",
             zIndex: 100
         };
+        const headerTabStyle= {
+            ...headerStyle,
+            height: 50,
+
+        };
+        const signOutStyle={
+            marginRight: 'auto',
+            marginLeft: 'auto',
+            width: '70%'
+        };
+        const mobileSignOutStyle={
+            paddingRight: 10,
+            paddingLeft: 10,
+            width: '100%',
+            float: 'none',
+            color: 'black',
+            backgroundColor:'white',
+            textDecoration: 'none',
+            paddingTop: 10,
+            paddingBottom: 10,
+            borderBottom: '1px solid gray',
+            marginTop: 0,
+        };
+
+        const tabSignOutStyle={
+            width: '60%',
+            margin: '10px 0px auto',
+        };
+
         const imageStyle={
             display:`inline-block`,
             height: 30,
@@ -174,10 +206,17 @@ export default class App extends React.Component {
             maxWidth:300,
             textDecoration:'none',
             wordWrap: 'break-word',
-            paddingBottom: 10,
+
             verticalAlign: 'top',
             heigth:'100%',
         };
+        const tabStyle={
+            ...style,
+            paddingTop: 15,
+            display:'block',
+            maxWidth:'none',
+            backgroundColor:"#159ECB",
+        }
 
         const base={
             float: 'left',
@@ -200,18 +239,78 @@ export default class App extends React.Component {
 
         return(
             <div>
+                <MediaQuery minWidth={1224}>
                 <div style={headerStyle}>
 
                     <img className="opintopolkuLogo" src={opintopolkuLogo}/>
-                    {SignOut(this.state.userData)}
+                    {SignOut({
+                        userData:this.state.userData,
+                        device:'desktop'
+                    })}
                 </div>
                 <div style={base}>
-                    <div  style={{position: 'static', display: 'flex'}}>
-                        <a href="/virkailijan-stp-ui/html/#/etusivu" style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><img src={homeLogo}/></a>
-                        {filteredData.map((item, ...rest) => Header({...item, style}, this.state.hover, this.Show, this.Hide, ...rest))}
-                    </div>
+
+                        <div  style={{position: 'static', display: 'flex'}}>
+                            <a href="/virkailijan-stp-ui/html/#/etusivu" style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><img src={homeLogo}/></a>
+                            {filteredData.map((item) => <Header transkey={item.key} key={item.key} links={item.links} href={item.href} style={style} hover={this.state.hover} show={this.Show} hide={this.Hide} />)}
+                        </div>
+
 
                 </div>
+                </MediaQuery>
+                <MediaQuery minWidth={641} maxWidth={1223}>
+                    <div style={headerTabStyle}>
+
+                        <img className="opintopolkuLogo" src={opintopolkuLogo}/>
+                        <div style={{float:'right',marginTop: 10,marginRight:20}} onClick={this.toggleHover}>
+                            <Icon name="logout"/>
+                        </div>
+                        {SignOut({userData:this.state.userData, signOutStyle:tabSignOutStyle, device:'tab'})}
+                        <div  style={{position: 'absolute', top:60, width:'100%', display: this.state.hover?'':'none', backgroundColor:"white"}}>
+
+
+                            <a href="/virkailijan-stp-ui/html/#/etusivu" style={{
+                                textDecoration:'none',
+                                color: 'black',
+                                width:'100%',
+                                backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''
+                            }}>
+                                <div className="links">
+                                    <Translations trans="virkailijantyopoyta"/>
+                                </div>
+                            </a>
+
+                            {filteredData.map((item) => <Header transkey={item.key} key={item.key} links={item.links} href={item.href} style={tabStyle} hover={this.state.hover} />)}
+                        </div>
+                    </div>
+                </MediaQuery>
+                <MediaQuery maxWidth={640}>
+                    <div style={headerTabStyle}>
+
+                        <img className="opintopolkuLogo" src={opintopolkuLogo}/>
+                        <div style={{float:'right',marginTop: 10,marginRight:20}} onClick={this.toggleHover}>
+                            <Icon name="logout"/>
+                        </div>
+
+                        <div  style={{position: 'absolute', top:60, width:'100%', display: this.state.hover?'':'none', backgroundColor:"white"}}>
+                            {SignOut({userData:this.state.userData, signOutStyle:mobileSignOutStyle, device:'mobile'})}
+
+                            <a href="/virkailijan-stp-ui/html/#/etusivu" style={{
+                                textDecoration:'none',
+                                color: 'black',
+                                width:'100%',
+                                backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''
+                            }}>
+                                <div className="links">
+                                    <Translations trans="virkailijantyopoyta"/>
+                                </div>
+                            </a>
+
+                            {filteredData.map((item) => <Header transkey={item.key} key={item.key} links={item.links} href={item.href} style={tabStyle} hover={this.state.hover} />)}
+                        </div>
+                    </div>
+
+                </MediaQuery>
                 <div style={shadow}></div>
             </div>
         );

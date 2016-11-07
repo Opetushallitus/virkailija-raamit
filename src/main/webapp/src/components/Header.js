@@ -8,56 +8,64 @@ const headerLinks={
 
 };
 
-export default ({key, links, href, style},hover, show, hide, index) =>{
-    var currentPage=[];
-    if(links != undefined){
-        currentPage = links.map(({href}) => {
-            return (window.location.href.indexOf(href) > -1);
+export default class Header extends React.Component {
+    constructor(props) {
+        super(props);
 
-        });
     }
-    if(href){
-        currentPage = [(window.location.href.indexOf(href) > -1)];
-    }
-    const textStyle={
-        paddingLeft: 10,
-        paddingRight: 10,
-        borderLeft: headerBorderColor,
-        textDecoration:'none',
-        color: 'white',
 
-        textAlign: 'left',
-        height:40
-    };
-    const textLinkStyle={
-        textDecoration:'none',
-        color: 'white',
-    };
+    render() {
+        const {transkey, links, href, style,hover, show, hide} = this.props;
+        var currentPage = [];
+        if (links != undefined) {
+            currentPage = links.map(({href}) => {
+                return (window.location.href.indexOf(href) > -1);
 
-    const linkStyle={
-        visibility:hover?'visible':'hidden',
-        height: hover?'100%':'0',
-        backgroundColor: 'white',
-        boxShadow: '0px 1px 4px 0px rgba(0,0,0,0.20)',
-        width:'100%',
-        borderLeft: borderColor,
-        textAlign: 'left',
-    };
+            });
+        }
+        if (href) {
+            currentPage = [(window.location.href.indexOf(href) > -1)];
+        }
+        const textStyle={
+            paddingLeft: 10,
+            paddingRight: 10,
+            borderLeft: headerBorderColor,
+            textDecoration:'none',
+            color: 'white',
 
+            textAlign: 'left',
+            height:40
+        };
+        const textLinkStyle={
+            textDecoration:'none',
+            color: 'white',
+        };
 
-    return <div style={{...style}} key={index}>
+        const linkStyle={
+            visibility:hover?'visible':'hidden',
+            height: hover?'100%':'0',
+            backgroundColor: 'white',
+            boxShadow: '0px 1px 4px 0px rgba(0,0,0,0.20)',
+            width:'100%',
+            borderLeft: borderColor,
+            textAlign: 'left',
+        };
+        return <div style={{...style}} key={transkey}>
             <div onMouseEnter={show}
-                  onMouseLeave={hide} style={{...textStyle, backgroundColor:currentPage.indexOf(true)>-1?'#1194bf':''}}>
+                 onMouseLeave={hide}
+                 style={{...textStyle, backgroundColor: currentPage.indexOf(true) > -1 ? '#1194bf' : ''}}>
                 {
-                href?
-                    <a href={href} style={textLinkStyle}><Translation trans={key}/></a>:<Translation trans={key}/>
+                    href ?
+                        <a href={href} style={textLinkStyle}><Translation trans={transkey}/></a> : <Translation trans={transkey}/>
                 }
             </div>
-        {links ?
-            <div onMouseEnter={show}
-                 onMouseLeave={hide} style={linkStyle}>
-                {links ? links.map((item, ...rest) =>Link({...item}, hover, ...rest)) : ''}
-            </div>:''
-        }
-    </div>;
+            {links ?
+                <div onMouseEnter={show}
+                     onMouseLeave={hide} style={linkStyle}>
+                    {links ? links.map((item, ...rest) =>Link({...item}, hover, ...rest)) : ''}
+                </div> : ''
+            }
+        </div>;
+    }
 }
+7
