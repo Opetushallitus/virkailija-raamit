@@ -172,15 +172,15 @@ export default class App extends React.Component {
             width: '70%'
         };
         const mobileSignOutStyle={
-            paddingRight: 10,
-            paddingLeft: 10,
+            //paddingRight: 10,
+            //paddingLeft: 10,
             width: '100%',
             float: 'none',
-            color: 'black',
+            color: '#333333',
             backgroundColor:'white',
             textDecoration: 'none',
-            paddingTop: 10,
-            paddingBottom: 10,
+            //paddingTop: 10,
+            //paddingBottom: 10,
             borderBottom: '1px solid gray',
             marginTop: 0,
         };
@@ -195,6 +195,7 @@ export default class App extends React.Component {
             height: 30,
             marginLeft: 10,
             marginRight: 10,
+            paddingTop: 5,
             width: 27
         };
         const style={
@@ -269,12 +270,12 @@ export default class App extends React.Component {
 
                             <a href="/virkailijan-stp-ui/html/#/etusivu" style={{
                                 textDecoration:'none',
-                                color: 'black',
+                                color: '#333333',
                                 width:'100%',
                                 backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''
                             }}>
                                 <div className="links">
-                                    <Translations trans="virkailijantyopoyta"/>
+                                    <img src={homeLogo}/> <Translations trans="virkailijantyopoyta"/>
                                 </div>
                             </a>
 
@@ -295,12 +296,12 @@ export default class App extends React.Component {
 
                             <a href="/virkailijan-stp-ui/html/#/etusivu" style={{
                                 textDecoration:'none',
-                                color: 'black',
+                                color: '#333333',
                                 width:'100%',
                                 backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''
                             }}>
                                 <div className="links">
-                                    <Translations trans="virkailijantyopoyta"/>
+                                    <img src={homeLogo}/> <Translations trans="virkailijantyopoyta"/>
                                 </div>
                             </a>
 

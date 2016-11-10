@@ -23,8 +23,6 @@ const mobileStyle={
     ...logout,
     color:'black',
     width: "100%",
-    paddingTop: 5,
-    paddingBottom: 5
 }
 
 const settingsImage={
@@ -55,21 +53,21 @@ export default ({userData, signOutStyle, device}) =>{
         content = <span>
 
             <a href="/ohjeet" style={mobileStyle}>
-                <div style={mobileStyle}>
+                <div style={mobileStyle} className="links">
                     <Icon name="help"/> <Translation trans="ohjeet"/>
                 </div>
             </a>
 
 
             <a href="/authentication-henkiloui/html/#/omattiedot" style={mobileStyle}>
-                <div style={mobileStyle}>
+                <div style={mobileStyle} className="links">
                     <Icon name="settings"/> {userName}
                 </div>
             </a>
 
 
             <a href="/service-provider-app/saml/logout" style={mobileStyle}>
-                <div style={mobileStyle}>
+                <div style={mobileStyle} className="links">
                     <Icon name="logout"/> <Translation trans="logout"/>
                 </div>
             </a>
