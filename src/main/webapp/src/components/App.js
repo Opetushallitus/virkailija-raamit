@@ -106,9 +106,23 @@ export default class App extends React.Component {
     }
 
 
-    Show= () => this.setState({hover: true});
+    Show= () => {
+        let that = this;
+        if(!this.state.hover){
+            this.timer = setTimeout(function() {
+                console.log("asd");
+                that.setState({hover: true});
+            },200)
+        }else{
+            this.setState({hover: true});
+        }
 
-    Hide= () => this.setState({hover: false});
+    };
+
+    Hide= () => {
+        clearTimeout(this.timer);
+        this.setState({hover: false});
+    }
 
     toggleHover= () =>{
         //this.setState({hover: true});
@@ -310,7 +324,7 @@ export default class App extends React.Component {
                     </div>
 
                 </MediaQuery>
-                <div style={shadow}></div>
+
             </div>
         );
     }
