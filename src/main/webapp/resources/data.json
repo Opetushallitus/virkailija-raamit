@@ -128,7 +128,7 @@
       {
         "key":"valintajononhallinta",
         "href":"/valintalaskenta-ui/app/jono/hallinta.html",
-        "requiresRole":["app_valintojentoteuttaminen_crud_1.2.246.562.10.00000000001,app_valintojentoteuttaminenkk_crud"]
+        "requiresRole":["app_valintojentoteuttaminen_crud_1.2.246.562.10.00000000001","app_valintojentoteuttaminenkk_crud"]
       },
       {
         "key":"hakuperusteet",
