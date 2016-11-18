@@ -37,3 +37,10 @@ body{
     padding-left: 15px;
     padding-bottom: 20px;
 }
+
+@media (min-width: 1224px) {
+    .links {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}

@@ -19,7 +19,6 @@
         "requiresRole":["app_yhteystietotyyppienhallinta"]
       }
     ]
-
   },
   {
     "key":"jarjestelmanhallinta",
@@ -27,7 +26,7 @@
     "links":[
       {
         "key":"kaytonhallintaanomukset",
-        "href":"/authentication-henkiloui/html/index.html#/anomus",
+        "href":"/authentication-henkiloui/html/anomus",
         "requiresRole":["app_anomustenhallinta"]
       },
       {
@@ -143,7 +142,7 @@
     "links":[
       {
         "key":"raportointi",
-        "href":"virkailija-raamit/virkailija-raamit/raportointi.html",
+        "href":"/virkailija-raamit/virkailija-raamit/raportointi.html",
         "requiresRole":["app_raportointi"]
       },
       {

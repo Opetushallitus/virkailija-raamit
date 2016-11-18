@@ -10,6 +10,7 @@ import homeLogo from '../../virkailija-raamit/img/koti.png';
 import opintopolkuLogo from '../../virkailija-raamit/img/opintopolkufi.png';
 import MediaQuery from'react-responsive';
 import Icon from './Icon';
+import mapKeys from 'lodash/mapKeys';
 
 export default class App extends React.Component {
     constructor(props){
@@ -23,7 +24,6 @@ export default class App extends React.Component {
         this.getUserData();
 
     }
-
 
     async getRoles(){
 
@@ -107,21 +107,20 @@ export default class App extends React.Component {
 
 
     Show= () => {
-        let that = this;
-        if(!this.state.hover){
-            this.timer = setTimeout(function() {
-                console.log("asd");
-                that.setState({hover: true});
-            },200)
-        }else{
-            this.setState({hover: true});
-        }
-
+        clearTimeout(this.timer);
+        this.setState({hover: true});
     };
 
     Hide= () => {
-        clearTimeout(this.timer);
-        this.setState({hover: false});
+        let that = this;
+
+        if(this.state.hover){
+            this.timer = setTimeout(function() {
+                that.setState({hover: false});
+            }, 300)
+        }else{
+            this.setState({hover: false});
+        }
     }
 
     toggleHover= () =>{
@@ -131,37 +130,71 @@ export default class App extends React.Component {
 
 
     render() {
-        const user = this.state.userData;
-        const myRole = this.state.roles;
-        const filteredData = data.filter(item => {
+            const user = this.state.userData;
+            const myRole = this.state.roles;
 
+            /*
+                An array of objects formed as items in 'data.json':
+                [
+                    {
+                        requiresRole: [roles],
+                        key: [key],
+                        links: [links]
+                    },
+                    ...
+                ]
+
+                Links' requiresRole arrays are concatenated to parent's requiresRole,
+                for checking if parent should be displayed in the UI
+            */
+            const dataWithConcatenatedParentRoles = data.map(item => {
+                // Concatenate links' roles to parent's roles
+                if (item.requiresRole && item.links) {
+                    item.links.forEach(link => {
+                        if (link.requiresRole) {
+                            item.requiresRole = item.requiresRole.concat(link.requiresRole);
+                        }
+                    });
+                }
+
+                // Map all item's properties to array's objects
+                return mapKeys(item, (key, value) => {
+                    return value;
+                });
+            });
+
+            const filteredData = dataWithConcatenatedParentRoles.filter(item => {
                 if (item.requiresRole) {
                     return item.requiresRole.some(requiredRole=> {
                         if (myRole.indexOf(requiredRole.toUpperCase()) > -1) {
-                                if(item.links){
-                                    const links = item.links.filter(link => {
-                                        if (link.requiresRole) {
-                                            return link.requiresRole.some(linkRequiredRole=> {
-                                                //console.log(linkRequiredRole.toUpperCase(), myRole.toUpperCase());
-                                                return myRole.indexOf(linkRequiredRole.toUpperCase()) > -1;
-                                            })
-                                        } else {
-                                            return true;
-                                        }
-                                    });
-                                    item.links = links;
-                                }
+                            if(item.links){
+                                const links = item.links.filter(link => {
+                                    if (link.requiresRole) {
+                                        return link.requiresRole.some(linkRequiredRole=> {
+                                            //console.log(linkRequiredRole.toUpperCase(), myRole.toUpperCase());
+                                            return myRole.indexOf(linkRequiredRole.toUpperCase()) > -1;
+                                        })
+                                    } else {
+                                        return true;
+                                    }
+                                });
+                                item.links = links;
+                            }
                         }
-                        return myRole.indexOf(requiredRole.toUpperCase()) > -1;
+
+                        // Links array may be empty, check if parent should be displayed
+                        if (item.links && item.links.length) {
+                            return myRole.indexOf(requiredRole.toUpperCase()) > -1;
+                        }
                     })
                 } else {
                     return true;
                 }
-
             });
+
         const margin = 30;
 
-        const fontSize = 12;
+        const fontSize = 14;
 
         const headerStyle={
             position: 'relative',
@@ -232,6 +265,22 @@ export default class App extends React.Component {
             backgroundColor:"#159ECB",
         }
 
+        const alertTestEnvironmentStyle = {
+            display: 'inline-block',
+            position: 'fixed',
+            top: '20px',
+            left: '-35px',
+            width: '120px',
+            padding: '5px',
+            zIndex: '101',
+            fontSize: 12,
+            textAlign: 'center',
+            color: "#FFF",
+            backgroundColor: '#E53935',
+            boxShadow: '0 6px 12px rgba(0,0,0,.175)',
+            transform: 'rotate(-45deg)'
+    }
+
         const base={
             float: 'left',
             position: "absolute",
@@ -240,36 +289,36 @@ export default class App extends React.Component {
             width: '99%',
         };
 
-        const shadow={
-            display:this.state.hover?'':'none',
-            position: "fixed",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(125, 125, 125, 0.25)",
-            zIndex:99,
-            left: 0,
-            top: 0
-        };
-
         return(
             <div>
+                {/*
+                    Display alert when not in production environment.
+                    Translated version is commented out since translation is missing for now from translations.json.
+                */}
+                {
+                    process.env.NODE_ENV !== 'production' &&
+                        <div style={alertTestEnvironmentStyle}>
+                            QA
+                        </div>
+                }
+
                 <MediaQuery minWidth={1224}>
-                <div style={headerStyle}>
-                    <img className="opintopolkuLogo" src={opintopolkuLogo}/>
-                    {SignOut({
-                        userData:this.state.userData,
-                        device:'desktop'
-                    })}
-                </div>
-                <div style={base}>
+                    <div style={headerStyle}>
+                        <img className="opintopolkuLogo" src={opintopolkuLogo}/>
+                        {SignOut({
+                            userData:this.state.userData,
+                            device:'desktop'
+                        })}
+                    </div>
+                    <div style={base}>
 
                         <div  style={{position: 'static', display: 'flex'}}>
-                            <a href="/virkailijan-stp-ui/html/#/etusivu" style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><img src={homeLogo}/></a>
+                            <a href="/virkailijan-stp-ui/html/#/etusivu" style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><img src={homeLogo} style={{ border: 0 }}/></a>
                             {filteredData.map((item) => <Header transkey={item.key} key={item.key} links={item.links} href={item.href} style={style} hover={this.state.hover} show={this.Show} hide={this.Hide} />)}
                         </div>
 
 
-                </div>
+                    </div>
                 </MediaQuery>
                 <MediaQuery minWidth={641} maxWidth={1223}>
                     <div style={headerTabStyle}>
@@ -289,7 +338,7 @@ export default class App extends React.Component {
                                 backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''
                             }}>
                                 <div className="links">
-                                    <img src={homeLogo}/> <Translations trans="virkailijantyopoyta"/>
+                                    <img src={homeLogo} style={{ border: 0 }} /> <Translations trans="virkailijantyopoyta"/>
                                 </div>
                             </a>
 
@@ -315,7 +364,7 @@ export default class App extends React.Component {
                                 backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''
                             }}>
                                 <div className="links">
-                                    <img src={homeLogo}/> <Translations trans="virkailijantyopoyta"/>
+                                    <img src={homeLogo} style={{ border: 0 }}/> <Translations trans="virkailijantyopoyta"/>
                                 </div>
                             </a>
 
@@ -327,5 +376,16 @@ export default class App extends React.Component {
 
             </div>
         );
+
+        const shadow={
+            display:this.state.hover?'':'none',
+            position: "fixed",
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(125, 125, 125, 0.25)",
+            zIndex:99,
+            left: 0,
+            top: 0
+        };
     }
 };
