@@ -1,4 +1,5 @@
 import data from '../../resources/data.json';
+import environments from '../../resources/environments.json';
 import Header from './Header';
 import Link from './Link';
 import SignOut from './SignOut';
@@ -125,72 +126,74 @@ export default class App extends React.Component {
 
     toggleHover= () =>{
         //this.setState({hover: true});
-      this.setState({hover: !this.state.hover});
+        this.setState({hover: !this.state.hover});
     };
 
 
     render() {
-            const user = this.state.userData;
-            const myRole = this.state.roles;
+        const user = this.state.userData;
+        const myRole = this.state.roles;
 
-            /*
-                An array of objects formed as items in 'data.json':
-                [
-                    {
-                        requiresRole: [roles],
-                        key: [key],
-                        links: [links]
-                    },
-                    ...
-                ]
+        /*
+         An array of objects formed as items in 'data.json':
+         [
+         {
+         requiresRole: [roles],
+         key: [key],
+         links: [links]
+         },
+         ...
+         ]
 
-                Links' requiresRole arrays are concatenated to parent's requiresRole,
-                for checking if parent should be displayed in the UI
-            */
-            const dataWithConcatenatedParentRoles = data.map(item => {
-                // Concatenate links' roles to parent's roles
-                if (item.requiresRole && item.links) {
-                    item.links.forEach(link => {
-                        if (link.requiresRole) {
-                            item.requiresRole = item.requiresRole.concat(link.requiresRole);
-                        }
-                    });
-                }
-
-                // Map all item's properties to array's objects
-                return mapKeys(item, (key, value) => {
-                    return value;
+         Links' requiresRole arrays are concatenated to parent's requiresRole,
+         for checking if parent should be displayed in the UI
+         */
+        const dataWithConcatenatedParentRoles = data.map(item => {
+            // Concatenate links' roles to parent's roles
+            if (item.requiresRole && item.links) {
+                item.links.forEach(link => {
+                    if (link.requiresRole) {
+                        item.requiresRole = item.requiresRole.concat(link.requiresRole);
+                    }
                 });
-            });
+            }
 
-            const filteredData = dataWithConcatenatedParentRoles.filter(item => {
-                if (item.requiresRole) {
-                    return item.requiresRole.some(requiredRole=> {
-                        if (myRole.indexOf(requiredRole.toUpperCase()) > -1) {
-                            if(item.links){
-                                const links = item.links.filter(link => {
-                                    if (link.requiresRole) {
-                                        return link.requiresRole.some(linkRequiredRole=> {
-                                            //console.log(linkRequiredRole.toUpperCase(), myRole.toUpperCase());
-                                            return myRole.indexOf(linkRequiredRole.toUpperCase()) > -1;
-                                        })
-                                    } else {
-                                        return true;
-                                    }
-                                });
-                                item.links = links;
-                            }
-                        }
-
-                        // Links array may be empty, check if parent should be displayed
-                        if (item.links && item.links.length) {
-                            return myRole.indexOf(requiredRole.toUpperCase()) > -1;
-                        }
-                    })
-                } else {
-                    return true;
-                }
+            // Map all item's properties to array's objects
+            return mapKeys(item, (key, value) => {
+                return value;
             });
+        });
+
+        const filteredData = dataWithConcatenatedParentRoles.filter(item => {
+            if (item.requiresRole) {
+                return item.requiresRole.some(requiredRole=> {
+                    if (myRole.indexOf(requiredRole.toUpperCase()) > -1) {
+                        if(item.links){
+                            const links = item.links.filter(link => {
+                                if (link.requiresRole) {
+                                    return link.requiresRole.some(linkRequiredRole=> {
+                                        //console.log(linkRequiredRole.toUpperCase(), myRole.toUpperCase());
+                                        return myRole.indexOf(linkRequiredRole.toUpperCase()) > -1;
+                                    })
+                                } else {
+                                    return true;
+                                }
+                            });
+                            item.links = links;
+                        }
+                    }else{
+                        return true;
+                    }
+
+                    // Links array may be empty, check if parent should be displayed
+                    if (item.links && item.links.length) {
+                        return myRole.indexOf(requiredRole.toUpperCase()) > -1;
+                    }
+                })
+            } else {
+                return true;
+            }
+        });
 
         const margin = 30;
 
@@ -265,7 +268,25 @@ export default class App extends React.Component {
             backgroundColor:"#159ECB",
         }
 
-        const alertTestEnvironmentStyle = {
+        const base={
+            float: 'left',
+            position: "absolute",
+            zIndex:100,
+            top: 70,
+            width: '99%',
+        };
+
+        // 'Luokka' / QA environment alert
+
+        // Check if current URL contains the environment object's href
+        const isCurrentEnvironment = (environment) => {
+            return location.href.indexOf(environment.href) > -1;
+        };
+
+        const currentEnvironment = environments.find(isCurrentEnvironment);
+        const isTestEnvironment = currentEnvironment && currentEnvironment.type === 'test';
+
+        const testEnvironmentAlertStyle = {
             display: 'inline-block',
             position: 'fixed',
             top: '20px',
@@ -279,27 +300,18 @@ export default class App extends React.Component {
             backgroundColor: '#E53935',
             boxShadow: '0 6px 12px rgba(0,0,0,.175)',
             transform: 'rotate(-45deg)'
-    }
-
-        const base={
-            float: 'left',
-            position: "absolute",
-            zIndex:100,
-            top: 70,
-            width: '99%',
         };
 
         return(
             <div>
                 {/*
-                    Display alert when not in production environment.
-                    Translated version is commented out since translation is missing for now from translations.json.
-                */}
+                 Display alert when not in production environment.
+                 */}
                 {
-                    process.env.NODE_ENV !== 'production' &&
-                        <div style={alertTestEnvironmentStyle}>
-                            QA
-                        </div>
+                    isTestEnvironment &&
+                    <div style={testEnvironmentAlertStyle}>
+                        {currentEnvironment.name}
+                    </div>
                 }
 
                 <MediaQuery minWidth={1224}>
