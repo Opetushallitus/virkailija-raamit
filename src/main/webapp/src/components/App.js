@@ -23,7 +23,6 @@ export default class App extends React.Component {
 
         this.getRoles();
         this.getUserData();
-
     }
 
     async getRoles(){
@@ -107,6 +106,38 @@ export default class App extends React.Component {
     }
 
 
+    /*
+     An array of objects formed as items in 'data.json':
+     [
+     {
+     requiresRole: [roles],
+     key: [key],
+     links: [links]
+     },
+     ...
+     ]
+
+     Links' requiresRole arrays are concatenated to parent's requiresRole,
+     for checking if parent should be displayed in the UI
+     */
+    getDataWithConcatenatedParentRoles = (data) => {
+        return data.map(item => {
+            // Concatenate links' roles to parent's roles
+            if (item.requiresRole && item.links) {
+                item.links.forEach(link => {
+                    if (link.requiresRole) {
+                        item.requiresRole = item.requiresRole.concat(link.requiresRole);
+                    }
+                });
+            }
+
+            // Map all item's properties to array's objects
+            return mapKeys(item, (key, value) => {
+                return value;
+            });
+        });
+    };
+
     Show= () => {
         clearTimeout(this.timer);
         this.setState({hover: true});
@@ -134,37 +165,7 @@ export default class App extends React.Component {
         const user = this.state.userData;
         const myRole = this.state.roles;
 
-        /*
-         An array of objects formed as items in 'data.json':
-         [
-         {
-         requiresRole: [roles],
-         key: [key],
-         links: [links]
-         },
-         ...
-         ]
-
-         Links' requiresRole arrays are concatenated to parent's requiresRole,
-         for checking if parent should be displayed in the UI
-         */
-        const dataWithConcatenatedParentRoles = data.map(item => {
-            // Concatenate links' roles to parent's roles
-            if (item.requiresRole && item.links) {
-                item.links.forEach(link => {
-                    if (link.requiresRole) {
-                        item.requiresRole = item.requiresRole.concat(link.requiresRole);
-                    }
-                });
-            }
-
-            // Map all item's properties to array's objects
-            return mapKeys(item, (key, value) => {
-                return value;
-            });
-        });
-
-        const filteredData = dataWithConcatenatedParentRoles.filter(item => {
+        const filteredData = this.getDataWithConcatenatedParentRoles(data).filter(item => {
             if (item.requiresRole) {
                 return item.requiresRole.some(requiredRole=> {
                     if (myRole.indexOf(requiredRole.toUpperCase()) > -1) {
@@ -181,12 +182,10 @@ export default class App extends React.Component {
                             });
                             item.links = links;
                         }
-                    }else{
-                        return true;
                     }
 
-                    // Links array may be empty, check if parent should be displayed
-                    if (item.links && item.links.length) {
+                    // Check if parent should be displayed if it has no 'links' property, or it has children in 'links'
+                    if (!item.links || (item.links && item.links.length)) {
                         return myRole.indexOf(requiredRole.toUpperCase()) > -1;
                     }
                 })
