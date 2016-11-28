@@ -3,7 +3,7 @@ import Icon from './Icon';
 const style ={
     float: "right",
     marginRight: 20,
-    marginTop: 20,
+    marginTop: 10,
 
 };
 
@@ -44,7 +44,7 @@ export default ({userData, signOutStyle, device}) =>{
             </a>
             |
             <a href="/authentication-henkiloui/html/#/omattiedot" style={desktopStyle}>
-                <Icon name="settings"/> {userName}
+                <Icon name="settings"/> {userName ? userName:''}
             </a>
             |
             <a href="/service-provider-app/saml/logout" style={desktopStyle}><Icon name="logout"/><Translation trans="logout"/></a>
@@ -61,7 +61,7 @@ export default ({userData, signOutStyle, device}) =>{
 
             <a href="/authentication-henkiloui/html/#/omattiedot" style={mobileStyle}>
                 <div style={mobileStyle} className="links">
-                    <Icon name="settings"/> {userName}
+                    <Icon name="settings"/> {userName ? userName:''}
                 </div>
             </a>
 

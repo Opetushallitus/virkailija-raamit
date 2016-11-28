@@ -6,7 +6,6 @@ body{
 }
 
 .links {
-
     text-decoration: none;
     padding-left: 10px;
     padding-top: 10px;
@@ -36,6 +35,7 @@ body{
     width: 144px;
     padding-left: 15px;
     padding-bottom: 20px;
+    margin-top: 4px;
 }
 
 @media (min-width: 1224px) {

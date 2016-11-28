@@ -15,7 +15,8 @@ const linkStyle={
     verticalAlign: 'top',
     height: '100%',
     textDecoration: 'none',
-    color: 'black'
+    color: 'black',
+    backgroundColor: '#F6FCFF'
 
 };
 

@@ -43,8 +43,8 @@ export default class Header extends React.Component {
 
         const linkStyle={
             visibility:hover?'visible':'hidden',
-            height: hover?'100%':'0',
-            backgroundColor: 'white',
+            height: hover?'85%':'0',
+            backgroundColor: '#F6FCFF',
             boxShadow: '0px 1px 4px 0px rgba(0,0,0,0.20)',
             width:'100%',
             borderLeft: borderColor,

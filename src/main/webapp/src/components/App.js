@@ -245,7 +245,10 @@ export default class App extends React.Component {
             marginLeft: 10,
             marginRight: 10,
             paddingTop: 5,
-            width: 27
+            width: 27,
+            fontSize:20,
+            color: 'white',
+            textDecoration: 'none'
         };
         const style={
             paddingTop: 5,
@@ -255,9 +258,7 @@ export default class App extends React.Component {
             maxWidth:300,
             textDecoration:'none',
             wordWrap: 'break-word',
-
             verticalAlign: 'top',
-            heigth:'100%',
         };
         const tabStyle={
             ...style,
@@ -324,7 +325,7 @@ export default class App extends React.Component {
                     <div style={base}>
 
                         <div  style={{position: 'static', display: 'flex'}}>
-                            <a href="/virkailijan-stp-ui/html/#/etusivu" style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><img src={homeLogo} style={{ border: 0 }}/></a>
+                            <a href="/virkailijan-stp-ui/html/#/etusivu" style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><Icon name="house"/></a>
                             {filteredData.map((item) => <Header transkey={item.key} key={item.key} links={item.links} href={item.href} style={style} hover={this.state.hover} show={this.Show} hide={this.Hide} />)}
                         </div>
 
@@ -335,7 +336,7 @@ export default class App extends React.Component {
                     <div style={headerTabStyle}>
 
                         <img className="opintopolkuLogo" src={opintopolkuLogo}/>
-                        <div style={{float:'right', padding:20, paddingTop:10, fontSize: 20}} onClick={this.toggleHover}>
+                        <div style={{float:'right', padding:20,paddingRight:15, paddingTop:5, fontSize: 20}} onClick={this.toggleHover}>
                             <Icon name="bars"/>
                         </div>
                         {SignOut({userData:this.state.userData, signOutStyle:tabSignOutStyle, device:'tab'})}
@@ -349,7 +350,7 @@ export default class App extends React.Component {
                                 backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''
                             }}>
                                 <div className="links">
-                                    <img src={homeLogo} style={{ border: 0 }} /> <Translations trans="virkailijantyopoyta"/>
+                                    <Icon name="house"/> <Translations trans="virkailijantyopoyta"/>
                                 </div>
                             </a>
 
@@ -361,7 +362,7 @@ export default class App extends React.Component {
                     <div style={headerTabStyle}>
 
                         <img className="opintopolkuLogo" src={opintopolkuLogo}/>
-                        <div style={{float:'right', padding:20, paddingTop:10, fontSize: 20}} onClick={this.toggleHover}>
+                        <div style={{float:'right', padding:20,paddingRight:15, paddingTop:5, fontSize: 20}} onClick={this.toggleHover}>
                             <Icon name="bars"/>
                         </div>
 
@@ -375,7 +376,7 @@ export default class App extends React.Component {
                                 backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''
                             }}>
                                 <div className="links">
-                                    <img src={homeLogo} style={{ border: 0 }}/> <Translations trans="virkailijantyopoyta"/>
+                                    <Icon name="house"/> <Translations trans="virkailijantyopoyta"/>
                                 </div>
                             </a>
 
