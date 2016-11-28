@@ -7,7 +7,6 @@ import Translations from './Translations';
 import roles from '../../virkailija-raamit/myroles.json';
 import userData from '../../virkailija-raamit/myUserData.json';
 import translation from '../../virkailija-raamit/translation.json';
-import homeLogo from '../../virkailija-raamit/img/koti.png';
 import opintopolkuLogo from '../../virkailija-raamit/img/opintopolkufi.png';
 import MediaQuery from'react-responsive';
 import Icon from './Icon';
@@ -241,10 +240,9 @@ export default class App extends React.Component {
 
         const imageStyle={
             display:`inline-block`,
-            height: 30,
             marginLeft: 10,
-            marginRight: 10,
-            paddingTop: 5,
+            textAlign: 'center',
+            padding: 8,
             width: 27,
             fontSize:20,
             color: 'white',
