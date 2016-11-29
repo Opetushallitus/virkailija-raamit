@@ -1,0 +1,7 @@
+{
+  "name": "virkailija-raamit",
+  "url-config": {
+    "path": "src/main/webapp/resources/data.json",
+    "values-for-key": "**.href"
+  }
+}

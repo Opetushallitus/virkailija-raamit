@@ -27,7 +27,7 @@ export default class App extends React.Component {
     async getRoles(){
 
         try {
-            const response = await fetch("/cas/myroles",{
+            const response = await fetch(window.url("cas.myroles"),{
                 credentials: 'include'
             });
             const roles = await response.json();
@@ -48,7 +48,7 @@ export default class App extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    window.location.href = "/cas/login?service=" + location.href;
+                    window.location.href = window.url("cas.login", location.href);
                 }
             }
         }
@@ -57,7 +57,7 @@ export default class App extends React.Component {
     async getUserData(){
 
         try {
-            const response = await fetch("/authentication-service/resources/omattiedot",{
+            const response = await fetch(window.url("authentication-service.omattiedot"),{
                 credentials: 'include'
             });
             this.setState({
@@ -70,7 +70,7 @@ export default class App extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    window.location.href = "/cas/login?service=" + location.href;
+                    window.location.href = window.url("cas.login", location.href);
                 }
             }
         }
@@ -87,7 +87,7 @@ export default class App extends React.Component {
 
 
         try {
-            const response = await fetch("/lokalisointi/cxf/rest/v1/localisation?category=virkailijaraamit&locale="+lang,{
+            const response = await fetch(window.url("lokalisointi.localisation", lang),{
                 credentials: 'include'
             });
             Translations.setTranslations(await response.json());
@@ -98,7 +98,7 @@ export default class App extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    window.location.href = "/cas/login?service=" + location.href;
+                    window.location.href = window.url("cas.login", location.href);
                 }
             }
         }
@@ -323,7 +323,7 @@ export default class App extends React.Component {
                     <div style={base}>
 
                         <div  style={{position: 'static', display: 'flex'}}>
-                            <a href="/virkailijan-stp-ui/html/#/etusivu" style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><Icon name="house"/></a>
+                            <a href={window.url("virkailijan-stp-ui.etusivu")} style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><Icon name="house"/></a>
                             {filteredData.map((item) => <Header transkey={item.key} key={item.key} links={item.links} href={item.href} style={style} hover={this.state.hover} show={this.Show} hide={this.Hide} />)}
                         </div>
 
@@ -341,7 +341,7 @@ export default class App extends React.Component {
                         <div  style={{position: 'absolute', top:60, width:'100%', display: this.state.hover?'':'none', backgroundColor:"white"}}>
 
 
-                            <a href="/virkailijan-stp-ui/html/#/etusivu" style={{
+                            <a href={window.url("virkailijan-stp-ui.etusivu")} style={{
                                 textDecoration:'none',
                                 color: '#333333',
                                 width:'100%',
@@ -367,7 +367,7 @@ export default class App extends React.Component {
                         <div  style={{position: 'absolute', top:60, width:'100%', display: this.state.hover?'':'none', backgroundColor:"white"}}>
                             {SignOut({userData:this.state.userData, signOutStyle:mobileSignOutStyle, device:'mobile'})}
 
-                            <a href="/virkailijan-stp-ui/html/#/etusivu" style={{
+                            <a href={window.url("virkailijan-stp-ui.etusivu")} style={{
                                 textDecoration:'none',
                                 color: '#333333',
                                 width:'100%',
