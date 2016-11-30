@@ -25,7 +25,8 @@
     "lodash": "^4.16.0",
     "react": "15 || 16",
     "react-dom": "15 || 16",
-    "react-responsive": "^1.2.1"
+    "react-responsive": "^1.2.1",
+    "oph-urls-js": "Opetushallitus/oph-urls-js#master"
   },
   "config": {
     "frontendApp": {
