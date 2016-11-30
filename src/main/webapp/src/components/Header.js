@@ -56,6 +56,7 @@ export default class Header extends React.Component {
                 style={{
                     ...style,
                     flex: links ? 1 : '',
+                    maxHeight: links ? 'auto' : '40px',
                     backgroundColor: currentPage.indexOf(true) > -1 ? '#1194bf' : '#159ECB'
                 }}
                 key={transkey}
