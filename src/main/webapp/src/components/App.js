@@ -24,6 +24,13 @@ export default class App extends React.Component {
         this.getUserData();
     }
 
+    componentWillUpdate(nextProps, nextState) {
+        // Only update data when roles are changed
+        if (nextState.roles !== this.state.roles) {
+            this.dataWithConcatenatedParentRoles = this.getDataWithConcatenatedParentRoles(data);
+        }
+    }
+
     async getRoles(){
 
         try {
@@ -104,24 +111,25 @@ export default class App extends React.Component {
         }
     }
 
+    dataWithConcatenatedParentRoles = [];
 
     /*
-     An array of objects formed as items in 'data.json':
-     [
-     {
-     requiresRole: [roles],
-     key: [key],
-     links: [links]
-     },
-     ...
-     ]
+         An array of objects formed as items in 'data.json':
+         [
+             {
+                 requiresRole: [roles],
+                 key: [key],
+                 links: [links]
+             },
+            ...
+         ]
 
-     Links' requiresRole arrays are concatenated to parent's requiresRole,
-     for checking if parent should be displayed in the UI
+         Links' requiresRole arrays are concatenated to parent's requiresRole,
+         for checking if parent should be displayed in the UI.
      */
     getDataWithConcatenatedParentRoles = (data) => {
         return data.map(item => {
-            // Concatenate links' roles to parent's roles
+            // Concatenate links' required roles to parent's required roles
             if (item.requiresRole && item.links) {
                 item.links.forEach(link => {
                     if (link.requiresRole) {
@@ -138,21 +146,25 @@ export default class App extends React.Component {
     };
 
     Show= () => {
-        clearTimeout(this.timer);
-        this.setState({hover: true});
+        let that = this;
+
+        clearTimeout(this.openTimer);
+        clearTimeout(this.closeTimer);
+
+        this.openTimer = setTimeout(function() {
+            that.setState({hover: true});
+        }, 300)
     };
 
     Hide= () => {
         let that = this;
 
-        if(this.state.hover){
-            this.timer = setTimeout(function() {
-                that.setState({hover: false});
-            }, 300)
-        }else{
-            this.setState({hover: false});
-        }
-    }
+        clearTimeout(this.openTimer);
+
+        this.closeTimer = setTimeout(function() {
+            that.setState({hover: false});
+        }, 300)
+    };
 
     toggleHover= () =>{
         //this.setState({hover: true});
@@ -164,7 +176,7 @@ export default class App extends React.Component {
         const user = this.state.userData;
         const myRole = this.state.roles;
 
-        const filteredData = this.getDataWithConcatenatedParentRoles(data).filter(item => {
+        const filteredData = this.dataWithConcatenatedParentRoles.filter(item => {
             if (item.requiresRole) {
                 return item.requiresRole.some(requiredRole=> {
                     if (myRole.indexOf(requiredRole.toUpperCase()) > -1) {
@@ -242,6 +254,7 @@ export default class App extends React.Component {
             display:`inline-block`,
             marginLeft: 10,
             textAlign: 'center',
+            height: 29,
             padding: 8,
             width: 27,
             fontSize:20,
@@ -253,10 +266,10 @@ export default class App extends React.Component {
             textAlign: 'center',
             fontSize: fontSize,
             display:`inline-block`,
-            maxWidth:300,
             textDecoration:'none',
             wordWrap: 'break-word',
             verticalAlign: 'top',
+            maxWidth: '12.5%'
         };
         const tabStyle={
             ...style,
@@ -264,7 +277,7 @@ export default class App extends React.Component {
             display:'block',
             maxWidth:'none',
             backgroundColor:"#159ECB",
-        }
+        };
 
         const base={
             float: 'left',
@@ -301,7 +314,7 @@ export default class App extends React.Component {
         };
 
         return(
-            <div>
+            <header>
                 {/*
                  Display alert when not in production environment.
                  */}
@@ -383,8 +396,7 @@ export default class App extends React.Component {
                     </div>
 
                 </MediaQuery>
-
-            </div>
+            </header>
         );
 
         const shadow={

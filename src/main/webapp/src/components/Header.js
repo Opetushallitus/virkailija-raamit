@@ -50,22 +50,31 @@ export default class Header extends React.Component {
             borderLeft: borderColor,
             textAlign: 'left',
         };
-        return <div style={{...style}} key={transkey}>
-            <div onMouseEnter={show}
-                 onMouseLeave={hide}
-                 style={{...textStyle, backgroundColor: currentPage.indexOf(true) > -1 ? '#1194bf' : ''}}>
-                {
-                    href ?
-                        <a href={href} style={textLinkStyle}><Translation trans={transkey}/></a> : <Translation trans={transkey}/>
+
+        return (
+            <div
+                style={{
+                    ...style,
+                    flex: links ? 1 : '',
+                    backgroundColor: currentPage.indexOf(true) > -1 ? '#1194bf' : '#159ECB'
+                }}
+                key={transkey}
+            >
+                <div onMouseEnter={show}
+                     onMouseLeave={hide}
+                     style={{...textStyle, backgroundColor: currentPage.indexOf(true) > -1 ? '#1194bf' : ''}}>
+                    {
+                        href ?
+                            <a href={href} style={textLinkStyle}><Translation trans={transkey}/></a> : <Translation trans={transkey}/>
+                    }
+                </div>
+                {links ?
+                    <div onMouseEnter={show}
+                         onMouseLeave={hide} style={linkStyle}>
+                        {links ? links.map((item, ...rest) =>Link({...item}, hover, ...rest)) : ''}
+                    </div> : ''
                 }
             </div>
-            {links ?
-                <div onMouseEnter={show}
-                     onMouseLeave={hide} style={linkStyle}>
-                    {links ? links.map((item, ...rest) =>Link({...item}, hover, ...rest)) : ''}
-                </div> : ''
-            }
-        </div>;
+        );
     }
 }
-7
