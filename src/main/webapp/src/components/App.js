@@ -94,7 +94,7 @@ export default class App extends React.Component {
 
 
         try {
-            const response = await fetch(window.url("lokalisointi.localisation", lang),{
+            const response = await fetch(window.url("lokalisointi.localisation", {category: "virkailijaraamit", locale: lang}),{
                 credentials: 'include'
             });
             Translations.setTranslations(await response.json());
