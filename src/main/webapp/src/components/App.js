@@ -42,7 +42,7 @@ export default class App extends React.Component {
                 roles: roles
             });
             if(roles){
-                window.myroles = roles
+                window.myroles = roles;
                 this.getTranslate();
             }
         } catch (error) {
