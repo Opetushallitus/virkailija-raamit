@@ -270,7 +270,7 @@ export default class App extends React.Component {
             textDecoration:'none',
             wordWrap: 'break-word',
             verticalAlign: 'top',
-            maxWidth: '12.5%'
+            maxWidth: 300
         };
         const tabStyle={
             ...style,
