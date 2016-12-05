@@ -43,11 +43,11 @@ export default ({userData, signOutStyle, device}) =>{
                 <Icon name="help"/> <Translation trans="ohjeet"/>
             </a>
             |
-            <a href={window.url("authentication-henkiloui.omattiedot")} style={desktopStyle}>
+            <a href={raamiUrl("authentication-henkiloui.omattiedot")} style={desktopStyle}>
                 <Icon name="settings"/> {userName ? userName:''}
             </a>
             |
-            <a href={window.url("service-provider-app.saml.logout")} style={desktopStyle}><Icon name="logout"/><Translation trans="logout"/></a>
+            <a href={raamiUrl("service-provider-app.saml.logout")} style={desktopStyle}><Icon name="logout"/><Translation trans="logout"/></a>
         </span>;
     }else if(device == 'mobile'){
         content = <span>
@@ -59,14 +59,14 @@ export default ({userData, signOutStyle, device}) =>{
             </a>
 
 
-            <a href={window.url("authentication-henkiloui.omattiedot")} style={mobileStyle}>
+            <a href={raamiUrl("authentication-henkiloui.omattiedot")} style={mobileStyle}>
                 <div style={mobileStyle} className="links">
                     <Icon name="settings"/> {userName ? userName:''}
                 </div>
             </a>
 
 
-            <a href={window.url("service-provider-app.saml.logout")} style={mobileStyle}>
+            <a href={raamiUrl("service-provider-app.saml.logout")} style={mobileStyle}>
                 <div style={mobileStyle} className="links">
                     <Icon name="logout"/> <Translation trans="logout"/>
                 </div>

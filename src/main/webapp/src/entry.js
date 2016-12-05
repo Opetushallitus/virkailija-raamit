@@ -13,6 +13,8 @@ function addStyle(href) {
     document.getElementsByTagName("head")[0].appendChild(ss);
 }
 
+window.raamiUrl = window.urls("virkailija-raamit").url
+
 document.addEventListener("DOMContentLoaded", function(event) {
     addStyle("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
     addStyle(`${process.env.NODE_ENV === 'production' ? '/virkailija-raamit/build/' : '/build/'}bundle.css`);
