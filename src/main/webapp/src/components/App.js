@@ -11,6 +11,7 @@ import opintopolkuLogo from '../../virkailija-raamit/img/opintopolkufi.png';
 import MediaQuery from'react-responsive';
 import Icon from './Icon';
 import mapKeys from 'lodash/mapKeys';
+import urls from '../virkailija-raamit-oph.json'
 
 export default class App extends React.Component {
     constructor(props){
@@ -34,7 +35,7 @@ export default class App extends React.Component {
     async getRoles(){
 
         try {
-            const response = await fetch(raamiUrl("cas.myroles"),{
+            const response = await fetch(urls["cas.myroles"],{
                 credentials: 'include'
             });
             const roles = await response.json();
@@ -56,7 +57,7 @@ export default class App extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    window.location.href = raamiUrl("cas.login", location.href);
+                    window.location.href = urls["cas.login"]+ location.href;
                 }
             }
         }
@@ -65,7 +66,7 @@ export default class App extends React.Component {
     async getUserData(){
 
         try {
-            const response = await fetch(raamiUrl("authentication-service.omattiedot"),{
+            const response = await fetch(urls["authentication-service.omattiedot"],{
                 credentials: 'include'
             });
             this.setState({
@@ -78,7 +79,7 @@ export default class App extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    window.location.href = raamiUrl("cas.login", location.href);
+                    window.location.href = urls["cas.login"] + location.href;
                 }
             }
         }
@@ -95,7 +96,7 @@ export default class App extends React.Component {
 
 
         try {
-            const response = await fetch(raamiUrl("lokalisointi.localisation", {category: "virkailijaraamit", locale: lang}),{
+            const response = await fetch(urls["lokalisointi.localisation"] + lang,{
                 credentials: 'include'
             });
             Translations.setTranslations(await response.json());
@@ -106,7 +107,7 @@ export default class App extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    window.location.href = raamiUrl("cas.login", location.href);
+                    window.location.href = urls["cas.login"] + location.href;
                 }
             }
         }
@@ -337,7 +338,7 @@ export default class App extends React.Component {
                     <div style={base}>
 
                         <div  style={{position: 'static', display: 'flex'}}>
-                            <a href={raamiUrl("virkailijan-stp-ui.etusivu")} style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><Icon name="house"/></a>
+                            <a href={urls["virkailijan-stp-ui.etusivu"]} style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><Icon name="house"/></a>
                             {filteredData.map((item) => <Header transkey={item.key} key={item.key} links={item.links} href={item.href} style={style} hover={this.state.hover} show={this.Show} hide={this.Hide} />)}
                         </div>
 
@@ -355,11 +356,11 @@ export default class App extends React.Component {
                         <div  style={{position: 'absolute', top:60, width:'100%', display: this.state.hover?'':'none', backgroundColor:"white"}}>
 
 
-                            <a href={raamiUrl("virkailijan-stp-ui.etusivu")} style={{
+                            <a href={urls["virkailijan-stp-ui.etusivu"]} style={{
                                 textDecoration:'none',
                                 color: '#333333',
                                 width:'100%',
-                                backgroundColor: window.location.href.indexOf(raamiUrl("virkailijan-stp-ui.base")) > -1 ? '#1194bf':''
+                                backgroundColor: window.location.href.indexOf(urls["virkailijan-stp-ui.base"]) > -1 ? '#1194bf':''
                             }}>
                                 <div className="links">
                                     <Icon name="house"/> <Translations trans="virkailijantyopoyta"/>
@@ -381,11 +382,11 @@ export default class App extends React.Component {
                         <div  style={{position: 'absolute', top:60, width:'100%', display: this.state.hover?'':'none', backgroundColor:"white"}}>
                             {SignOut({userData:this.state.userData, signOutStyle:mobileSignOutStyle, device:'mobile'})}
 
-                            <a href={raamiUrl("virkailijan-stp-ui.etusivu")} style={{
+                            <a href={urls["virkailijan-stp-ui.etusivu"]} style={{
                                 textDecoration:'none',
                                 color: '#333333',
                                 width:'100%',
-                                backgroundColor: window.location.href.indexOf(raamiUrl("virkailijan-stp-ui.base")) > -1 ? '#1194bf':''
+                                backgroundColor: window.location.href.indexOf(urls["virkailijan-stp-ui.base"]) > -1 ? '#1194bf':''
                             }}>
                                 <div className="links">
                                     <Icon name="house"/> <Translations trans="virkailijantyopoyta"/>

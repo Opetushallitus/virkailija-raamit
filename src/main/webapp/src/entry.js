@@ -1,5 +1,3 @@
-import 'oph-urls-js';
-import './virkailija-raamit-oph.js'
 import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import App from './components/App';
@@ -12,8 +10,6 @@ function addStyle(href) {
     ss.href = href;
     document.getElementsByTagName("head")[0].appendChild(ss);
 }
-
-window.raamiUrl = window.urls("virkailija-raamit").url
 
 document.addEventListener("DOMContentLoaded", function(event) {
     addStyle("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
