@@ -1,8 +1,11 @@
+.virkailija-raamit .nav-link:hover,
+.virkailija-raamit .nav-link:hover {
+    text-decoration: none !important;
+}
 
 body{
     margin-top: 0 !important;
     font-family: 'Open Sans', sans-serif;
-
 }
 
 .links {
@@ -11,9 +14,8 @@ body{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 10px;
-
-
 }
+
 .linkCol > a{
     word-wrap: break-word;
     display: block;

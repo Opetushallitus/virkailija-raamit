@@ -151,7 +151,13 @@ export default class App extends React.Component {
         let that = this;
 
         clearTimeout(this.openTimer);
+        clearTimeout(this.fadeInTimer);
+        clearTimeout(this.fadeOutTimer);
         clearTimeout(this.closeTimer);
+
+        this.fadeInTimer = setTimeout(function() {
+            that.setState({fade: true});
+        }, 300);
 
         this.openTimer = setTimeout(function() {
             that.setState({hover: true});
@@ -162,14 +168,21 @@ export default class App extends React.Component {
         let that = this;
 
         clearTimeout(this.openTimer);
+        clearTimeout(this.fadeInTimer);
+
+        this.fadeOutTimer = setTimeout(function() {
+            that.setState({fade: false});
+            that.setState({fadingOut: true})
+        }, 300);
 
         this.closeTimer = setTimeout(function() {
             that.setState({hover: false});
-        }, 300)
+            that.setState({fadingOut: false})
+        }, 600);
     };
 
     toggleHover= () =>{
-        //this.setState({hover: true});
+        this.setState({fade: true});
         this.setState({hover: !this.state.hover});
     };
 
@@ -214,7 +227,7 @@ export default class App extends React.Component {
         const headerStyle={
             position: 'relative',
             fontSize: fontSize,
-            height: 105,
+            height: 110,
             marginLeft: -8,
             marginRight: -8,
             paddingTop: 10,
@@ -223,6 +236,7 @@ export default class App extends React.Component {
             boxSizing: "initial",
             zIndex: 100
         };
+
         const headerTabStyle= {
             ...headerStyle,
             height: 50,
@@ -254,29 +268,25 @@ export default class App extends React.Component {
 
         const imageStyle={
             display:`inline-block`,
-            marginLeft: 10,
+            marginTop: 5,
+            boxSizing: 'border-box',
             textAlign: 'center',
-            height: 29,
-            padding: 8,
-            width: 27,
+            height: 50,
+            padding: 15,
+            paddingTop: 8,
             fontSize:20,
             color: 'white',
             textDecoration: 'none'
         };
         const style={
-            paddingTop: 5,
             textAlign: 'center',
             fontSize: fontSize,
-            display:`inline-block`,
             textDecoration:'none',
-            wordWrap: 'break-word',
-            verticalAlign: 'top',
-            maxWidth: 300
+            verticalAlign: 'top'
         };
         const tabStyle={
             ...style,
             paddingTop: 15,
-            display:'block',
             maxWidth:'none',
             backgroundColor:"#159ECB",
         };
@@ -285,8 +295,7 @@ export default class App extends React.Component {
             float: 'left',
             position: "absolute",
             zIndex:100,
-            top: 70,
-            width: '99%',
+            top: 65
         };
 
         // 'Luokka' / QA environment alert
@@ -302,7 +311,7 @@ export default class App extends React.Component {
         const testEnvironmentAlertStyle = {
             display: 'inline-block',
             position: 'fixed',
-            top: '20px',
+            top: '10px',
             left: '-35px',
             width: '120px',
             padding: '5px',
@@ -316,7 +325,7 @@ export default class App extends React.Component {
         };
 
         return(
-            <header>
+            <header className="virkailija-raamit">
                 {/*
                  Display alert when not in production environment.
                  */}
@@ -335,11 +344,34 @@ export default class App extends React.Component {
                             device:'desktop'
                         })}
                     </div>
-                    <div style={base}>
 
-                        <div  style={{position: 'static', display: 'flex'}}>
-                            <a href={urls["virkailijan-stp-ui.etusivu"]} style={{...imageStyle, backgroundColor: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '#1194bf':''}}><Icon name="house"/></a>
-                            {filteredData.map((item) => <Header transkey={item.key} key={item.key} links={item.links} href={item.href} style={style} hover={this.state.hover} show={this.Show} hide={this.Hide} />)}
+                    <div style={base}>
+                        <div style={{position: 'static', display: 'flex'}}>
+                            <a
+                                className="nav-link"
+                                href={urls["virkailijan-stp-ui.etusivu"]}
+                                style={{
+                                    ...imageStyle,
+                                    borderBottom: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '5px solid #FFF' : ''
+                                }}
+
+                            >
+                                <Icon name="house"/>
+                            </a>
+
+                            {filteredData.map((item) => <Header
+                                transkey={item.key}
+                                key={item.key}
+                                links={item.links}
+                                href={item.href}
+                                style={style}
+                                hover={this.state.hover}
+                                fade={this.state.fade}
+                                fadingOut={this.state.fadingOut}
+                                show={this.Show}
+                                hide={this.Hide}
+                                media="desktop"
+                            />)}
                         </div>
 
 
@@ -367,7 +399,16 @@ export default class App extends React.Component {
                                 </div>
                             </a>
 
-                            {filteredData.map((item) => <Header transkey={item.key} key={item.key} links={item.links} href={item.href} style={tabStyle} hover={this.state.hover} />)}
+                            {filteredData.map((item) => <Header
+                                transkey={item.key}
+                                key={item.key}
+                                links={item.links}
+                                href={item.href}
+                                style={tabStyle}
+                                hover={this.state.hover}
+                                fade={this.state.fade}
+                                media="tablet"
+                            />)}
                         </div>
                     </div>
                 </MediaQuery>
@@ -393,7 +434,16 @@ export default class App extends React.Component {
                                 </div>
                             </a>
 
-                            {filteredData.map((item) => <Header transkey={item.key} key={item.key} links={item.links} href={item.href} style={tabStyle} hover={this.state.hover} />)}
+                            {filteredData.map((item) => <Header
+                                transkey={item.key}
+                                key={item.key}
+                                links={item.links}
+                                href={item.href}
+                                style={tabStyle}
+                                hover={this.state.hover}
+                                fade={this.state.fade}
+                                media="mobile"
+                            />)}
                         </div>
                     </div>
 

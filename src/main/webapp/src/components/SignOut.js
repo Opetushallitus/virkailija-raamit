@@ -1,10 +1,7 @@
 import Translation from './Translations';
 import Icon from './Icon';
-import urls from '../virkailija-raamit-oph.json'
-
 const style ={
     float: "right",
-    marginRight: 20,
     marginTop: 10,
 
 };
@@ -17,8 +14,7 @@ const logout={
 const desktopStyle={
     ...logout,
     color:'white',
-    marginLeft: 10,
-    marginRight: 10,
+    padding: 15,
 };
 
 const mobileStyle={
@@ -37,38 +33,37 @@ export default ({userData, signOutStyle, device}) =>{
     if(userData){
         userName = userData.kutsumanimi + " "+ userData.sukunimi;
     }
+
     let content;
 
     if (device == 'desktop' || device == 'tab') {
         content = <span>
-            <a href="/ohjeet" style={desktopStyle}>
+            <a className="nav-link" href="/ohjeet" style={desktopStyle}>
                 <Icon name="help"/> <Translation trans="ohjeet"/>
             </a>
-            |
-            <a href={urls["authentication-henkiloui.omattiedot"]} style={desktopStyle}>
+            <a className="nav-link" href="/authentication-henkiloui/html/#/omattiedot" style={desktopStyle}>
                 <Icon name="settings"/> {userName ? userName:''}
             </a>
-            |
-            <a href={urls["service-provider-app.saml.logout"]} style={desktopStyle}><Icon name="logout"/><Translation trans="logout"/></a>
+            <a className="nav-link" href="/service-provider-app/saml/logout" style={desktopStyle}><Icon name="logout"/><Translation trans="logout"/></a>
         </span>;
     }else if(device == 'mobile'){
         content = <span>
 
-            <a href="/ohjeet" style={mobileStyle}>
+            <a className="nav-link" href="/ohjeet" style={mobileStyle}>
                 <div style={mobileStyle} className="links">
                     <Icon name="help"/> <Translation trans="ohjeet"/>
                 </div>
             </a>
 
 
-            <a href={urls["authentication-henkiloui.omattiedot"]} style={mobileStyle}>
+            <a className="nav-link" href="/authentication-henkiloui/html/#/omattiedot" style={mobileStyle}>
                 <div style={mobileStyle} className="links">
                     <Icon name="settings"/> {userName ? userName:''}
                 </div>
             </a>
 
 
-            <a href={urls["service-provider-app.saml.logout"]} style={mobileStyle}>
+            <a className="nav-link" href="/service-provider-app/saml/logout" style={mobileStyle}>
                 <div style={mobileStyle} className="links">
                     <Icon name="logout"/> <Translation trans="logout"/>
                 </div>
@@ -76,7 +71,6 @@ export default ({userData, signOutStyle, device}) =>{
 
         </span>;
     }
-
 
     return <div style={{...style, ...signOutStyle}}>
         {content}
