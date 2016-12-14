@@ -1,7 +1,7 @@
 import Translation from './Translations';
 import Link from './Link';
 
-const headerBorderColor = "1px solid #56B6D6";
+const headerBorderColor = "1px solid #BCE5FF";
 const borderColor = "1px solid #F0F0F0";
 
 const headerLinks={
@@ -52,7 +52,7 @@ export default class Header extends React.Component {
             height: 45,
             cursor: media === 'desktop' ? 'pointer' : '',
             backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '#1194bf' : '',
-            borderBottom: media === 'desktop' && currentPage.indexOf(true) > -1 ? '5px solid #FFF' : ''
+            borderBottom: media === 'desktop' && currentPage.indexOf(true) > -1 ? '5px solid #BCE5FF' : ''
         };
 
         const textLinkStyle={
@@ -64,7 +64,7 @@ export default class Header extends React.Component {
             color: 'white',
             boxSizing: 'border-box',
             backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '#159ECB' : '',
-            borderBottom: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '5px solid #FFF' : ''
+            borderBottom: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '5px solid #BCE5FF' : ''
         };
 
         const linkStyle={
