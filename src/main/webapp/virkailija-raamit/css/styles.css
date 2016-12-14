@@ -1,6 +1,15 @@
 .virkailija-raamit .nav-link:hover,
-.virkailija-raamit .nav-link:hover {
+.virkailija-raamit .nav-link:hover,
+.virkailija-raamit .nav-link :hover {
     text-decoration: none !important;
+}
+
+.virkailija-raamit .nav-menu {
+    background-color: #FFF;
+}
+
+.virkailija-raamit .nav-container:hover .nav-menu {
+    background-color: #F6FCFF;
 }
 
 body{

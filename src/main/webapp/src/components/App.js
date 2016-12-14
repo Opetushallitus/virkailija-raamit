@@ -191,8 +191,8 @@ export default class App extends React.Component {
         const user = this.state.userData;
         const myRole = this.state.roles;
 
-        const filteredData = this.dataWithConcatenatedParentRoles.filter(item => {
-            if (item.requiresRole) {
+        const dataWithLinks = this.dataWithConcatenatedParentRoles.filter(item => {
+            if (item.requiresRole && item.links) {
                 return item.requiresRole.some(requiredRole=> {
                     if (myRole.indexOf(requiredRole.toUpperCase()) > -1) {
                         if(item.links){
@@ -211,11 +211,25 @@ export default class App extends React.Component {
                     }
 
                     // Check if parent should be displayed if it has no 'links' property, or it has children in 'links'
-                    if (!item.links || (item.links && item.links.length)) {
+                    if (item.links && item.links.length) {
                         return myRole.indexOf(requiredRole.toUpperCase()) > -1;
                     }
                 })
-            } else {
+            }
+            else if (item.links) {
+                return true;
+            }
+        });
+
+        const dataWithoutLinks = this.dataWithConcatenatedParentRoles.filter(item => {
+            if (item.requiresRole && !item.links) {
+                return item.requiresRole.some(requiredRole=> {
+                    if (!item.links) {
+                        return myRole.indexOf(requiredRole.toUpperCase()) > -1;
+                    }
+                })
+            }
+            else if (!item.links) {
                 return true;
             }
         });
@@ -228,8 +242,6 @@ export default class App extends React.Component {
             position: 'relative',
             fontSize: fontSize,
             height: 110,
-            marginLeft: -8,
-            marginRight: -8,
             paddingTop: 10,
             backgroundColor:"#159ECB",
             color: "white",
@@ -239,7 +251,7 @@ export default class App extends React.Component {
 
         const headerTabStyle= {
             ...headerStyle,
-            height: 50,
+            height: 45,
 
         };
         const signOutStyle={
@@ -248,15 +260,11 @@ export default class App extends React.Component {
             width: '70%'
         };
         const mobileSignOutStyle={
-            //paddingRight: 10,
-            //paddingLeft: 10,
             width: '100%',
             float: 'none',
             color: '#333333',
             backgroundColor:'white',
             textDecoration: 'none',
-            //paddingTop: 10,
-            //paddingBottom: 10,
             borderBottom: '1px solid gray',
             marginTop: 0,
         };
@@ -268,34 +276,36 @@ export default class App extends React.Component {
 
         const imageStyle={
             display:`inline-block`,
-            marginTop: 5,
             boxSizing: 'border-box',
             textAlign: 'center',
-            height: 50,
+            height: 45,
             padding: 15,
             paddingTop: 8,
             fontSize:20,
             color: 'white',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            boxShadow: 'inset 0 0 0 5px #159ECB',
+            zIndex: 2,
+            borderBottom: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '5px solid #FFF' : ''
         };
         const style={
             textAlign: 'center',
             fontSize: fontSize,
             textDecoration:'none',
-            verticalAlign: 'top'
+            verticalAlign: 'top',
         };
         const tabStyle={
             ...style,
             paddingTop: 15,
             maxWidth:'none',
-            backgroundColor:"#159ECB",
+            backgroundColor:"#159ECB"
         };
 
         const base={
             float: 'left',
             position: "absolute",
             zIndex:100,
-            top: 65
+            top: 75
         };
 
         // 'Luokka' / QA environment alert
@@ -350,31 +360,40 @@ export default class App extends React.Component {
                             <a
                                 className="nav-link"
                                 href={urls["virkailijan-stp-ui.etusivu"]}
-                                style={{
-                                    ...imageStyle,
-                                    borderBottom: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '5px solid #FFF' : ''
-                                }}
+                                style={imageStyle}
 
                             >
                                 <Icon name="house"/>
                             </a>
 
-                            {filteredData.map((item) => <Header
-                                transkey={item.key}
-                                key={item.key}
-                                links={item.links}
-                                href={item.href}
-                                style={style}
-                                hover={this.state.hover}
-                                fade={this.state.fade}
-                                fadingOut={this.state.fadingOut}
-                                show={this.Show}
-                                hide={this.Hide}
-                                media="desktop"
+                            <div style={{
+                                display: 'flex',
+                                boxShadow: this.state.fade ? '0px 1px 4px 0px rgba(0,0,0,0.20)' : '',
+                                transition: 'box-shadow .3s ease',
+                                zIndex: 1
+                            }}>
+                                {dataWithLinks.map((item) => <Header
+                                    transkey={item.key}
+                                    key={item.key}
+                                    links={item.links}
+                                    href={item.href}
+                                    style={style}
+                                    hover={this.state.hover}
+                                    fade={this.state.fade}
+                                    fadingOut={this.state.fadingOut}
+                                    show={this.Show}
+                                    hide={this.Hide}
+                                    media="desktop"
+                                />)}
+                            </div>
+
+                            {dataWithoutLinks.map((item) => <Header
+                              transkey={item.key}
+                              key={item.key}
+                              href={item.href}
+                              style={style}
                             />)}
                         </div>
-
-
                     </div>
                 </MediaQuery>
                 <MediaQuery minWidth={641} maxWidth={1223}>
@@ -399,7 +418,7 @@ export default class App extends React.Component {
                                 </div>
                             </a>
 
-                            {filteredData.map((item) => <Header
+                            {dataWithLinks.map((item) => <Header
                                 transkey={item.key}
                                 key={item.key}
                                 links={item.links}
@@ -408,6 +427,13 @@ export default class App extends React.Component {
                                 hover={this.state.hover}
                                 fade={this.state.fade}
                                 media="tablet"
+                            />)}
+
+                            {dataWithoutLinks.map((item) => <Header
+                              transkey={item.key}
+                              key={item.key}
+                              href={item.href}
+                              style={style}
                             />)}
                         </div>
                     </div>
@@ -434,7 +460,7 @@ export default class App extends React.Component {
                                 </div>
                             </a>
 
-                            {filteredData.map((item) => <Header
+                            {dataWithLinks.map((item) => <Header
                                 transkey={item.key}
                                 key={item.key}
                                 links={item.links}
@@ -443,6 +469,13 @@ export default class App extends React.Component {
                                 hover={this.state.hover}
                                 fade={this.state.fade}
                                 media="mobile"
+                            />)}
+
+                            {dataWithoutLinks.map((item) => <Header
+                              transkey={item.key}
+                              key={item.key}
+                              href={item.href}
+                              style={style}
                             />)}
                         </div>
                     </div>

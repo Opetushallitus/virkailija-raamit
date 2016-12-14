@@ -42,67 +42,92 @@ export default class Header extends React.Component {
         }
 
         const textStyle={
-            paddingLeft: 10,
-            paddingRight: 10,
-            marginTop: 5,
+            paddingLeft: links ? 10 : 0,
+            paddingRight: links ? 10 : 0,
             textDecoration:'none',
             color: 'white',
             borderLeft: headerBorderColor,
             boxSizing: 'border-box',
             textAlign: 'left',
-            height:50
+            height: 45,
+            cursor: media === 'desktop' ? 'pointer' : '',
+            backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '#1194bf' : '',
+            borderBottom: media === 'desktop' && currentPage.indexOf(true) > -1 ? '5px solid #FFF' : ''
         };
 
         const textLinkStyle={
+            paddingLeft: 10,
+            paddingRight: 10,
+            height: 45,
+            display: 'block',
             textDecoration:'none',
             color: 'white',
+            boxSizing: 'border-box',
+            backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '#159ECB' : '',
+            borderBottom: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '5px solid #FFF' : ''
         };
 
         const linkStyle={
+            paddingTop: media === 'desktop' ? 5 : 0,
+            paddingBottom: media === 'desktop' ? 5 : 0,
+            flex: 1,
             visibility:hover?'visible':'hidden',
             opacity: fade ? 100 : 0,
-            height: hover?'85%':'0',
-            backgroundColor: '#F6FCFF',
-            boxShadow: '0px 1px 4px 0px rgba(0,0,0,0.20)',
+            height: hover ? 'auto':'0',
             width:'100%',
             borderLeft: borderColor,
             textAlign: 'left',
             transition: 'opacity ease .3s'
         };
 
+        const containerStyle = {
+            backgroundColor: '#FFF',
+            height: links ? 'auto' : 40,
+            flex: links ? 1 : '',
+            display: links ? 'flex' : 'block',
+            flexDirection: 'column',
+            pointerEvents: links && fadingOut ? 'none' : 'auto',
+            boxShadow: links ? '' : 'inset 0 0 0 5px #159ECB',
+            zIndex: links ? '' : 2
+        }
+
         return (
-            <div style={{
-                maxWidth: 300,
-                flex: links ? 1 : '',
-                pointerEvents: links && fadingOut ? 'none' : 'auto'
-            }}>
+            <div className="nav-container" style={containerStyle}>
                 <div
                     style={{
                         ...style,
+                        boxShadow: media === 'desktop' ? '0 -5px 0 0 #159ECB' : '',
                         backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '#1194bf' : '#159ECB',
                     }}
                     key={transkey}
                 >
-                    <div onMouseEnter={links ? show : null}
-                         onMouseLeave={links ? hide : null}
-                         style={{
-                             ...textStyle,
-                             backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '#1194bf' : '',
-                             borderBottom: media === 'desktop' && currentPage.indexOf(true) > -1 ? '5px solid #FFF' : ''
-                         }}
+                    <div
+                        onMouseEnter={links ? show : null}
+                        onMouseLeave={links ? hide : null}
+                        style={textStyle}
                     >
                         {
                             href ?
-                                <a className="nav-link" href={href} style={textLinkStyle}><Translation trans={transkey}/></a> : <Translation trans={transkey}/>
+                                <a
+                                    className="nav-link"
+                                    href={href}
+                                    style={textLinkStyle}
+                                >
+                                    <Translation trans={transkey}/>
+                                </a>
+                                : <Translation trans={transkey}/>
                         }
                     </div>
                 </div>
 
                 {links ?
-                  <div onMouseEnter={show}
-                       onMouseLeave={hide} style={linkStyle}>
+                    <div
+                        className="nav-menu"
+                        onMouseEnter={show}
+                        onMouseLeave={hide} style={linkStyle}
+                    >
                       {links ? links.map((item, ...rest) =>Link({...item}, hover, ...rest)) : ''}
-                  </div> : ''
+                    </div> : ''
                 }
             </div>
         );
