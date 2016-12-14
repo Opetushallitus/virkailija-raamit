@@ -356,7 +356,7 @@ export default class App extends React.Component {
                     </div>
 
                     <div style={base}>
-                        <div style={{position: 'static', display: 'flex'}}>
+                        <div style={{position: 'static', display: 'flex',height: this.state.hover ? 'auto':'0',}}>
                             <a
                                 className="nav-link"
                                 href={urls["virkailijan-stp-ui.etusivu"]}
