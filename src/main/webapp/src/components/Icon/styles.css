@@ -9,7 +9,7 @@
     font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="raami-icon-"], [class*=" raami-icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
     speak: none;
@@ -24,18 +24,18 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-help:before{
+.raami-icon-help:before{
     content: "\f059";
 }
-.icon-settings:before{
+.raami-icon-settings:before{
     content: "\f013";
 }
-.icon-logout:before{
+.raami-icon-logout:before{
     content: "\f011";
 }
-.icon-bars:before{
+.raami-icon-bars:before{
     content: "\f0c9";
 }
-.icon-house:before{
+.raami-icon-house:before{
     content: "\f015";
 }
