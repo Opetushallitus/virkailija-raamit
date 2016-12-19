@@ -48,7 +48,7 @@ export default class App extends React.Component {
             }
         } catch (error) {
 
-            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
+            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.3') === 0) { // dev mode (copypaste from upper)
                 this.setState({roles});
                 if(roles){
                     this.getTranslate();
@@ -73,7 +73,7 @@ export default class App extends React.Component {
                 userData: await response.json()
             });
         } catch (error) {
-            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
+            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.3') === 0) { // dev mode (copypaste from upper)
                 this.setState({userData});
             } else { // real usage
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
@@ -101,7 +101,7 @@ export default class App extends React.Component {
             });
             Translations.setTranslations(await response.json());
         } catch (error) {
-            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
+            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.3') === 0) { // dev mode (copypaste from upper)
                 Translations.setTranslations(translation);
             } else { // real usage
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
@@ -368,6 +368,7 @@ export default class App extends React.Component {
 
                             <div style={{
                                 display: 'flex',
+                                minWidth: 1200,
                                 boxShadow: this.state.fade ? '0px 1px 4px 0px rgba(0,0,0,0.20)' : '',
                                 transition: 'box-shadow .3s ease',
                                 zIndex: 1

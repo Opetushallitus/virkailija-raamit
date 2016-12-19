@@ -3,17 +3,18 @@
 .virkailija-raamit .nav-link :hover {
     text-decoration: none !important;
 }
-
 .virkailija-raamit .nav-menu {
     background-color: #FFF;
 }
 
+.virkailija-raamit .nav-container:hover .links,
 .virkailija-raamit .nav-container:hover .nav-menu {
     background-color: #F6FCFF;
 }
 
 body{
     margin-top: 0 !important;
+    margin: 0;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -23,6 +24,7 @@ body{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 10px;
+    background-color: #FFF;
 }
 
 .linkCol > a{
@@ -32,7 +34,7 @@ body{
     color: #666666;
     text-decoration: none;
 }
-.links:hover {
+.virkailija-raamit .nav-container:hover .links:hover {
     background-color: #E0F3FF;
 }
 .linkCol:first-child {
