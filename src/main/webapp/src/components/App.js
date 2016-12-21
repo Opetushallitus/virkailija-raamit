@@ -23,6 +23,8 @@ export default class App extends React.Component {
 
         this.getRoles();
         this.getUserData();
+
+        this.getCategoryWidth = this.getCategoryWidth.bind(this);
     }
 
     componentWillUpdate(nextProps, nextState) {
@@ -48,7 +50,7 @@ export default class App extends React.Component {
             }
         } catch (error) {
 
-            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.3') === 0) { // dev mode (copypaste from upper)
+            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 this.setState({roles});
                 if(roles){
                     this.getTranslate();
@@ -73,7 +75,7 @@ export default class App extends React.Component {
                 userData: await response.json()
             });
         } catch (error) {
-            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.3') === 0) { // dev mode (copypaste from upper)
+            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 this.setState({userData});
             } else { // real usage
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
@@ -101,7 +103,7 @@ export default class App extends React.Component {
             });
             Translations.setTranslations(await response.json());
         } catch (error) {
-            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.3') === 0) { // dev mode (copypaste from upper)
+            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 Translations.setTranslations(translation);
             } else { // real usage
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
@@ -186,6 +188,14 @@ export default class App extends React.Component {
         this.setState({hover: !this.state.hover});
     };
 
+    getCategoryWidth = (item) => {
+        const categoryNode = document.querySelector(`.category-${item}`);
+
+        if (categoryNode) {
+            console.log(categoryNode.getBoundingClientRect().width, getComputedStyle(categoryNode, null).width, categoryNode.offsetWidth);
+            return categoryNode.offsetWidth;
+        }
+    };
 
     render() {
         const user = this.state.userData;
@@ -233,6 +243,18 @@ export default class App extends React.Component {
                 return true;
             }
         });
+
+        let maxLinksLength = 0;
+        let previousMaxLinksLength = 0;
+
+        dataWithLinks.forEach(item => {
+            if (previousMaxLinksLength < item.links.length) {
+                maxLinksLength = item.links.length;
+                previousMaxLinksLength = maxLinksLength;
+            }
+        });
+
+        const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
         const margin = 30;
 
@@ -294,6 +316,7 @@ export default class App extends React.Component {
             textDecoration:'none',
             verticalAlign: 'top',
         };
+
         const tabStyle={
             ...style,
             paddingTop: 15,
@@ -353,10 +376,43 @@ export default class App extends React.Component {
                             userData:this.state.userData,
                             device:'desktop'
                         })}
+
+                        {/*<a*/}
+                          {/*style={{*/}
+                              {/*fontSize: 20,*/}
+                              {/*textDecoration: 'none',*/}
+                              {/*textAlign: 'center',*/}
+                              {/*width: 50,*/}
+                              {/*display: 'inline-block',*/}
+                              {/*boxSizing: 'border-box',*/}
+                              {/*padding: '15px',*/}
+                              {/*borderBottom: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '5px solid #BCE5FF' : '5px solid #159ECB',*/}
+                              {/*color: '#FFF'*/}
+                          {/*}}*/}
+                          {/*href={urls["virkailijan-stp-ui.etusivu"]}*/}
+                        {/*>*/}
+                            {/*<Icon name="house"/>*/}
+                        {/*</a>*/}
+
+                        {/*{dataWithoutLinks.map((item) =>*/}
+                          {/*<a*/}
+                            {/*key={item.key}*/}
+                            {/*style={{*/}
+                                {/*textDecoration: 'none',*/}
+                                {/*display: 'inline-block',*/}
+                                {/*padding: '0 10px',*/}
+                                {/*borderBottom: window.location.href.indexOf(item.href) > -1 ? '5px solid #BCE5FF' : '5px solid #159ECB',*/}
+                                {/*color: '#FFF'*/}
+                            {/*}}*/}
+                            {/*href={item.href}*/}
+                          {/*>*/}
+                              {/*<Translations trans={item.key} />*/}
+                          {/*</a>*/}
+                        {/*)}*/}
                     </div>
 
-                    <div style={base}>
-                        <div style={{position: 'static', display: 'flex',height: this.state.hover ? 'auto':'0',}}>
+                    <div style={{ ...base }}>
+                        <div style={{position: 'static', display: 'flex'}}>
                             <a
                                 className="nav-link"
                                 href={urls["virkailijan-stp-ui.etusivu"]}
@@ -376,7 +432,9 @@ export default class App extends React.Component {
                                 {dataWithLinks.map((item) => <Header
                                     transkey={item.key}
                                     key={item.key}
+                                    isIE11={isIE11}
                                     links={item.links}
+                                    maxLinksLength={maxLinksLength}
                                     href={item.href}
                                     style={style}
                                     hover={this.state.hover}
@@ -396,7 +454,75 @@ export default class App extends React.Component {
                             />)}
                         </div>
                     </div>
+
+                    {/*<div style={{*/}
+                        {/*fontSize: 14,*/}
+                        {/*display: 'flex',*/}
+                        {/*color: '#FFF',*/}
+                        {/*backgroundColor: '#159ECB'*/}
+                    {/*}}>*/}
+                        {/*{dataWithLinks.map((item, index) =>*/}
+                            {/*<div*/}
+                                {/*key={item.key}*/}
+                                {/*className={`category-${item.key}`}*/}
+                                {/*style={{*/}
+                                    {/*width: 200,*/}
+                                    {/*padding: '0 10px',*/}
+                                    {/*boxSizing: 'border-box',*/}
+                                    {/*borderRight: index === dataWithLinks.length - 1 ? '1px solid #56B6D6' : '',*/}
+                                    {/*borderBottom: item.links.map(({href}) => {*/}
+                                        {/*return (window.location.href.indexOf(href) > -1 ? '5px solid #BCE5FF' : '5px solid #159ECB');*/}
+                                    {/*}),*/}
+                                    {/*borderLeft: '1px solid #56B6D6',*/}
+                                    {/*cursor: 'pointer'*/}
+                                {/*}}*/}
+                            {/*>*/}
+                                {/*<Translations trans={item.key} />*/}
+                            {/*</div>*/}
+                        {/*)}*/}
+                    {/*</div>*/}
+
+                    {/*<div style={{*/}
+                        {/*fontSize: 14,*/}
+                        {/*backgroundColor: '#FFF',*/}
+                        {/*boxShadow: '0px 1px 4px 0px rgba(0,0,0,0.20)'*/}
+                    {/*}}>*/}
+                        {/*<div style={{*/}
+                            {/*display: 'flex'*/}
+                        {/*}}>*/}
+                            {/*{dataWithLinks.map((item, index) =>*/}
+                                {/*<div*/}
+                                    {/*key={item.key}*/}
+                                    {/*style={{*/}
+                                        {/*display: 'inline-block',*/}
+                                        {/*boxSizing: 'border-box',*/}
+                                        {/*width: 200,*/}
+                                        {/*borderRight: index === dataWithLinks.length - 1 ? '1px solid #F0F0F0' : '',*/}
+                                        {/*borderLeft: '1px solid #F0F0F0',*/}
+                                    {/*}}*/}
+                                {/*>*/}
+                                    {/*{item.links.map((link, index) =>*/}
+                                        {/*<a*/}
+                                            {/*key={link.key}*/}
+                                            {/*style={{*/}
+                                                {/*textDecoration: 'none',*/}
+                                                {/*display: 'block',*/}
+                                                {/*marginTop: index === 0 ? '5px' : '',*/}
+                                                {/*marginBottom: index === item.links.length - 1 ? '5px' : '',*/}
+                                                {/*padding: '5px 10px',*/}
+                                                {/*color: '#000'*/}
+                                            {/*}}*/}
+                                            {/*href={link.href}*/}
+                                        {/*>*/}
+                                            {/*<Translations trans={link.key} />*/}
+                                        {/*</a>*/}
+                                    {/*)}*/}
+                                {/*</div>*/}
+                            {/*)}*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
                 </MediaQuery>
+
                 <MediaQuery minWidth={641} maxWidth={1223}>
                     <div style={headerTabStyle}>
 

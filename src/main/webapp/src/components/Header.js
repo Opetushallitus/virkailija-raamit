@@ -1,7 +1,7 @@
 import Translation from './Translations';
 import Link from './Link';
 
-const headerBorderColor = "1px solid #BCE5FF";
+const headerBorderColor = "1px solid #56B6D6";
 const borderColor = "1px solid #F0F0F0";
 
 const headerLinks={
@@ -17,7 +17,9 @@ export default class Header extends React.Component {
     render() {
         const {
           transkey,
+          isIE11,
           links,
+          maxLinksLength,
           href,
           style,
           hover,
@@ -71,20 +73,32 @@ export default class Header extends React.Component {
             paddingTop: media === 'desktop' ? 5 : 0,
             paddingBottom: media === 'desktop' ? 5 : 0,
             flex: 1,
-            visibility:hover?'visible':'hidden',
+            visibility:hover ? 'visible' : 'hidden',
             opacity: fade ? 100 : 0,
-            height: hover ? 'auto':'0',
+            height: hover ? 'auto' : 0,
             width:'100%',
             borderLeft: borderColor,
             textAlign: 'left',
             transition: 'opacity ease .3s'
         };
 
+        const containerHeight = (isIE11) => {
+            if (isIE11 && hover) {
+                return (maxLinksLength * 55);
+            }
+            else if (hover) {
+                return 'auto';
+            }
+            else {
+                return '0';
+            }
+        }
+
         const containerStyle = {
             backgroundColor: '#FFF',
-            height: links ? 'auto' : 40,
+            height: links ? containerHeight(isIE11) : 40,
             flex: links ? 1 : '',
-            display: links ? 'flex' : 'block',
+            display: links && media === 'desktop' ? 'flex' : 'block',
             flexDirection: 'column',
             pointerEvents: links && fadingOut ? 'none' : 'auto',
             boxShadow: links ? '' : 'inset 0 0 0 5px #159ECB',
