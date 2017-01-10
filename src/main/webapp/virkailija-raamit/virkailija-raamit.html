@@ -209,15 +209,39 @@
         <script type="text/javascript">
 
             var siteDomain = document.domain;
-            var piwikSiteId = 2;
-            if(siteDomain=='opintopolku.fi'){
-                piwikSiteId = 4;
-            }else if(siteDomain=='virkailija.opintopolku.fi'){
-                piwikSiteId = 3;
-            }else if(siteDomain=='testi.opintopolku.fi'){
-                piwikSiteId = 1;
-            }else if(siteDomain=='testi.virkailija.opintopolku.fi'){
-                piwikSiteId = 5;
+            var piwikSiteId;
+            switch (siteDomain) {
+                case "opintopolku.fi":
+                    piwikSiteId = 4;
+                    break;
+                case "studieinfo.fi":
+                    piwikSiteId = 13;
+                    break;
+                case "studyinfo.fi":
+                    piwikSiteId = 14;
+                    break;
+                case "virkailija.opintopolku.fi":
+                case "virkailija.studieinfo.fi":
+                case "virkailija.studyinfo.fi":
+                    piwikSiteId = 3;
+                    break;
+                case "testi.opintopolku.fi":
+                case "testi.studieinfo.fi":
+                case "testi.studyinfo.fi":
+                    piwikSiteId = 1;
+                    break;
+                case "testi.virkailija.opintopolku.fi":
+                case "testi.virkailija.studieinfo.fi":
+                case "testi.virkailija.studyinfo.fi":
+                    piwikSiteId = 5;
+                    break;
+                case "demo.opintopolku.fi":
+                case "demo.studieinfo.fi":
+                case "demo.studyinfo.fi":
+                    piwikSiteId = 15;
+                    break;
+                default:
+                    piwikSiteId = 2; // Kehitys
             }
 
             var _paq = _paq || [];
