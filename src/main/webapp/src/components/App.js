@@ -263,11 +263,11 @@ export default class App extends React.Component {
         const headerStyle={
             position: 'relative',
             fontSize: fontSize,
-            height: isIE11 ? 120 : 110,
+            height: 120,
             paddingTop: 10,
             backgroundColor:"#159ECB",
             color: "white",
-            boxSizing: "initial",
+            boxSizing: "border-box",
             zIndex: 100
         };
 
