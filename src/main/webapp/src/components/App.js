@@ -273,7 +273,7 @@ export default class App extends React.Component {
 
         const headerTabStyle= {
             ...headerStyle,
-            height: 45,
+            height: 55,
 
         };
         const signOutStyle={
