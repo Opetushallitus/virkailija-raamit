@@ -308,7 +308,7 @@ export default class App extends React.Component {
             textDecoration: 'none',
             boxShadow: 'inset 0 0 0 5px #159ECB',
             zIndex: 2,
-            borderBottom: window.location.href.indexOf("/virkailijan-stp-ui/") > -1 ? '5px solid #BCE5FF' : ''
+            borderBottom: window.location.href.indexOf(urls["virkailijan-stp-ui.base"]) > -1 ? '5px solid #BCE5FF' : ''
         };
         const style={
             textAlign: 'center',
