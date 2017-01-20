@@ -133,6 +133,11 @@
         "key":"hakuperusteet",
         "href":"/hakuperusteetadmin",
         "requiresRole":["app_hakuperusteetadmin"]
+      },
+      {
+        "key":"atarueditori",
+        "href":"/lomake-editori",
+        "requiresRole":["app_ataru_editori"]
       }
     ]
   },
