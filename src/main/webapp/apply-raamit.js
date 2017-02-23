@@ -29,7 +29,6 @@ function initJQuery() {
     } else {
         $(function () {
             // jquery has been loaded
-            console.log('calling applyRaamit()');
             applyRaamit();
         });
     }
@@ -37,7 +36,6 @@ function initJQuery() {
 
 setTimeout(function () {
     initOphUrls(function () {
-        console.log('initOphUrls callback');
         initJQuery();
     })
 });
