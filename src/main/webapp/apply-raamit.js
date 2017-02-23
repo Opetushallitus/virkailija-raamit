@@ -62,7 +62,7 @@ function setRaportointiAddress() {
 }
 
 function applyRaamit() {
-    $.get("/virkailija-raamit/virkailija-raamit/virkailija-raamit.html", function (data) {
+    $.get(window.url("virkailija-raamit-web.raamit"), function (data) {
         var $data = $(data);
         var $head = $('head');
         $head.append($data.closest("title"));
@@ -91,7 +91,7 @@ function activateNavigarionInner2(myroles, dropDownMenu) {
 }
 function activateNavigationInner(dropDownMenu, myroles) {
     if (typeof jQuery.i18n == "undefined") {
-        $.getScript('/virkailija-raamit/js/lib/jquery.i18n.properties-min-1.0.9.js', function () {
+        $.getScript(window.url("virkailija-raamit-web.js.i18next"), function () {
             activateNavigarionInner2(myroles, dropDownMenu);
         });
     } else {
@@ -104,7 +104,7 @@ function activateNavigation() {
         activateNavigationInner(dropDownMenu, myroles);
     }).error(function () { // error while reading /cas/myroles -> not authenticated(?) - todo: the resource should tell when error and when not authenticated!
             if (location.host.indexOf('localhost') === 0) { // dev mode (copypaste from upper)
-                $.getJSON("/virkailija-raamit/virkailija-raamit/myroles.json", function (myroles) {
+                $.getJSON(window.urls("virkailija-raamit-web.myroles"), function (myroles) {
                     activateNavigationInner(dropDownMenu, myroles);
                 });
             } else { // real usage
@@ -189,7 +189,8 @@ function applyI18N() {
     lang = lang.toLowerCase();
 
     var host = location.host.indexOf("localhost") === 0 || location.protocol=="file" ? "https://itest-virkailija.oph.ware.fi" : "";
-    $.getJSON(host+"/lokalisointi/cxf/rest/v1/localisation?category=virkailijaraamit&locale="+lang, function(messagesarray){
+    var path = window.urls("lokalisointi.localisation.virkailija-raamit", lang);
+    $.getJSON(host+path, function(messagesarray){
         // messages array -> map
         var messagesmap = {};
         for (var i = 0; i < messagesarray.length; i++) {
@@ -216,9 +217,10 @@ function addTranslation(msgKey, lang, elemText, oldTranslation) {
         var createValue = elemText;
         var data = { "value": createValue, "key": msgKey, "locale": lang, "category": "virkailijaraamit" };
         var host = location.host.indexOf("kehitys-virkailija") == 0 ? location.host : "itest-virkailija.oph.ware.fi";
+        var localisationPath = "https://" + host + window.url("lokalisointi.localisation");
         $.ajax({
             type: oldTranslation ? "PUT" : "POST",
-            url: "https://" + host + "/lokalisointi/cxf/rest/v1/localisation" + (oldTranslation ? "/"+oldTranslation.id : ""),
+            url: localisationPath + (oldTranslation ? "/"+oldTranslation.id : ""),
             data: JSON.stringify(data),
             contentType: 'application/json; charset=UTF-8',
             dataType: "json"
