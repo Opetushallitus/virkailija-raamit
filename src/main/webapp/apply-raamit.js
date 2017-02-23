@@ -29,13 +29,18 @@ function initJQuery() {
     } else {
         $(function () {
             // jquery has been loaded
+            console.log('calling applyRaamit()');
             applyRaamit();
         });
     }
 }
 
-initOphUrls();
-initJQuery();
+setTimeout(function () {
+    initOphUrls(function () {
+        console.log('initOphUrls callback');
+        initJQuery();
+    })
+});
 
 
 function loadScript(expected, src, callback) {
