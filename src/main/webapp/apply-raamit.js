@@ -8,6 +8,12 @@ var myrolesResource = "/cas/myroles";
 // init jquery only if not inited already
 var jQueryScriptOutputted = false;
 
+function initOphUrls(callback) {
+    loadScript(window.url, "/virkailija-raamit/js/oph_urls.js/index.js", function () {
+        loadScript(undefined, "/virkailija-raamit/js/virkailija-raamit-web-oph_properties.js", callback)
+    })
+}
+
 function initJQuery() {
     //if the jQuery object isn't available
     if (typeof(jQuery) == 'undefined') {
@@ -27,7 +33,23 @@ function initJQuery() {
         });
     }
 }
+
+initOphUrls();
 initJQuery();
+
+
+function loadScript(expected, src, callback) {
+    if (typeof expected == "undefined") {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = callback;
+        script.src = src;
+        document.getElementsByTagName('head')[0].appendChild(script);
+    } else {
+        callback()
+    }
+}
 
 
 function showHome() {
