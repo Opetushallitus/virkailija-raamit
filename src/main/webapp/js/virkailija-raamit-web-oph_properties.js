@@ -1,5 +1,5 @@
 window.urls.addProperties({
-    "lokalisointi.localisation": "/lokalisointi/cxf/rest/v1/localisation",
+    "lokalisointi.localisation.base": "/lokalisointi/cxf/rest/v1/localisation",
     "lokalisointi.localisation.virkailija-raamit": "/lokalisointi/cxf/rest/v1/localisation?category=virkailijaraamit&locale=$1",
     "virkailija-raamit-web.raamit": "/virkailija-raamit/virkailija-raamit/virkailija-raamit.html",
     "virkailija-raamit-web.myroles": "/virkailija-raamit/virkailija-raamit/myroles.json",

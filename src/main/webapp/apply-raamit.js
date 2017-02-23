@@ -244,7 +244,7 @@ function addTranslation(msgKey, lang, elemText, oldTranslation) {
         var createValue = elemText;
         var data = { "value": createValue, "key": msgKey, "locale": lang, "category": "virkailijaraamit" };
         var host = location.host.indexOf("kehitys-virkailija") == 0 ? location.host : "itest-virkailija.oph.ware.fi";
-        var localisationPath = "https://" + host + window.url("lokalisointi.localisation");
+        var localisationPath = "https://" + host + window.url("lokalisointi.localisation.base");
         $.ajax({
             type: oldTranslation ? "PUT" : "POST",
             url: localisationPath + (oldTranslation ? "/"+oldTranslation.id : ""),
