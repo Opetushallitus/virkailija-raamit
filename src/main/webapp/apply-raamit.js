@@ -104,7 +104,7 @@ function activateNavigation() {
         activateNavigationInner(dropDownMenu, myroles);
     }).error(function () { // error while reading /cas/myroles -> not authenticated(?) - todo: the resource should tell when error and when not authenticated!
             if (location.host.indexOf('localhost') === 0) { // dev mode (copypaste from upper)
-                $.getJSON(window.urls("virkailija-raamit-web.myroles"), function (myroles) {
+                $.getJSON(window.url("virkailija-raamit-web.myroles"), function (myroles) {
                     activateNavigationInner(dropDownMenu, myroles);
                 });
             } else { // real usage
@@ -189,7 +189,7 @@ function applyI18N() {
     lang = lang.toLowerCase();
 
     var host = location.host.indexOf("localhost") === 0 || location.protocol=="file" ? "https://itest-virkailija.oph.ware.fi" : "";
-    var path = window.urls("lokalisointi.localisation.virkailija-raamit", lang);
+    var path = window.url("lokalisointi.localisation.virkailija-raamit", lang);
     $.getJSON(host+path, function(messagesarray){
         // messages array -> map
         var messagesmap = {};
