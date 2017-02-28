@@ -263,8 +263,8 @@ export default class App extends React.Component {
         const headerStyle={
             position: 'relative',
             fontSize: fontSize,
-            height: 120,
-            paddingTop: 10,
+            height: 100,
+            paddingTop: 5,
             backgroundColor:"#159ECB",
             color: "white",
             boxSizing: "border-box",
@@ -328,7 +328,7 @@ export default class App extends React.Component {
             float: 'left',
             position: "absolute",
             zIndex:100,
-            top: 75
+            top: 55
         };
 
         // 'Luokka' / QA environment alert
