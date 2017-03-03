@@ -29,6 +29,34 @@ function initJQuery() {
     } else {
         $(function () {
             // jquery has been loaded
+            function isSafeMethod(method) {
+                var safeMethods = ['GET', 'HEAD', 'OPTIONS', 'TRACE'];
+                return (safeMethods.indexOf(method) > -1);
+            }
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var cookies = document.cookie ? document.cookie.split('; ') : [];
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.indexOf(name) == 0) {
+                        return cookie.substring(name.length, cookie.length);
+                    }
+                }
+                return null;
+            }
+
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!isSafeMethod(settings.type) && !this.crossDomain) {
+                        var csrfCookie = getCookie("CSRF");
+                        if (csrfCookie) {
+                            xhr.setRequestHeader("CSRF", csrfCookie);
+                        }
+                    }
+                }
+            });
+
             applyRaamit();
         });
     }
@@ -247,6 +275,7 @@ function addTranslation(msgKey, lang, elemText, oldTranslation) {
             type: oldTranslation ? "PUT" : "POST",
             url: localisationPath + (oldTranslation ? "/"+oldTranslation.id : ""),
             data: JSON.stringify(data),
+            headers: headers,
             contentType: 'application/json; charset=UTF-8',
             dataType: "json"
         });
