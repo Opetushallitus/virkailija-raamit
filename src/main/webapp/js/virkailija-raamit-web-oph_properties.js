@@ -5,5 +5,5 @@ window.urls.addProperties({
     "virkailija-raamit-web.myroles": "/virkailija-raamit/virkailija-raamit/myroles.json",
     "virkailija-raamit-web.js.i18next": "/virkailija-raamit/js/lib/jquery.i18n.properties-min-1.0.9.js",
     "virkailija-raamit-web.js.jquery": "/virkailija-raamit/js/lib/jquery-2.1.1.min.js",
-    "virkailija-raamit-web.js.jquery-cookie": "/virkailija-raamit/js/lib/jquery.cookie.js"
+    "virkailija-raamit-web.js.jquery.cookie": "/virkailija-raamit/js/lib/jquery.cookie.js"
 })
