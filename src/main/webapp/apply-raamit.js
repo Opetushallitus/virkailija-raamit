@@ -14,57 +14,40 @@ function initOphUrls(callback) {
     })
 }
 
-function initJQuery() {
-    //if the jQuery object isn't available
-    if (typeof(jQuery) == 'undefined') {
-        if (!jQueryScriptOutputted) {
-            // init jquery
-            jQueryScriptOutputted = true; //only output the script once..
-            var script = document.createElement('script');
-            script.src = '/virkailija-raamit/js/lib/jquery-2.1.1.min.js';
-            script.type = 'text/javascript';
-            document.getElementsByTagName('head')[0].appendChild(script);
-        }
-        setTimeout(initJQuery, 20);
-    } else {
-        $(function () {
-            // jquery has been loaded
-            function isSafeMethod(method) {
-                var safeMethods = ['GET', 'HEAD', 'OPTIONS', 'TRACE'];
-                return (safeMethods.indexOf(method) > -1);
-            }
+function initJQuery(callback) {
+    loadScript(window.jQuery, window.url("virkailija-raamit-web.js.jquery"), callback)
+}
 
-            function getCookie(cname) {
-                var name = cname + "=";
-                var cookies = document.cookie ? document.cookie.split('; ') : [];
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = cookies[i].trim();
-                    if (cookie.indexOf(name) == 0) {
-                        return cookie.substring(name.length, cookie.length);
-                    }
-                }
-                return null;
-            }
-
-            $.ajaxSetup({
-                beforeSend: function(xhr, settings) {
-                    if (!isSafeMethod(settings.type) && !this.crossDomain) {
-                        var csrfCookie = getCookie("CSRF");
-                        if (csrfCookie) {
-                            xhr.setRequestHeader("CSRF", csrfCookie);
-                        }
-                    }
-                }
-            });
-
-            applyRaamit();
-        });
-    }
+function initJQueryCookie(callback) {
+    loadScript(window.jQuery.cookie, window.url("virkailija-raamit-web.js.jquery.cookie"), callback)
 }
 
 setTimeout(function () {
     initOphUrls(function () {
-        initJQuery();
+        initJQuery(function () {
+            initJQueryCookie(function () {
+                $(function () {
+                    // jquery has been loaded
+                    function isSafeMethod(method) {
+                        var safeMethods = ['GET', 'HEAD', 'OPTIONS', 'TRACE'];
+                        return (safeMethods.indexOf(method) > -1);
+                    }
+
+                    $.ajaxSetup({
+                        beforeSend: function(xhr, settings) {
+                            if (!isSafeMethod(settings.type) && !this.crossDomain) {
+                                var csrfCookie = $.cookie("CSRF");
+                                if (csrfCookie) {
+                                    xhr.setRequestHeader("CSRF", csrfCookie);
+                                }
+                            }
+                        }
+                    });
+
+                    applyRaamit();
+                })
+            })
+        });
     })
 });
 
