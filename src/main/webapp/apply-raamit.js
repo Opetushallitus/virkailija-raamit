@@ -258,7 +258,6 @@ function addTranslation(msgKey, lang, elemText, oldTranslation) {
             type: oldTranslation ? "PUT" : "POST",
             url: localisationPath + (oldTranslation ? "/"+oldTranslation.id : ""),
             data: JSON.stringify(data),
-            headers: headers,
             contentType: 'application/json; charset=UTF-8',
             dataType: "json"
         });
