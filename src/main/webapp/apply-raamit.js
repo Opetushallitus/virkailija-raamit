@@ -252,11 +252,9 @@ function addTranslation(msgKey, lang, elemText, oldTranslation) {
     if (!oldTranslation || allowEmptyTranslationUpdate && (!oldTranslation.value || oldTranslation.value === "")) { // dont update existing translation
         var createValue = elemText;
         var data = { "value": createValue, "key": msgKey, "locale": lang, "category": "virkailijaraamit" };
-        var host = location.host.indexOf("kehitys-virkailija") == 0 ? location.host : "itest-virkailija.oph.ware.fi";
-        var localisationPath = "https://" + host + window.url("lokalisointi.localisation.base");
         $.ajax({
             type: oldTranslation ? "PUT" : "POST",
-            url: localisationPath + (oldTranslation ? "/"+oldTranslation.id : ""),
+            url: window.url("lokalisointi.localisation.base") + (oldTranslation ? "/" + oldTranslation.id : ""),
             data: JSON.stringify(data),
             contentType: 'application/json; charset=UTF-8',
             dataType: "json"
