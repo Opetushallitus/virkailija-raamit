@@ -137,7 +137,7 @@
       {
         "key":"atarueditori",
         "href":"/lomake-editori",
-        "requiresRole":["app_ataru_editori"]
+        "requiresRole":["app_ataru_editori","app_ataru_hakemus"]
       }
     ]
   },
