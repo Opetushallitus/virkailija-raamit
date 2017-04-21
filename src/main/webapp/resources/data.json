@@ -179,7 +179,7 @@
       {
         "key":"rekisteritsuoritusrekisteri",
         "href":"/suoritusrekisteri/#/",
-        "requiresRole":["app_suoritusrekisteri_read","app_suoritusrekisteri_crud"]
+        "requiresRole":["app_suoritusrekisteri_read","app_suoritusrekisteri_read_update","app_suoritusrekisteri_crud"]
       },
       {
         "key":"rekisterittiedonsiirrot",
