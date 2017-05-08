@@ -8,5 +8,10 @@
     "name": "QA",
     "type": "test",
     "href": "testi.virkailija.opintopolku.fi"
+  },
+  {
+    "name": "OPHDEV",
+    "type": "test",
+    "href": "virkailija.osdev.oph.ware.fi"
   }
 ]
