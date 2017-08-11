@@ -24,6 +24,11 @@
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk</artifactId>
+            <version>1.11.174</version>
+        </dependency>
     </dependencies>
 
     <groupId>fi.vm.sade.themes</groupId>
