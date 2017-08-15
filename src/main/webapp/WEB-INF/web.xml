@@ -7,7 +7,4 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
-    <listener>
-        <listener-class>fi.vm.sade.virkailijaraamit.AwsConfig</listener-class>
-    </listener>
 </web-app>
