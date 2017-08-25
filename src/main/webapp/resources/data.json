@@ -111,7 +111,7 @@
       },
       {
         "key":"valinnattoteuttaminen",
-        "href":"/valintalaskenta-ui",
+        "href":"/valintalaskenta-ui/",
         "requiresRole":["app_valintojentoteuttaminen"]
       },
       {
@@ -121,7 +121,7 @@
       },
       {
         "key":"valinnatperusteet",
-        "href":"/valintaperusteet-ui",
+        "href":"/valintaperusteet-ui/",
         "requiresRole":["app_valintaperusteet"]
       },
       {
@@ -131,12 +131,12 @@
       },
       {
         "key":"hakuperusteet",
-        "href":"/hakuperusteetadmin",
+        "href":"/hakuperusteetadmin/",
         "requiresRole":["app_hakuperusteetadmin"]
       },
       {
         "key":"atarueditori",
-        "href":"/lomake-editori",
+        "href":"/lomake-editori/",
         "requiresRole":["app_ataru_editori","app_ataru_hakemus"]
       }
     ]
@@ -173,7 +173,7 @@
     "links":[
       {
         "key":"koski",
-        "href":"/koski",
+        "href":"/koski/",
         "requiresRole":["app_koski"]
       },
       {
