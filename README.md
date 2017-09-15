@@ -1,5 +1,5 @@
 # virkailija-raamit
-Virkailijan työpöydän raamit
+Virkailijan työpöydän navigaatiovalikko.
 
 ### Raamit mukaan kehitykseen
 apply-raamit.js tiedoston myrolesResource muuttuja määrittelee käyttöoikeudet.

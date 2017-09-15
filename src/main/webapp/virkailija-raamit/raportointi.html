@@ -17,5 +17,16 @@
 <div id="app-container">
     <iframe id="raportointiSrc" style="width: 100%; height: 850px ; border: 0; overflow: hidden;"  ></iframe>
 </div>
+<script>
+    $( document ).ready(function() {
+        oph_host = location.host.split(':')[0];
+        var raportointiAddress = "https://testiraportit.odw.opintopolku.fi";
+        if(oph_host.indexOf('virkailija.opintopolku.fi') === 0) {
+            raportointiAddress = "https://raportit.odw.opintopolku.fi/";
+        }
+        console.log("asasd");
+        $("#raportointiSrc").attr("src", raportointiAddress);
+    });
+</script>
 </body>
 </html>

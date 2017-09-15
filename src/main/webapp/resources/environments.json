@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Luokka",
+    "type": "test",
+    "href": "itest-virkailija.oph.ware.fi"
+  },
+  {
+    "name": "QA",
+    "type": "test",
+    "href": "testi.virkailija.opintopolku.fi"
+  },
+  {
+    "name": "OPHDEV",
+    "type": "test",
+    "href": "virkailija.osdev.oph.ware.fi"
+  },
+  {
+    "name": "Untuva",
+    "type": "test",
+    "href": "virkailija.untuva.aws.opintopolku.fi"
+  }
+]
