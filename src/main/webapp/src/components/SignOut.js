@@ -31,7 +31,7 @@ export default ({userData, signOutStyle, device}) =>{
     var userName = '';
 
     if(userData){
-        userName = userData.kutsumanimi + " "+ userData.sukunimi;
+        userName = userData.firstName + " "+ userData.lastName;
     }
 
     let content;

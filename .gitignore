@@ -5,3 +5,7 @@ src/main/webapp/node_modules
 src/main/webapp/build
 src/main/webapp/node
 .babelrc
+apply-raamit.js
+.classpath
+.project
+.settings/
