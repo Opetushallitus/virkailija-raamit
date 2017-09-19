@@ -38,7 +38,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <warSourceExcludes>src/,node/,node_modules/,package.json</warSourceExcludes>
+                    <warSourceExcludes>src/,node/,node_modules/,package.json,dev/</warSourceExcludes>
                     <webResources>
                         <resource>
                             <directory>src/main/webapp</directory>
@@ -48,6 +48,7 @@
                                 <exclude>node/**</exclude>
                                 <exclude>node_modules/**</exclude>
                                 <exclude>package.json</exclude>
+                                <exclude>dev/**</exclude>
                             </excludes>
                         </resource>
                     </webResources>

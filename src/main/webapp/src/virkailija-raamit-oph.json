@@ -1,7 +1,6 @@
 {
-  "cas.myroles": "/cas/myroles",
+  "cas.me": "/cas/me",
   "cas.login": "/cas/login?service=",
-  "authentication-service.omattiedot": "/authentication-service/resources/omattiedot",
   "lokalisointi.localisation":"/lokalisointi/cxf/rest/v1/localisation?category=virkailijaraamit&locale=",
   "virkailijan-stp-ui.etusivu": "/virkailijan-stp-ui",
   "virkailijan-stp-ui.base": "/virkailijan-stp-ui",

@@ -4,9 +4,8 @@ import Header from './Header';
 import Link from './Link';
 import SignOut from './SignOut';
 import Translations from './Translations';
-import roles from '../../virkailija-raamit/myroles.json';
-import userData from '../../virkailija-raamit/myUserData.json';
-import translation from '../../virkailija-raamit/translation.json';
+import userData from '../../dev/me.json';
+import translation from '../../dev/translation.json';
 import opintopolkuLogo from '../../virkailija-raamit/img/opintopolkufi.png';
 import MediaQuery from'react-responsive';
 import Icon from './Icon';
@@ -17,66 +16,41 @@ export default class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            roles: [],
             userData: []
         };
 
-        this.getRoles();
         this.getUserData();
 
         this.getCategoryWidth = this.getCategoryWidth.bind(this);
     }
 
     componentWillUpdate(nextProps, nextState) {
-        // Only update data when roles are changed
-        if (nextState.roles !== this.state.roles) {
+        // Only update role basedata when userdata has changed
+        if (nextState.userData !== this.state.userData) {
             this.dataWithConcatenatedParentRoles = this.getDataWithConcatenatedParentRoles(data);
-        }
-    }
-
-    async getRoles(){
-
-        try {
-            const response = await fetch(urls["cas.myroles"],{
-                credentials: 'include'
-            });
-            const roles = await response.json();
-            this.setState({
-                roles: roles
-            });
-            if(roles){
-                window.myroles = roles;
-                this.getTranslate();
-            }
-        } catch (error) {
-
-            if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
-                this.setState({roles});
-                if(roles){
-                    this.getTranslate();
-                }
-            } else { // real usage
-                if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
-                    alert('Problems with login, please reload page or log out and try again');
-                } else {
-                    window.location.href = urls["cas.login"]+ location.href;
-                }
-            }
         }
     }
 
     async getUserData(){
 
         try {
-            const response = await fetch(urls["authentication-service.omattiedot"],{
+            const response = await fetch(urls["cas.me"],{
                 credentials: 'include'
             });
+            const ud = await response.json();
             this.setState({
-                userData: await response.json()
+                userData: ud
             });
+            if(ud) {
+                window.myroles = ud.groups;
+                this.getTranslate();
+            }
         } catch (error) {
             if (location.host.indexOf('localhost') === 0 || location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 this.setState({userData});
+                if(userData){
+                    this.getTranslate();
+                }
             } else { // real usage
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
@@ -89,10 +63,10 @@ export default class App extends React.Component {
 
     async getTranslate(){
         var lang='fi';
-
-        for (var i = 0; i < this.state.roles.length; i++) {
-            if (this.state.roles[i].indexOf('LANG_') === 0) {
-                lang = this.state.roles[i].substring(5);
+        var groups = this.state.userData.groups;
+        for (var i = 0; i < groups.length; i++) {
+            if (groups[i].indexOf('LANG_') === 0) {
+                lang = groups[i].substring(5);
             }
         }
 
@@ -198,8 +172,7 @@ export default class App extends React.Component {
     };
 
     render() {
-        const user = this.state.userData;
-        const myRole = this.state.roles;
+        const myRole = this.state.userData.groups;
 
         const dataWithLinks = this.dataWithConcatenatedParentRoles.filter(item => {
             if (item.requiresRole && item.links) {
