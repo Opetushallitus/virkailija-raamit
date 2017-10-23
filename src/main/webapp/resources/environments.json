@@ -18,5 +18,10 @@
     "name": "Untuva",
     "type": "test",
     "href": "virkailija.untuva.aws.opintopolku.fi"
+  },
+  {
+    "name": "Pallero",
+    "type": "test",
+    "href": "virkailija.pallero.aws.opintopolku.fi"
   }
 ]
