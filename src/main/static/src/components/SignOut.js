@@ -1,6 +1,6 @@
 import React from 'react';
 import Translation from './Translations';
-import Icon from './Icon';
+import Icon from './Icon/Icon';
 const style ={
     float: "right",
     marginTop: 10,

@@ -12,7 +12,8 @@
     "react-responsive": "^1.2.1",
     "react-scripts": "1.0.17",
     "flat": "^2.0.1",
-    "lodash": "^4.16.0"
+    "lodash": "^4.16.0",
+    "react-fontawesome": "^1.6.1"
   },
   "devDependencies": {
     "renamer": "^0.6.1"

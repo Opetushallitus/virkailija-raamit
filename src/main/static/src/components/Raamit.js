@@ -8,7 +8,7 @@ import userData from '../dev/me.json';
 import translation from '../dev/translation.json';
 import opintopolkuLogo from '../virkailija-raamit/img/opintopolkufi.png';
 import MediaQuery from'react-responsive';
-import Icon from './Icon';
+import Icon from './Icon/Icon';
 import mapKeys from 'lodash/mapKeys';
 import urls from '../virkailija-raamit-oph.json'
 
