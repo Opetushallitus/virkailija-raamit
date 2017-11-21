@@ -18,5 +18,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     addStyle("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
     addStyle('/virkailija-raamit/apply-raamit.css');
     ReactDOM.render(<App />, window.document.getElementById('raamit_app_root'));
-    registerServiceWorker();
+    // registerServiceWorker();
 });
