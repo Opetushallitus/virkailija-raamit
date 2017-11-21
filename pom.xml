@@ -85,15 +85,15 @@
                         </configuration>
                     </execution>
 
-                    <execution>
-                        <id>npm install</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>install</arguments>
-                        </configuration>
-                    </execution>
+                    <!--<execution>-->
+                        <!--<id>npm install</id>-->
+                        <!--<goals>-->
+                            <!--<goal>npm</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<arguments>install</arguments>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
 
                     <execution>
                         <id>npm run build</id>
@@ -127,21 +127,26 @@
                                     <filtering>true</filtering>
                                     <include>apply-raamit.js</include>
                                 </resource>
+                                <resource>
+                                    <directory>${basedir}/src/main/static/build/static/css</directory>
+                                    <filtering>true</filtering>
+                                    <include>apply-raamit.css</include>
+                                </resource>
                             </resources>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>copy-extra-resources</id>
+                        <id>copy-media</id>
                         <!-- After frontend-maven-plugin (default generate-resources) -->
                         <phase>process-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/src/main/webapp/virkailija-raamit</outputDirectory>
+                            <outputDirectory>${basedir}/src/main/webapp/static/media</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/src/main/static/src/virkailija-raamit</directory>
+                                    <directory>${basedir}/src/main/static/build/static/media</directory>
                                     <filtering>true</filtering>
                                 </resource>
                             </resources>

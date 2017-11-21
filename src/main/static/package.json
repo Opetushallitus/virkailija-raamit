@@ -12,17 +12,17 @@
     "react-responsive": "^1.2.1",
     "react-scripts": "1.0.17",
     "flat": "^2.0.1",
-    "lodash": "^4.16.0",
-    "react-fontawesome": "^1.6.1"
+    "lodash": "^4.16.0"
   },
   "devDependencies": {
     "renamer": "^0.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && npm run build-rename-js",
+    "build": "react-scripts build && npm run build-rename-js && npm run build-rename-css",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build-rename-js": "renamer --replace apply-raamit.js build/static/js/*.js"
+    "build-rename-js": "renamer --replace apply-raamit.js build/static/js/*.js",
+    "build-rename-css": "renamer --replace apply-raamit.css build/static/css/*.css"
   }
 }
