@@ -35,7 +35,8 @@ export default class Raamit extends React.Component {
 
         try {
             const response = await fetch(urls["cas.me"],{
-                credentials: 'include'
+                credentials: 'include',
+                mode: 'cors',
             });
             const ud = await response.json();
             this.setState({
