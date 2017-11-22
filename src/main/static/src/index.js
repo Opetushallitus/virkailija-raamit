@@ -12,7 +12,7 @@ function addStyle(href) {
     document.getElementsByTagName("head")[0].appendChild(ss);
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+window.document.addEventListener("DOMContentLoaded", function(event) {
     const raamit_app = window.document.body.insertBefore(window.document.createElement('div') ,window.document.body.firstChild);
     raamit_app.setAttribute("id", "raamit_app_root");
     addStyle("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");

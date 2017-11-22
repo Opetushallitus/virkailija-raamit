@@ -128,9 +128,18 @@
                                     <include>apply-raamit.js</include>
                                 </resource>
                                 <resource>
+                                    <directory>${basedir}/src/main/static/src/virkailija-raamit/css</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                                <resource>
                                     <directory>${basedir}/src/main/static/build/static/css</directory>
                                     <filtering>true</filtering>
                                     <include>apply-raamit.css</include>
+                                </resource>
+                                <resource>
+                                    <directory>${basedir}/src/main/static/src/virkailija-raamit/</directory>
+                                    <filtering>true</filtering>
+                                    <include>raportointi.html</include>
                                 </resource>
                             </resources>
                         </configuration>
