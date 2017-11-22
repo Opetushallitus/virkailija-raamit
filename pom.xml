@@ -186,9 +186,13 @@
                         <fileset>
                             <directory>src/main/webapp</directory>
                             <includes>
-                                <include>virkailija-raamit</include>
-                                <include>apply-raamit.js</include>
+                                <include>**/**</include>
                             </includes>
+                            <excludes>
+                                <exclude>WEB-INF/web.xml</exclude>
+                                <exclude>META-INF/jetty-env.xml</exclude>
+                                <exclude>index.html</exclude>
+                            </excludes>
                             <followSymlinks>false</followSymlinks>
                         </fileset>
                     </filesets>
