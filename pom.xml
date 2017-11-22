@@ -152,7 +152,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/src/main/webapp/virkailija-raamit/static/media</outputDirectory>
+                            <outputDirectory>${basedir}/src/main/webapp/static/media</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${basedir}/src/main/static/build/static/media</directory>

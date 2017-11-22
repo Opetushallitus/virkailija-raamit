@@ -5,7 +5,7 @@ src/main/webapp/node_modules
 src/main/webapp/build
 src/main/webapp/node
 src/main/webapp/virkailija-raamit
-src/main/webapp/apply-raamit.js
+src/main/webapp/*.js
 src/main/webapp/*.css
 src/main/webapp/raportointi.html
 src/main/webapp/static
