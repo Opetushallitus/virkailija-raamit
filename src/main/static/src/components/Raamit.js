@@ -10,7 +10,9 @@ import opintopolkuLogo from '../virkailija-raamit/img/opintopolkufi.png';
 import MediaQuery from'react-responsive';
 import Icon from './Icon/Icon';
 import mapKeys from 'lodash/mapKeys';
-import urls from '../virkailija-raamit-oph.json'
+import urls from '../virkailija-raamit-oph.json';
+// import fetch from 'better-fetch';
+import {find} from 'ramda';
 
 export default class Raamit extends React.Component {
     constructor(props){
@@ -309,7 +311,7 @@ export default class Raamit extends React.Component {
             return window.location.href.indexOf(environment.href) > -1;
         };
 
-        const currentEnvironment = environments.find(isCurrentEnvironment);
+        const currentEnvironment = find(isCurrentEnvironment)(environments);
         const isTestEnvironment = currentEnvironment && currentEnvironment.type === 'test';
 
         const testEnvironmentAlertStyle = {

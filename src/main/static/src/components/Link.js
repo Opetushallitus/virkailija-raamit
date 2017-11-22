@@ -12,5 +12,5 @@ const linkStyle={
 };
 
 export default ({key,href},hover, index) =>{
-    return <a className="nav-link" style={linkStyle} href={href}><div  className="links" key={index}><Translation trans={key}/></div></a>;
+    return <a className="nav-link" style={linkStyle} href={href} key={index}><div  className="links" key={index}><Translation trans={key}/></div></a>;
 }

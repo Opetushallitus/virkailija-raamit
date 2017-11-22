@@ -1,5 +1,6 @@
 import React from 'react';
 import {Component} from 'react';
+import {find} from 'ramda';
 
 const instances = new Set();
 let translations;
@@ -26,8 +27,8 @@ export default class Translation extends Component {
 
   setTranslation(translations) {
     //console.log(this.props.trans,translations);
-    var trans = translations.find(({key}) => key === this.props.trans);
-    this.setState({
+      const trans = find(({key}) => key === this.props.trans)(translations);
+      this.setState({
       value: trans ? trans.value : this.props.trans
     });
   }
