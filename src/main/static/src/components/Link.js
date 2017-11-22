@@ -1,12 +1,6 @@
 import React from 'react';
 import Translation from './Translations';
 
-const style={
-    paddingLeft: 10,
-    ":hover": {
-        backgroundColor: 'green',
-    }
-};
 const linkStyle={
     maxWidth:300,
     fontSize: 14,

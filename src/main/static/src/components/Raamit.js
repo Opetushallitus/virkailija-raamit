@@ -180,9 +180,9 @@ export default class Raamit extends React.Component {
                 return item.requiresRole.some(requiredRole=> {
                     if (myRole.indexOf(requiredRole.toUpperCase()) > -1) {
                         if(item.links){
-                            const links = item.links.filter(link => {
+                            item.links = item.links.filter(link => {
                                 if (link.requiresRole) {
-                                    return link.requiresRole.some(linkRequiredRole=> {
+                                    return link.requiresRole.some(linkRequiredRole => {
                                         //console.log(linkRequiredRole.toUpperCase(), myRole.toUpperCase());
                                         return myRole.indexOf(linkRequiredRole.toUpperCase()) > -1;
                                     })
@@ -190,7 +190,6 @@ export default class Raamit extends React.Component {
                                     return true;
                                 }
                             });
-                            item.links = links;
                         }
                     }
 
@@ -198,11 +197,13 @@ export default class Raamit extends React.Component {
                     if (item.links && item.links.length) {
                         return myRole.indexOf(requiredRole.toUpperCase()) > -1;
                     }
+                    return false;
                 })
             }
             else if (item.links) {
                 return true;
             }
+            return false;
         });
 
         const dataWithoutLinks = this.dataWithConcatenatedParentRoles.filter(item => {
@@ -211,11 +212,13 @@ export default class Raamit extends React.Component {
                     if (!item.links) {
                         return myRole.indexOf(requiredRole.toUpperCase()) > -1;
                     }
+                    return false;
                 })
             }
             else if (!item.links) {
                 return true;
             }
+            return false;
         });
 
         let maxLinksLength = 0;
@@ -229,8 +232,6 @@ export default class Raamit extends React.Component {
         });
 
         const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-
-        const margin = 30;
 
         const fontSize = 14;
 
@@ -250,11 +251,7 @@ export default class Raamit extends React.Component {
             height: 55,
 
         };
-        const signOutStyle={
-            marginRight: 'auto',
-            marginLeft: 'auto',
-            width: '70%'
-        };
+
         const mobileSignOutStyle={
             width: '100%',
             float: 'none',
@@ -345,7 +342,7 @@ export default class Raamit extends React.Component {
 
                 <MediaQuery minWidth={1224}>
                     <div style={headerStyle}>
-                        <img className="opintopolkuLogo" src={opintopolkuLogo}/>
+                        <img className="opintopolkuLogo" src={opintopolkuLogo} alt="opintopolku logo"/>
                         {SignOut({
                             userData:this.state.userData,
                             device:'desktop'
@@ -400,7 +397,7 @@ export default class Raamit extends React.Component {
                 <MediaQuery minWidth={641} maxWidth={1223}>
                     <div style={headerTabStyle}>
 
-                        <img className="opintopolkuLogo" src={opintopolkuLogo}/>
+                        <img className="opintopolkuLogo" src={opintopolkuLogo} alt="opintopolku logo"/>
                         <div style={{float:'right', padding:20,paddingRight:15, paddingTop:5, fontSize: 20}} onClick={this.toggleHover}>
                             <Icon name="bars"/>
                         </div>
@@ -442,7 +439,7 @@ export default class Raamit extends React.Component {
                 <MediaQuery maxWidth={640}>
                     <div style={headerTabStyle}>
 
-                        <img className="opintopolkuLogo" src={opintopolkuLogo}/>
+                        <img className="opintopolkuLogo" src={opintopolkuLogo} alt="opintopolku logo"/>
                         <div style={{float:'right', padding:20,paddingRight:15, paddingTop:5, fontSize: 20}} onClick={this.toggleHover}>
                             <Icon name="bars"/>
                         </div>
@@ -484,16 +481,5 @@ export default class Raamit extends React.Component {
                 </MediaQuery>
             </header>
         );
-
-        const shadow={
-            display:this.state.hover?'':'none',
-            position: "fixed",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(125, 125, 125, 0.25)",
-            zIndex:99,
-            left: 0,
-            top: 0
-        };
     }
 };

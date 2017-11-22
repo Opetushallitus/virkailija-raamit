@@ -5,16 +5,7 @@ import Link from './Link';
 const headerBorderColor = "1px solid #56B6D6";
 const borderColor = "1px solid #F0F0F0";
 
-const headerLinks={
-
-};
-
 export default class Header extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
-
     render() {
         const {
           transkey,
@@ -31,9 +22,9 @@ export default class Header extends React.Component {
           media
         } = this.props;
 
-        var currentPage = [];
+        let currentPage = [];
 
-        if (links != undefined) {
+        if (links !== undefined) {
             currentPage = links.map(({href}) => {
                 return (window.location.href.indexOf(href) > -1);
 
@@ -93,7 +84,7 @@ export default class Header extends React.Component {
             else {
                 return '0';
             }
-        }
+        };
 
         const containerStyle = {
             backgroundColor: '#FFF',
@@ -104,7 +95,7 @@ export default class Header extends React.Component {
             pointerEvents: links && fadingOut ? 'none' : 'auto',
             boxShadow: links ? '' : 'inset 0 0 0 5px #159ECB',
             zIndex: links ? '' : 2
-        }
+        };
 
         return (
             <div className="nav-container" style={containerStyle}>

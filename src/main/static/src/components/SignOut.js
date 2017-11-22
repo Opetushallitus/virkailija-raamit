@@ -24,12 +24,8 @@ const mobileStyle={
     width: "100%",
 }
 
-const settingsImage={
-    marginBottom: -3,
-};
-
 export default ({userData, signOutStyle, device}) =>{
-    var userName = '';
+    let userName = '';
 
     if(userData){
         userName = userData.firstName + " "+ userData.lastName;
@@ -37,7 +33,7 @@ export default ({userData, signOutStyle, device}) =>{
 
     let content;
 
-    if (device == 'desktop' || device == 'tab') {
+    if (device === 'desktop' || device === 'tab') {
         content = <span>
             <a className="nav-link" href="/ohjeet" target="_blank" style={desktopStyle}>
                 <Icon name="help"/> <Translation trans="ohjeet"/>
@@ -47,7 +43,7 @@ export default ({userData, signOutStyle, device}) =>{
             </a>
             <a className="nav-link" href="/service-provider-app/saml/logout" style={desktopStyle}><Icon name="logout"/><Translation trans="logout"/></a>
         </span>;
-    }else if(device == 'mobile'){
+    }else if(device === 'mobile'){
         content = <span>
 
             <a className="nav-link" href="/ohjeet" target="_blank" style={mobileStyle}>
