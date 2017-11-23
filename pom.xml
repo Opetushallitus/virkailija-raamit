@@ -37,6 +37,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
                 <configuration>
                     <warSourceExcludes>src/,node/,node_modules/,package.json,dev/</warSourceExcludes>
                     <webResources>
@@ -54,42 +55,158 @@
                     </webResources>
                 </configuration>
             </plugin>
+            <!-- Default phase generate-resources -->
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
-                <version>0.0.29</version>
+                <version>1.6</version>
+                <configuration>
+                    <workingDirectory>src/main/static</workingDirectory>
+                </configuration>
+
                 <executions>
                     <execution>
-                        <id>::install node and npm::</id>
+                        <id>install node and npm</id>
                         <goals>
                             <goal>install-node-and-npm</goal>
                         </goals>
+                        <configuration>
+                            <nodeVersion>v8.9.1</nodeVersion>
+                        </configuration>
                     </execution>
+
                     <execution>
-                        <id>::npm install::</id>
+                        <id>npm version</id>
                         <goals>
                             <goal>npm</goal>
                         </goals>
                         <configuration>
-                            <arguments>update</arguments>
+                            <arguments>--version</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>npm run build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+            <!-- Copy js to webapp folder -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-js-resource</id>
+                        <!-- After frontend-maven-plugin (default generate-resources) -->
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/src/main/webapp</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/main/static/build/static/js</directory>
+                                    <filtering>true</filtering>
+                                    <include>apply-raamit.js</include>
+                                </resource>
+                                <resource>
+                                    <directory>${basedir}/src/main/static/build/static/css</directory>
+                                    <filtering>true</filtering>
+                                    <include>apply-raamit.css</include>
+                                </resource>
+                            </resources>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>::npm run release::</id>
+                        <id>copy-media</id>
+                        <!-- After frontend-maven-plugin (default generate-resources) -->
+                        <phase>process-resources</phase>
                         <goals>
-                            <goal>npm</goal>
+                            <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <arguments>run release</arguments>
+                            <outputDirectory>${basedir}/src/main/webapp/static/media</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/main/static/build/static/media</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-raportointi</id>
+                        <!-- After frontend-maven-plugin (default generate-resources) -->
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/src/main/webapp/virkailija-raamit</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/main/static/src/virkailija-raamit</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- For mvn clean -->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.0.0</version>
                 <configuration>
-                    <nodeVersion>v6.5.0</nodeVersion>
-                    <npmVersion>3.10.6</npmVersion>
-                    <workingDirectory>src/main/webapp</workingDirectory>
+                    <filesets>
+                        <fileset>
+                            <directory>node_modules</directory>
+                            <includes>
+                                <include>**/**</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        <fileset>
+                            <directory>src/main/static/node_modules</directory>
+                            <includes>
+                                <include>**/**</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        <fileset>
+                            <directory>src/main/webapp</directory>
+                            <includes>
+                                <include>**/**</include>
+                            </includes>
+                            <excludes>
+                                <exclude>WEB-INF/web.xml</exclude>
+                                <exclude>META-INF/jetty-env.xml</exclude>
+                                <exclude>index.html</exclude>
+                            </excludes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

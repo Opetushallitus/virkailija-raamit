@@ -1,0 +1,9 @@
+{
+  "cas.me": "/cas/me",
+  "cas.login": "/cas/login?service=",
+  "lokalisointi.localisation":"/lokalisointi/cxf/rest/v1/localisation?category=virkailijaraamit&locale=",
+  "virkailijan-stp-ui.etusivu": "/virkailijan-stp-ui",
+  "virkailijan-stp-ui.base": "/virkailijan-stp-ui",
+  "authentication-henkiloui.omattiedot": "/authentication-henkiloui/html/#/omattiedot",
+  "service-provider-app.saml.logout": "/service-provider-app/saml/logout"
+}

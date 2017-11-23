@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link class="virkailija-raamit-import" rel="stylesheet" type="text/css"
+          href="/virkailija-raamit/virkailija-raamit/css/virkailija-raamit-standalone.css"/>
+    <link class="virkailija-raamit-import" rel="stylesheet" type="text/css"
+          href="/virkailija-raamit/virkailija-raamit/css/virkailija-print.css"/>
+    <title>Raportointi</title>
+    <!--Virkailija layout script -->
+    <script type="text/javascript" src="/virkailija-raamit/apply-raamit.js"></script>
+</head>
+<body>
+<!-- ODW:n raportoinnin upotus opintopolkuun -->
+<div id="app-container">
+    <iframe id="raportointiSrc" style="width: 100%; height: 950px; border: 0; overflow: hidden;"></iframe>
+</div>
+<script>
+    window.document.addEventListener("DOMContentLoaded", function(event) {
+        const oph_host = location.host.split(':')[0];
+        let raportointiAddress = "https://testiraportit.odw.opintopolku.fi";
+        if(oph_host.indexOf('virkailija.opintopolku.fi') === 0) {
+            raportointiAddress = "https://raportit.odw.opintopolku.fi/";
+        }
+        window.document.getElementById('raportointiSrc').setAttribute("src", raportointiAddress);
+    });
+</script>
+</body>
+</html>
