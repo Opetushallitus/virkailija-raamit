@@ -2,6 +2,15 @@
 Virkailijan työpöydän navigaatiovalikko.
 
 ### Raamien lokaali kehitys
-cd src/main/webapp/
-npm run dev-server
-Mene selaimella: http://localhost:8081/dev/index.html
+`cd src/main/webapp/`
+
+`npm install`
+
+`npm start`
+
+Mene selaimella: `http://localhost:3000`
+
+### Prod buildin kehitys
+`mvn clean install`
+
+Uudelleennimeä target kansion .war => `virkailija-raamit.war` ja aja tomcatilla

@@ -128,18 +128,9 @@
                                     <include>apply-raamit.js</include>
                                 </resource>
                                 <resource>
-                                    <directory>${basedir}/src/main/static/src/virkailija-raamit/css</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                                <resource>
                                     <directory>${basedir}/src/main/static/build/static/css</directory>
                                     <filtering>true</filtering>
                                     <include>apply-raamit.css</include>
-                                </resource>
-                                <resource>
-                                    <directory>${basedir}/src/main/static/src/virkailija-raamit/</directory>
-                                    <filtering>true</filtering>
-                                    <include>raportointi.html</include>
                                 </resource>
                             </resources>
                         </configuration>
@@ -156,6 +147,23 @@
                             <resources>
                                 <resource>
                                     <directory>${basedir}/src/main/static/build/static/media</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-raportointi</id>
+                        <!-- After frontend-maven-plugin (default generate-resources) -->
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/src/main/webapp/virkailija-raamit</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/main/static/src/virkailija-raamit</directory>
                                     <filtering>true</filtering>
                                 </resource>
                             </resources>
