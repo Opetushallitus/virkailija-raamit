@@ -38,7 +38,7 @@ export default ({userData, signOutStyle, device}) =>{
             <a className="nav-link" href="/ohjeet" target="_blank" style={desktopStyle}>
                 <Icon name="help"/> <Translation trans="ohjeet"/>
             </a>
-            <a className="nav-link" href="/authentication-henkiloui/html/#/omattiedot" style={desktopStyle}>
+            <a className="nav-link" href="/henkilo-ui/omattiedot" style={desktopStyle}>
                 <Icon name="settings"/> {userName ? userName:''}
             </a>
             <a className="nav-link" href="/service-provider-app/saml/logout" style={desktopStyle}><Icon name="logout"/><Translation trans="logout"/></a>
@@ -53,7 +53,7 @@ export default ({userData, signOutStyle, device}) =>{
             </a>
 
 
-            <a className="nav-link" href="/authentication-henkiloui/html/#/omattiedot" style={mobileStyle}>
+            <a className="nav-link" href="//henkilo-ui/omattiedot" style={mobileStyle}>
                 <div style={mobileStyle} className="links">
                     <Icon name="settings"/> {userName ? userName:''}
                 </div>

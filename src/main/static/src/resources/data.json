@@ -26,17 +26,17 @@
     "links":[
       {
         "key":"kaytonhallintaanomukset",
-        "href":"/authentication-henkiloui/html/anomus",
+        "href":"/henkilo-ui/",
         "requiresRole":["app_anomustenhallinta"]
       },
       {
         "key":"kaytonhallintaryhmat",
-        "href":"/authentication-groups/",
+        "href":"/henkilo-ui/kayttooikeusryhmat",
         "requiresRole":["app_koosteroolienhallinta"]
       },
       {
         "key":"kaytonhallintahenkilo",
-        "href":"/authentication-henkiloui/",
+        "href":"/henkilo-ui/henkilohaku",
         "requiresRole":["app_henkilonhallinta"]
       },
       {
