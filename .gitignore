@@ -1,13 +1,8 @@
 .idea/
 target/*
 *.iml
-src/main/webapp/node_modules
-src/main/webapp/build
-src/main/webapp/node
 src/main/webapp/virkailija-raamit
-src/main/webapp/*.js
-src/main/webapp/*.css
-src/main/webapp/raportointi.html
+src/main/webapp/*
 src/main/webapp/static
 src/main/static/node_modules
 src/main/static/build

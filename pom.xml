@@ -132,6 +132,11 @@
                                     <filtering>true</filtering>
                                     <include>apply-raamit.css</include>
                                 </resource>
+                                <resource>
+                                    <directory>${basedir}/src/main/static/build</directory>
+                                    <filtering>true</filtering>
+                                    <include>index.html</include>
+                                </resource>
                             </resources>
                         </configuration>
                     </execution>
@@ -199,7 +204,6 @@
                             <excludes>
                                 <exclude>WEB-INF/web.xml</exclude>
                                 <exclude>META-INF/jetty-env.xml</exclude>
-                                <exclude>index.html</exclude>
                             </excludes>
                             <followSymlinks>false</followSymlinks>
                         </fileset>
