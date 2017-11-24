@@ -27,17 +27,12 @@
       {
         "key":"kaytonhallintaanomukset",
         "href":"/henkilo-ui/anomukset",
-        "requiresRole":["app_anomustenhallinta"]
+        "requiresRole":["app_henkilonhallinta", "app_anomustenhallinta"]
       },
       {
         "key":"kaytonhallintaryhmat",
         "href":"/henkilo-ui/kayttooikeusryhmat",
         "requiresRole":["app_koosteroolienhallinta"]
-      },
-      {
-        "key":"kaytonhallintahenkilo",
-        "href":"/henkilo-ui/henkilohaku",
-        "requiresRole":["app_henkilonhallinta"]
       },
       {
         "key":"kaytonhallintakoodisto",
