@@ -19,12 +19,12 @@ function appendToBody() {
     ReactDOM.render(<App />, window.document.getElementById('raamit_app_root'));
 }
 
-if ((document.readyState === "complete" || document.readyState === "loaded") && window.virkailija_raamit_loaded !== true) {
+if ((document.readyState === "complete" || document.readyState === "loaded") && window.virkailija_raamit_set_to_load !== true) {
     appendToBody();
 }
 else {
+    window.virkailija_raamit_set_to_load = true;
     window.document.addEventListener("DOMContentLoaded", function(event) {
         appendToBody();
-        window.virkailija_raamit_loaded = true;
     });
 }
