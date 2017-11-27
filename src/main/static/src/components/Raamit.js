@@ -44,14 +44,14 @@ export default class Raamit extends React.Component {
             this.setState({
                 userData: ud
             });
-            if(ud) {
+            if (ud) {
                 window.myroles = ud.groups;
                 this.getTranslate();
             }
         } catch (error) {
             if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 this.setState({userData});
-                if(userData){
+                if (userData){
                     this.getTranslate();
                 }
             } else { // real usage
@@ -65,9 +65,9 @@ export default class Raamit extends React.Component {
     }
 
     async getTranslate(){
-        var lang='fi';
-        var groups = this.state.userData.groups;
-        for (var i = 0; i < groups.length; i++) {
+        let lang = 'fi';
+        const groups = this.state.userData.groups;
+        for (let i = 0; i < groups.length; i++) {
             if (groups[i].indexOf('LANG_') === 0) {
                 lang = groups[i].substring(5);
             }

@@ -11,10 +11,20 @@ function addStyle(href) {
     document.getElementsByTagName("head")[0].appendChild(ss);
 }
 
-window.document.addEventListener("DOMContentLoaded", function(event) {
+function appendToBody() {
     const raamit_app = window.document.body.insertBefore(window.document.createElement('div') ,window.document.body.firstChild);
     raamit_app.setAttribute("id", "raamit_app_root");
     addStyle("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
     addStyle('/virkailija-raamit/apply-raamit.css');
     ReactDOM.render(<App />, window.document.getElementById('raamit_app_root'));
-});
+}
+
+if ((document.readyState === "complete" || document.readyState === "loaded") && window.virkailija_raamit_loaded !== true) {
+    appendToBody();
+}
+else {
+    window.document.addEventListener("DOMContentLoaded", function(event) {
+        appendToBody();
+        window.virkailija_raamit_loaded = true;
+    });
+}
