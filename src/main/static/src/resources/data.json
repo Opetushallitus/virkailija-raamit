@@ -37,7 +37,7 @@
       {
         "key":"palvelukayttajat",
         "href":"/henkilo-ui/palvelukayttaja/luonti",
-        "requiresRole":["app_kayttooikeus_palvelukayttaja_crud"]
+        "requiresRole":["app_kayttooikeus_palvelukayttaja_crud", "app_henkilonhallinta_ophrekisteri"]
       },
       {
         "key":"kaytonhallintakoodisto",
