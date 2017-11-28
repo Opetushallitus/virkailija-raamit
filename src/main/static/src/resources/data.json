@@ -35,6 +35,11 @@
         "requiresRole":["app_koosteroolienhallinta"]
       },
       {
+        "key":"palvelukayttajat",
+        "href":"/henkilo-ui/palvelukayttaja/luonti",
+        "requiresRole":["app_kayttooikeus_palvelukayttaja_crud"]
+      },
+      {
         "key":"kaytonhallintakoodisto",
         "href":"/koodisto-ui/",
         "requiresRole":["app_koodisto"]
