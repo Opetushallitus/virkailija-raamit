@@ -13,5 +13,10 @@
     "name": "Pallero",
     "type": "test",
     "href": "virkailija.pallero.aws.opintopolku.fi"
+  },
+  {
+    "name": "Hahtuva",
+    "type": "test",
+    "href": "hahtuvapolku.com"
   }
 ]
