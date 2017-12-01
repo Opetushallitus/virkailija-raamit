@@ -1,7 +1,7 @@
 {
   "name": "virkailija-raamit",
   "url-config": {
-    "path": "src/main/webapp/resources/data.json",
+    "path": "src/main/static/src/virkailija-raamit-oph.json",
     "values-for-key": "**.href"
   }
 }
