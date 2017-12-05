@@ -26,18 +26,18 @@
     "links":[
       {
         "key":"kaytonhallintaanomukset",
-        "href":"/authentication-henkiloui/html/anomus",
-        "requiresRole":["app_anomustenhallinta"]
+        "href":"/henkilo-ui/anomukset",
+        "requiresRole":["app_henkilonhallinta", "app_anomustenhallinta"]
       },
       {
         "key":"kaytonhallintaryhmat",
-        "href":"/authentication-groups/",
+        "href":"/henkilo-ui/kayttooikeusryhmat",
         "requiresRole":["app_koosteroolienhallinta"]
       },
       {
-        "key":"kaytonhallintahenkilo",
-        "href":"/authentication-henkiloui/",
-        "requiresRole":["app_henkilonhallinta"]
+        "key":"palvelukayttajat",
+        "href":"/henkilo-ui/palvelukayttaja/luonti",
+        "requiresRole":["app_kayttooikeus_palvelukayttaja_crud", "app_henkilonhallinta_ophrekisteri"]
       },
       {
         "key":"kaytonhallintakoodisto",

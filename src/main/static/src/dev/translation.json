@@ -463,6 +463,20 @@
   },
   {
     "accesscount": 0,
+    "id": 1108,
+    "category": "virkailijaraamit",
+    "accessed": 1392980271313,
+    "created": 1389371735709,
+    "createdBy": "1.2.246.562.24.94392457652",
+    "modified": 1392744792489,
+    "modifiedBy": "1.2.246.562.24.35144379086",
+    "force": false,
+    "key": "palvelukayttajat",
+    "locale": "fi",
+    "value": "P\u00e4lveluk\u00e4ytt\u00e4j\u00e4n luonti"
+  },
+  {
+    "accesscount": 0,
     "id": 1150,
     "category": "virkailijaraamit",
     "accessed": 1392980272796,
@@ -599,7 +613,7 @@
     "force": false,
     "key": "kaytonhallintaanomukset",
     "locale": "fi",
-    "value": "K\u00e4ytt\u00f6oikeusanomukset"
+    "value": "Henkil\u00f6n ja k\u00e4ytt\u00f6oikeuksien hallinta"
   },
   {
     "accesscount": 0,
