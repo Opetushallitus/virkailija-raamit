@@ -13,6 +13,7 @@ export default class Header extends React.Component {
           links,
           maxLinksLength,
           href,
+          target,
           style,
           hover,
           show,
@@ -117,6 +118,7 @@ export default class Header extends React.Component {
                                 <a
                                     className="nav-link"
                                     href={href}
+                                    target={target}
                                     style={textLinkStyle}
                                 >
                                     <Translation trans={transkey}/>

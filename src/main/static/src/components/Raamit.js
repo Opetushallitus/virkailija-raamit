@@ -330,6 +330,10 @@ export default class Raamit extends React.Component {
             transform: 'rotate(-45deg)'
         };
 
+        const resolvedHref = item => item.resolvedHref = isTestEnvironment && item.testHref ? item.testHref : item.href;
+        dataWithLinks.forEach(resolvedHref);
+        dataWithoutLinks.forEach(resolvedHref);
+
         return(
             <header className="virkailija-raamit">
                 {/*
@@ -375,7 +379,8 @@ export default class Raamit extends React.Component {
                                     isIE11={isIE11}
                                     links={item.links}
                                     maxLinksLength={maxLinksLength}
-                                    href={item.href}
+                                    href={item.resolvedHref}
+                                    target={item.target}
                                     style={style}
                                     hover={this.state.hover}
                                     fade={this.state.fade}
@@ -389,7 +394,8 @@ export default class Raamit extends React.Component {
                             {dataWithoutLinks.map((item) => <Header
                               transkey={item.key}
                               key={item.key}
-                              href={item.href}
+                              href={item.resolvedHref}
+                              target={item.target}
                               style={style}
                             />)}
                         </div>
@@ -422,7 +428,8 @@ export default class Raamit extends React.Component {
                                 transkey={item.key}
                                 key={item.key}
                                 links={item.links}
-                                href={item.href}
+                                href={item.resolvedHref}
+                                target={item.target}
                                 style={tabStyle}
                                 hover={this.state.hover}
                                 fade={this.state.fade}
@@ -432,7 +439,8 @@ export default class Raamit extends React.Component {
                             {dataWithoutLinks.map((item) => <Header
                               transkey={item.key}
                               key={item.key}
-                              href={item.href}
+                              href={item.resolvedHref}
+                              target={item.target}
                               style={style}
                             />)}
                         </div>
@@ -464,7 +472,8 @@ export default class Raamit extends React.Component {
                                 transkey={item.key}
                                 key={item.key}
                                 links={item.links}
-                                href={item.href}
+                                href={item.resolvedHref}
+                                target={item.target}
                                 style={tabStyle}
                                 hover={this.state.hover}
                                 fade={this.state.fade}
@@ -474,7 +483,8 @@ export default class Raamit extends React.Component {
                             {dataWithoutLinks.map((item) => <Header
                               transkey={item.key}
                               key={item.key}
-                              href={item.href}
+                              href={item.resolvedHref}
+                              target={item.target}
                               style={style}
                             />)}
                         </div>
