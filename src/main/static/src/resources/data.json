@@ -169,11 +169,11 @@
   },
   {
     "key":"rekisterit",
-    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri"],
+    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski"],
     "links":[
       {
         "key":"koski",
-        "href":"/koski/",
+        "href":"/koski/virkailija/",
         "requiresRole":["app_koski"]
       },
       {
