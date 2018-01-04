@@ -197,6 +197,13 @@
     "key":"aipal",
     "href":"/aipal/",
     "requiresRole":["app_aipal"]
+  },
+  {
+    "key":"arvo",
+    "href":"https://arvo.csc.fi/",
+    "testHref":" http://testarvo.csc.fi/",
+    "target":"_blank",
+    "requiresRole":["app_amkpal"]
   }
 
 ]
