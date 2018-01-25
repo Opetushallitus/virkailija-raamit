@@ -17,6 +17,11 @@ function appendToBody() {
     addStyle("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
     addStyle('/virkailija-raamit/apply-raamit.css');
     ReactDOM.render(<App />, window.document.getElementById('raamit_app_root'));
+
+    var script = document.createElement('script');
+    script.setAttribute( 'src', '//rum-static.pingdom.net/pa-5a6a47e446534f000700011e.js');
+    script.async = true;
+    window.document.body.appendChild(script);
 }
 
 if ((document.readyState === "complete" || document.readyState === "loaded") && window.virkailija_raamit_set_to_load !== true) {
