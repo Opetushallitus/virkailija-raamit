@@ -18,5 +18,10 @@
     "name": "Hahtuva",
     "type": "test",
     "href": "hahtuvapolku.com"
+  },
+  {
+    "name": "Kuuro",
+    "type": "test",
+    "href": "testipolku.com"
   }
 ]
