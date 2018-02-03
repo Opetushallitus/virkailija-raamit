@@ -2,26 +2,26 @@
   {
     "name": "QA",
     "type": "test",
-    "href": "testi.virkailija.opintopolku.fi"
+    "href": "virkailija.testiopintopolku.fi"
   },
   {
     "name": "Untuva",
     "type": "test",
-    "href": "virkailija.untuva.aws.opintopolku.fi"
-  },
-  {
-    "name": "Pallero",
-    "type": "test",
-    "href": "virkailija.pallero.aws.opintopolku.fi"
+    "href": "virkailija.untuvaopintopolku.fi"
   },
   {
     "name": "Hahtuva",
     "type": "test",
-    "href": "virkailija.hahtuvapolku.com"
+    "href": "virkailija.hahtuvaopintopolku.fi"
   },
   {
     "name": "Kuuro",
     "type": "test",
     "href": "virkailija.testipolku.com"
+  },
+  {
+    "name": "Sieni",
+    "type": "test",
+    "href": "virkailija.sieniopintopolku.fi"
   }
 ]
