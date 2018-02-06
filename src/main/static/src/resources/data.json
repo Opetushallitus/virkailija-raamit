@@ -26,7 +26,7 @@
     "links":[
       {
         "key":"kaytonhallintaanomukset",
-        "href":"/henkilo-ui/anomukset",
+        "href":"/henkilo-ui/henkilohaku",
         "requiresRole":["app_henkilonhallinta", "app_anomustenhallinta"]
       },
       {
