@@ -27,17 +27,17 @@
       {
         "key":"kaytonhallintaanomukset",
         "href":"/henkilo-ui/henkilohaku",
-        "requiresRole":["app_henkilonhallinta", "app_anomustenhallinta"]
+        "requiresRole":["app_henkilonhallinta", "app_anomustenhallinta", "app_kayttooikeus_rekisterinpitaja"]
       },
       {
         "key":"kaytonhallintaryhmat",
         "href":"/henkilo-ui/kayttooikeusryhmat",
-        "requiresRole":["app_koosteroolienhallinta", "app_kayttooikeus_kayttooikeusryhmien_luku"]
+        "requiresRole":["app_koosteroolienhallinta", "app_kayttooikeus_kayttooikeusryhmien_luku", "app_kayttooikeus_rekisterinpitaja"]
       },
       {
         "key":"palvelukayttajat",
         "href":"/henkilo-ui/palvelukayttaja",
-        "requiresRole":["app_kayttooikeus_palvelukayttaja_crud", "app_henkilonhallinta_ophrekisteri"]
+        "requiresRole":["app_kayttooikeus_palvelukayttaja_crud", "app_henkilonhallinta_ophrekisteri", "app_kayttooikeus_rekisterinpitaja"]
       },
       {
         "key":"kaytonhallintakoodisto",
