@@ -40,6 +40,11 @@
         "requiresRole":["app_kayttooikeus_palvelukayttaja_crud", "app_henkilonhallinta_ophrekisteri", "app_kayttooikeus_rekisterinpitaja"]
       },
       {
+        "key":"oppijoidentuonti",
+        "href":"/henkilo-ui/oppijoidentuonti",
+        "requiresRole":["app_henkilonhallinta_ophrekisteri", "app_oppijanumerorekisteri_rekisterinpitaja", "app_oppijanumerorekisteri_oppijoidentuonti"]
+      },
+      {
         "key":"kaytonhallintakoodisto",
         "href":"/koodisto-ui/",
         "requiresRole":["app_koodisto"]
