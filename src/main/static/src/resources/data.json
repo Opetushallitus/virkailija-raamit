@@ -45,6 +45,11 @@
         "requiresRole":["app_henkilonhallinta_ophrekisteri", "app_oppijanumerorekisteri_rekisterinpitaja", "app_oppijanumerorekisteri_oppijoidentuonti"]
       },
       {
+        "key":"virkailijanluonti",
+        "href":"/henkilo-ui/virkailija/luonti",
+        "requiresRole":["app_kayttooikeus_virkailijanluonti"]
+      },
+      {
         "key":"kaytonhallintakoodisto",
         "href":"/koodisto-ui/",
         "requiresRole":["app_koodisto"]
