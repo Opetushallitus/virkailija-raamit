@@ -21,10 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && npm run build-rename-js && npm run build-rename-css",
+    "build": "react-scripts build && renamer --replace apply-raamit.js build/static/js/*.js && renamer --replace apply-raamit.css build/static/css/*.css",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build-rename-js": "renamer --replace apply-raamit.js build/static/js/*.js",
-    "build-rename-css": "renamer --replace apply-raamit.css build/static/css/*.css"
+    "eject": "react-scripts eject"
   }
 }
