@@ -27,7 +27,7 @@
       {
         "key":"kaytonhallintaanomukset",
         "href":"/henkilo-ui/henkilohaku",
-        "requiresRole":["app_henkilonhallinta", "app_anomustenhallinta", "app_kayttooikeus_rekisterinpitaja", "app_oppijanumerorekisteri_oppijoidentuonti"]
+        "requiresRole":["app_henkilonhallinta", "app_anomustenhallinta", "app_kayttooikeus_rekisterinpitaja", "app_oppijanumerorekisteri_oppijoidentuonti", "app_kayttooikeus_crud"]
       },
       {
         "key":"kaytonhallintaryhmat",
