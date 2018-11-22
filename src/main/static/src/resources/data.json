@@ -174,7 +174,7 @@
   },
   {
     "key":"rekisterit",
-    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski"],
+    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski","app_varda"],
     "links":[
       {
         "key":"koski",
@@ -190,6 +190,11 @@
         "key":"rekisterittiedonsiirrot",
         "href":"/suoritusrekisteri/#/tiedonsiirto",
         "requiresRole":["app_tiedonsiirto"]
+      },
+      {
+        "key":"varda",
+        "href":"/varda",
+        "requiresRole":["app_varda"]
       }
     ]
   },
