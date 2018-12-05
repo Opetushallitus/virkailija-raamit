@@ -46,11 +46,11 @@ export default class Raamit extends React.Component {
 
         browserUpdate({
             required:{
-                e:-4,
-                f:-3,
-                o:-3,
-                s:-1,
-                c:-3
+                e:0,
+                f:0,
+                o:0,
+                s:0,
+                c:0
             },
             test:true,
             newwindow:true,
