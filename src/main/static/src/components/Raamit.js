@@ -13,6 +13,7 @@ import mapKeys from 'lodash/mapKeys';
 import urls from '../virkailija-raamit-oph.json';
 // import fetch from 'better-fetch';
 import {find} from 'ramda';
+import browserUpdate from 'browser-update';
 
 export default class Raamit extends React.Component {
     constructor(props){
@@ -31,6 +32,32 @@ export default class Raamit extends React.Component {
         if (nextState.userData !== this.state.userData) {
             this.dataWithConcatenatedParentRoles = this.getDataWithConcatenatedParentRoles(data);
         }
+    }
+
+    showBrowserUpdate(lang) {
+        var updateText;
+        if (lang === "fi") {
+            updateText = 'Selaimesi {brow_name} on vanhentunut. Päivitä selaimesi turvallisempaan, nopeampaan ja helppokäyttöisempään. <a{up_but}>Päivitä selain</a><a{ignore_but}>Hylkää</a>';
+        } else if (lang === "sv") {
+            updateText = 'Din webbläsare {brow_name} är föråldrad. Uppdatera din webbläsare för mer säkerhet, snabbhet och den bästa upplevelsen. <a{up_but}>Uppdatera webbläsaren</a><a{ignore_but}>Ignorera</a>';
+        } else {
+            updateText = 'Your web browser {brow_name}, is out of date. Update your browser for more security, speed and the best experience. <a{up_but}>Update browser</a><a{ignore_but}>Ignore</a>';
+        }
+
+        browserUpdate({
+            required:{
+                e:-4,
+                f:-3,
+                o:-3,
+                s:-1,
+                c:-3
+            },
+            insecure:true,
+            unsupported:true,
+            text:updateText,
+            no_permanent_hide:true,
+            api:2018.12
+        })
     }
 
     async getUserData(){
@@ -72,7 +99,8 @@ export default class Raamit extends React.Component {
                 lang = groups[i].substring(5);
             }
         }
-
+        //Calling browser update here, because we need user lang.
+        this.showBrowserUpdate(lang);
 
         try {
             const response = await fetch(urls["lokalisointi.localisation"] + lang,{
