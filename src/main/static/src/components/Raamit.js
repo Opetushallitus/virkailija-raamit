@@ -46,14 +46,14 @@ export default class Raamit extends React.Component {
 
         browserUpdate({
             required:{
-                //e:0,
-                i:12
-                //f:0,
-                //o:0,
-                //s:0,
-                //c:0
+                //e:0, // MS Edge
+                i:12 // Below IE 12
+                //f:0, // Firefox
+                //o:0, // Opera
+                //s:0, // Safari
+                //c:0 // Chrome
             },
-            test:true,
+            //test:true, //Uncomment to show update bar always
             newwindow:true,
             insecure:true,
             unsupported:true,
