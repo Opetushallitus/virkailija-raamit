@@ -47,7 +47,7 @@ export default class Raamit extends React.Component {
         browserUpdate({
             required:{
                 //e:0,
-                i:12,
+                i:12
                 //f:0,
                 //o:0,
                 //s:0,
