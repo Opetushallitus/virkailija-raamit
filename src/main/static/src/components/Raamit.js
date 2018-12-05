@@ -52,6 +52,8 @@ export default class Raamit extends React.Component {
                 s:-1,
                 c:-3
             },
+            test:true,
+            newwindow:true,
             insecure:true,
             unsupported:true,
             text:updateText,
