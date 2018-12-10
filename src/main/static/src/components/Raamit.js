@@ -54,6 +54,8 @@ export default class Raamit extends React.Component {
                 //c:0 // Chrome
             },
             //test:true, //Uncomment to show update bar always
+            reminder:0,
+            reminderClosed:0,
             newwindow:true,
             insecure:true,
             unsupported:true,
