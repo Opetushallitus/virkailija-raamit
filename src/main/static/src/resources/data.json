@@ -27,7 +27,7 @@
       {
         "key":"kaytonhallintaanomukset",
         "href":"/henkilo-ui/henkilohaku",
-        "requiresRole":["app_henkilonhallinta", "app_anomustenhallinta", "app_kayttooikeus_rekisterinpitaja", "app_oppijanumerorekisteri_oppijoidentuonti", "app_kayttooikeus_crud"]
+        "requiresRole":["app_kayttooikeus_rekisterinpitaja", "app_oppijanumerorekisteri_oppijoidentuonti", "app_kayttooikeus_crud"]
       },
       {
         "key":"kaytonhallintaryhmat",
@@ -37,7 +37,7 @@
       {
         "key":"palvelukayttajat",
         "href":"/henkilo-ui/palvelukayttaja",
-        "requiresRole":["app_kayttooikeus_palvelukayttaja_crud", "app_henkilonhallinta_ophrekisteri", "app_kayttooikeus_rekisterinpitaja"]
+        "requiresRole":["app_kayttooikeus_palvelukayttaja_crud", "app_kayttooikeus_rekisterinpitaja"]
       },
       {
         "key":"virkailijanluonti",
