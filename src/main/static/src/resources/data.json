@@ -32,7 +32,7 @@
       {
         "key":"kaytonhallintaryhmat",
         "href":"/henkilo-ui/kayttooikeusryhmat",
-        "requiresRole":["app_koosteroolienhallinta", "app_kayttooikeus_kayttooikeusryhmien_luku", "app_kayttooikeus_rekisterinpitaja"]
+        "requiresRole":["app_kayttooikeus_kayttooikeusryhmien_luku", "app_kayttooikeus_rekisterinpitaja"]
       },
       {
         "key":"palvelukayttajat",
