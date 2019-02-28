@@ -2,7 +2,7 @@
 Virkailijan työpöydän navigaatiovalikko.
 
 ### Raamien lokaali kehitys
-`cd src/main/webapp/`
+`cd src/main/static/`
 
 `npm install`
 
