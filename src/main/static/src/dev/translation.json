@@ -866,5 +866,47 @@
     "key": "welcome",
     "value": "\n        Tervetuloa Opintopolun virkailijan palveluihin!\n    ",
     "locale": "fi"
+  },
+  {
+    "accesscount": 0,
+    "id": 8619,
+    "category": "virkailijaraamit",
+    "accessed": 1418309326595,
+    "created": 1418309326595,
+    "createdBy": "1.2.246.562.24.65177092928",
+    "modified": 1418309326595,
+    "modifiedBy": "1.2.246.562.24.25909319372",
+    "force": false,
+    "key": "yki",
+    "value": "YKI",
+    "locale": "fi"
+  },
+  {
+    "accesscount": 0,
+    "id": 8619,
+    "category": "virkailijaraamit",
+    "accessed": 1418309326595,
+    "created": 1418309326595,
+    "createdBy": "1.2.246.562.24.65177092928",
+    "modified": 1418309326595,
+    "modifiedBy": "1.2.246.562.24.25909319372",
+    "force": false,
+    "key": "jarjestajarekisteri",
+    "value": "Järjestäjärekisteri",
+    "locale": "fi"
+  },
+  {
+    "accesscount": 0,
+    "id": 8619,
+    "category": "virkailijaraamit",
+    "accessed": 1418309326595,
+    "created": 1418309326595,
+    "createdBy": "1.2.246.562.24.65177092928",
+    "modified": 1418309326595,
+    "modifiedBy": "1.2.246.562.24.25909319372",
+    "force": false,
+    "key": "tutkintotilaisuudet",
+    "value": "Tutkintotilaisuudet",
+    "locale": "fi"
   }
 ]

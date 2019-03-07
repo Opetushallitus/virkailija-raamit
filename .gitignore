@@ -12,3 +12,4 @@ apply-raamit.js
 .classpath
 .project
 .settings/
+.vscode/
