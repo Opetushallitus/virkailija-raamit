@@ -214,6 +214,22 @@
     "testHref":" http://testarvo.csc.fi/",
     "target":"_blank",
     "requiresRole":["app_amkpal"]
+  },
+  {
+    "key":"yki",
+    "requiresRole":["app_yki_yllapitaja","app_yki_jarjestaja"],
+    "links":[
+      {
+        "key":"jarjestajarekisteri",
+        "href":"/yki/auth/cas",
+        "requiresRole":["app_yki_yllapitaja"]
+      },
+      {
+        "key":"tutkintotilaisuudet",
+        "href":"/yki/auth/cas",
+        "requiresRole":["app_yki_jarjestaja"]
+      }
+    ]
   }
 
 ]
