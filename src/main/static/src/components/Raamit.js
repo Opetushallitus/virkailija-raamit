@@ -68,10 +68,7 @@ export default class Raamit extends React.Component {
     async getUserData(){
 
         try {
-            await fetch(urls["cas.prequel"], {
-                credentials: 'include',
-                mode: 'cors'
-            }).then(() => {
+
                 const response = fetch(urls["cas.me"],{
                     credentials: 'include',
                     mode: 'cors',
@@ -84,7 +81,6 @@ export default class Raamit extends React.Component {
                     window.myroles = ud.groups;
                     this.getTranslate();
                 }
-            })
         } catch (error) {
             if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 this.setState({userData});
@@ -95,8 +91,15 @@ export default class Raamit extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    //window.location.href = urls["cas.login"] + window.location.href;
-                    window.location.href = urls["cas.login"] + "https://" + window.location.host + urls["virkailijan-stp-ui.etusivu"];
+                    try {
+                        await fetch(urls["cas.prequel"], {
+                            credentials: 'include',
+                            mode: 'cors'
+                        })
+                    } catch (error) {
+                        //window.location.href = urls["cas.login"] + window.location.href;
+                        window.location.href = urls["cas.login"] + "https://" + window.location.host + urls["virkailijan-stp-ui.etusivu"];
+                    }
                 }
             }
         }
