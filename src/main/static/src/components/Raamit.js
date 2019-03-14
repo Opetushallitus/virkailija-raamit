@@ -5,9 +5,8 @@ import Header from './Header';
 import SignOut from './SignOut';
 import Translations from './Translations';
 import userData from '../dev/me.json';
-import translation from '../dev/translation.json';
 import opintopolkuLogo from '../virkailija-raamit/img/opintopolkufi.png';
-import MediaQuery from'react-responsive';
+import MediaQuery from 'react-responsive';
 import Icon from './Icon/Icon';
 import mapKeys from 'lodash/mapKeys';
 import urls from '../virkailija-raamit-oph.json';
@@ -69,19 +68,27 @@ export default class Raamit extends React.Component {
 
         try {
 
-                const response = fetch(urls["cas.me"],{
-                    credentials: 'include',
-                    mode: 'cors',
-                });
-                const ud =  response.json();
-                this.setState({
-                    userData: ud
-                });
-                if (ud) {
-                    window.myroles = ud.groups;
-                    this.getTranslate();
-                }
+            const response = fetch(urls["cas.me"],{
+                credentials: 'include',
+                mode: 'cors',
+            });
+            const ud =  response.json();
+            this.setState({
+                userData: ud
+            });
+            if (ud) {
+                window.myroles = ud.groups;
+                this.getTranslate();
+            }
         } catch (error) {
+            console.log(error);
+            console.log("CAS PREQUEL CALL");
+            await fetch(urls["cas.prequel"], {
+                credentials: 'include',
+                mode: 'cors'
+            });
+            console.log("CAS SESSIO VANHENTUNUT, yrtetään uudelleen");
+            this.getUserData();
             if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 this.setState({userData});
                 if (userData){
@@ -98,6 +105,7 @@ export default class Raamit extends React.Component {
                         })
                     } catch (error) {
                         //window.location.href = urls["cas.login"] + window.location.href;
+                        console.log(error);
                         window.location.href = urls["cas.login"] + "https://" + window.location.host + urls["virkailijan-stp-ui.etusivu"];
                     }
                 }
@@ -152,7 +160,8 @@ export default class Raamit extends React.Component {
             });
             Translations.setTranslations(await response.json());
         } catch (error) {
-            if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
+                console.log(error);
+            /*'if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 Translations.setTranslations(translation);
             } else { // real usage
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
@@ -161,7 +170,7 @@ export default class Raamit extends React.Component {
                     // window.location.href = urls["cas.login"] + window.location.href;
                     window.location.href = urls["cas.login"] + "https://" + window.location.host + urls["virkailijan-stp-ui.etusivu"];
                 }
-            }
+            }*/
         }
     }
 
