@@ -52,6 +52,20 @@
     "modifiedBy": "1.2.246.562.24.56130560613",
     "force": false,
     "key": "atarueditori",
+    "value": "Hakemuseditori",
+    "locale": "fi"
+  },
+  {
+    "accesscount": 0,
+    "id": 16088,
+    "category": "virkailijaraamit",
+    "accessed": 1487833074719,
+    "created": 1487833074719,
+    "createdBy": "1.2.246.562.24.95125074845",
+    "modified": 1519201348070,
+    "modifiedBy": "1.2.246.562.24.56130560613",
+    "force": false,
+    "key": "ataruhakija",
     "value": "Hakemuspalvelu",
     "locale": "fi"
   },

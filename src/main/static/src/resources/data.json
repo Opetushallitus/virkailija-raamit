@@ -140,9 +140,14 @@
         "requiresRole":["app_hakuperusteetadmin"]
       },
       {
+        "key":"ataruhakija",
+        "href":"/lomake-editori/applications",
+        "requiresRole":["app_ataru_hakemus"]
+      },
+      {
         "key":"atarueditori",
         "href":"/lomake-editori/",
-        "requiresRole":["app_ataru_editori","app_ataru_hakemus"]
+        "requiresRole":["app_ataru_editori"]
       }
     ]
   },
