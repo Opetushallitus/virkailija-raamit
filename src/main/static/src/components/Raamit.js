@@ -82,7 +82,8 @@ export default class Raamit extends React.Component {
         } catch (error) {
             try {
                 console.log(error);
-                await fetch(urls["cas.prequel"], {
+                console.log("calling prequel")
+                const casResponse = await fetch(urls["cas.prequel"], {
                     credentials: 'include',
                     mode: 'cors'
                 });
