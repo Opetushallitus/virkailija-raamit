@@ -121,9 +121,9 @@ export default class Raamit extends React.Component {
                 }
             }
         }*/
-    }
 
-    async getTranslate() {
+
+    async getTranslate(){
         let lang = 'fi';
         const groups = this.state.userData.groups;
         for (let i = 0; i < groups.length; i++) {
