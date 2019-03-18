@@ -66,10 +66,10 @@ export default class Raamit extends React.Component {
     async getUserData(){
 
         try {
-            const casResponse = await fetch(urls["cas.prequel"], {
+            const prequel = await fetch(urls["cas.prequel"], {
                 credentials: 'include'
-            });
-            const response = fetch(urls["cas.me"],{
+            }).then(console.log("SUCCESS ON CAS PREQUEL"));
+            const response = await fetch(urls["cas.me"],{
                 credentials: 'include',
                 mode: 'cors',
             });
