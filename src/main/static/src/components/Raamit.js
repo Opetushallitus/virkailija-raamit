@@ -22,7 +22,13 @@ export default class Raamit extends React.Component {
             userData: []
         };
 
-        this.getUserData();
+        try {
+            this.getUserData();
+        } catch (error) {
+            fetch(urls["cas.prequel"]);
+            this.getUserData();
+        }
+
 
         this.getCategoryWidth = this.getCategoryWidth.bind(this);
     }
@@ -66,9 +72,7 @@ export default class Raamit extends React.Component {
     }
 
     async getUserData(){
-
         try {
-            await fetch((urls["cas.prequel"]));
             const response = await fetch(urls["cas.me"],{
                 credentials: 'include',
                 mode: 'cors',
@@ -80,6 +84,20 @@ export default class Raamit extends React.Component {
             if (ud) {
                 window.myroles = ud.groups;
                 this.getTranslate();
+            } else {
+                await fetch((urls["cas.prequel"]));
+                const response = await fetch(urls["cas.me"],{
+                    credentials: 'include',
+                    mode: 'cors',
+                });
+                const ud = await response.json();
+                this.setState({
+                    userData: ud
+                });
+                if (ud) {
+                    window.myroles = ud.groups;
+                    this.getTranslate();
+                }
             }
         } catch (error) {
             if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
@@ -88,9 +106,11 @@ export default class Raamit extends React.Component {
                     this.getTranslate();
                 }
             } else { // real usage
+                console.log(error);
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
+                    console.log(error);
                     window.location.href = urls["cas.login"] + urls["virkailijan-stp-ui.etusivu"];//window.location.href;
                 }
             }
