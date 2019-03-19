@@ -4,6 +4,8 @@ import environments from '../resources/environments.json';
 import Header from './Header';
 import SignOut from './SignOut';
 import Translations from './Translations';
+import userData from '../dev/me.json';
+import translation from '../dev/translation.json';
 import opintopolkuLogo from '../virkailija-raamit/img/opintopolkufi.png';
 import MediaQuery from 'react-responsive';
 import Icon from './Icon/Icon';
@@ -66,34 +68,7 @@ export default class Raamit extends React.Component {
     async getUserData(){
 
         try {
-            const prequel = await fetch(urls["cas.prequel"], {
-                credentials: 'include'
-            }).then(console.log("SUCCESS ON CAS PREQUEL"));
-            const response = await fetch(urls["cas.me"],{
-                credentials: 'include',
-                mode: 'cors',
-            });
-            const ud =  response.json();
-            this.setState({
-                userData: ud
-            });
-            if (ud) {
-                window.myroles = ud.groups;
-                this.getTranslate();
-            }
-        } catch (error) {
-                console.log(error);
-                if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
-                    alert('Problems with login, please reload page or log out and try again');
-                } else {
-                    // window.location.href = urls["cas.login"] + window.location.href;
-                    window.location.href = urls["cas.login"] + 'https://' + window.location.host + urls["virkailijan-stp-ui.etusivu"];
-                }
-            }
-        }
-
-
-        /*try {
+            await fetch((urls["cas.prequel"]));
             const response = await fetch(urls["cas.me"],{
                 credentials: 'include',
                 mode: 'cors',
@@ -108,7 +83,7 @@ export default class Raamit extends React.Component {
             }
         } catch (error) {
             if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
-                this.setState({userData});
+                        this.setState({userData});
                 if (userData){
                     this.getTranslate();
                 }
@@ -116,12 +91,11 @@ export default class Raamit extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    // window.location.href = urls["cas.login"] + window.location.href;
-                    window.location.href = urls["cas.login"] + window.location.host + urls["virkailijan-stp-ui.etusivu"];
+                    window.location.href = urls["cas.login"] + urls["virkailijan-stp-ui.etusivu"];//window.location.href;
                 }
             }
-        }*/
-
+        }
+    }
 
     async getTranslate(){
         let lang = 'fi';
@@ -140,17 +114,15 @@ export default class Raamit extends React.Component {
             });
             Translations.setTranslations(await response.json());
         } catch (error) {
-                console.log(error);
-            /*'if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
+            if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
                 Translations.setTranslations(translation);
             } else { // real usage
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    // window.location.href = urls["cas.login"] + window.location.href;
-                    window.location.href = urls["cas.login"] + "https://" + window.location.host + urls["virkailijan-stp-ui.etusivu"];
+                    window.location.href = urls["cas.login"] + urls["virkailijan-stp-ui.etusivu"];//window.location.href;
                 }
-            }*/
+            }
         }
     }
 
@@ -454,11 +426,11 @@ export default class Raamit extends React.Component {
                             </div>
 
                             {dataWithoutLinks.map((item) => <Header
-                              transkey={item.key}
-                              key={item.key}
-                              href={item.resolvedHref}
-                              target={item.target}
-                              style={style}
+                                transkey={item.key}
+                                key={item.key}
+                                href={item.resolvedHref}
+                                target={item.target}
+                                style={style}
                             />)}
                         </div>
                     </div>
@@ -499,11 +471,11 @@ export default class Raamit extends React.Component {
                             />)}
 
                             {dataWithoutLinks.map((item) => <Header
-                              transkey={item.key}
-                              key={item.key}
-                              href={item.resolvedHref}
-                              target={item.target}
-                              style={style}
+                                transkey={item.key}
+                                key={item.key}
+                                href={item.resolvedHref}
+                                target={item.target}
+                                style={style}
                             />)}
                         </div>
                     </div>
@@ -543,11 +515,11 @@ export default class Raamit extends React.Component {
                             />)}
 
                             {dataWithoutLinks.map((item) => <Header
-                              transkey={item.key}
-                              key={item.key}
-                              href={item.resolvedHref}
-                              target={item.target}
-                              style={style}
+                                transkey={item.key}
+                                key={item.key}
+                                href={item.resolvedHref}
+                                target={item.target}
+                                style={style}
                             />)}
                         </div>
                     </div>
