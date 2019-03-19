@@ -25,6 +25,7 @@ export default class Raamit extends React.Component {
         try {
             this.getUserData();
         } catch (error) {
+            // If failed, warm up cas and try again
             fetch(urls["cas.prequel"]);
             this.getUserData();
         }
@@ -111,7 +112,7 @@ export default class Raamit extends React.Component {
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
                     console.log(error);
-                    window.location.href = urls["cas.login"] + urls["virkailijan-stp-ui.etusivu"];//window.location.href;
+                    window.location.href = urls["cas.login"] + window.location.origin + urls["virkailijan-stp-ui.etusivu"];//window.location.href;
                 }
             }
         }
@@ -140,7 +141,7 @@ export default class Raamit extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    window.location.href = urls["cas.login"] + urls["virkailijan-stp-ui.etusivu"];//window.location.href;
+                    window.location.href = urls["cas.login"] + window.location.origin + urls["virkailijan-stp-ui.etusivu"];
                 }
             }
         }
