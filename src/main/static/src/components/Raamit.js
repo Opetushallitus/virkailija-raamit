@@ -25,9 +25,8 @@ export default class Raamit extends React.Component {
         try {
             this.getUserData();
         } catch (error) {
-            // If failed, warm up cas and try again
-            fetch(urls["cas.prequel"]);
-            this.getUserData();
+            // If failed, warm up CAS and try again
+            fetch(urls["cas.prequel"]).then(this.getUserData());
         }
 
 
@@ -112,7 +111,7 @@ export default class Raamit extends React.Component {
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
                     console.log(error);
-                    window.location.href = urls["cas.login"] + window.location.origin + urls["virkailijan-stp-ui.etusivu"];//window.location.href;
+                    window.location.href = urls["cas.login"] + window.location.origin + urls["virkailijan-stp-ui.etusivu"];
                 }
             }
         }
