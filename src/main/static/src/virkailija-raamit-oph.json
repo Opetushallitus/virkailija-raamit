@@ -1,6 +1,7 @@
 {
-  "cas.me": "/cas/me",
+  "cas.me": "/kayttooikeus-service/cas/me",
   "cas.login": "/cas/login?service=",
+  "cas.prequel": "/kayttooikeus-service/cas/prequel",
   "lokalisointi.localisation":"/lokalisointi/cxf/rest/v1/localisation?category=virkailijaraamit&locale=",
   "virkailijan-stp-ui.etusivu": "/virkailijan-tyopoyta",
   "virkailijan-stp-ui.base": "/virkailijan-tyopoyta",

@@ -7,7 +7,7 @@ import Translations from './Translations';
 import userData from '../dev/me.json';
 import translation from '../dev/translation.json';
 import opintopolkuLogo from '../virkailija-raamit/img/opintopolkufi.png';
-import MediaQuery from'react-responsive';
+import MediaQuery from 'react-responsive';
 import Icon from './Icon/Icon';
 import mapKeys from 'lodash/mapKeys';
 import urls from '../virkailija-raamit-oph.json';
@@ -22,7 +22,13 @@ export default class Raamit extends React.Component {
             userData: []
         };
 
-        this.getUserData();
+        try {
+            this.getUserData();
+        } catch (error) {
+            // If failed, warm up CAS and try again
+            fetch(urls["cas.prequel"]).then(this.getUserData());
+        }
+
 
         this.getCategoryWidth = this.getCategoryWidth.bind(this);
     }
@@ -66,7 +72,6 @@ export default class Raamit extends React.Component {
     }
 
     async getUserData(){
-
         try {
             const response = await fetch(urls["cas.me"],{
                 credentials: 'include',
@@ -82,15 +87,17 @@ export default class Raamit extends React.Component {
             }
         } catch (error) {
             if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
-                this.setState({userData});
+                        this.setState({userData});
                 if (userData){
                     this.getTranslate();
                 }
             } else { // real usage
+                console.log(error);
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    window.location.href = urls["cas.login"] + window.location.href;
+                    console.log(error);
+                    window.location.href = urls["cas.login"] + window.location.origin + urls["virkailijan-stp-ui.etusivu"];
                 }
             }
         }
@@ -119,7 +126,7 @@ export default class Raamit extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    window.location.href = urls["cas.login"] + window.location.href;
+                    window.location.href = urls["cas.login"] + window.location.origin + urls["virkailijan-stp-ui.etusivu"];
                 }
             }
         }
@@ -425,11 +432,11 @@ export default class Raamit extends React.Component {
                             </div>
 
                             {dataWithoutLinks.map((item) => <Header
-                              transkey={item.key}
-                              key={item.key}
-                              href={item.resolvedHref}
-                              target={item.target}
-                              style={style}
+                                transkey={item.key}
+                                key={item.key}
+                                href={item.resolvedHref}
+                                target={item.target}
+                                style={style}
                             />)}
                         </div>
                     </div>
@@ -470,11 +477,11 @@ export default class Raamit extends React.Component {
                             />)}
 
                             {dataWithoutLinks.map((item) => <Header
-                              transkey={item.key}
-                              key={item.key}
-                              href={item.resolvedHref}
-                              target={item.target}
-                              style={style}
+                                transkey={item.key}
+                                key={item.key}
+                                href={item.resolvedHref}
+                                target={item.target}
+                                style={style}
                             />)}
                         </div>
                     </div>
@@ -514,11 +521,11 @@ export default class Raamit extends React.Component {
                             />)}
 
                             {dataWithoutLinks.map((item) => <Header
-                              transkey={item.key}
-                              key={item.key}
-                              href={item.resolvedHref}
-                              target={item.target}
-                              style={style}
+                                transkey={item.key}
+                                key={item.key}
+                                href={item.resolvedHref}
+                                target={item.target}
+                                style={style}
                             />)}
                         </div>
                     </div>
