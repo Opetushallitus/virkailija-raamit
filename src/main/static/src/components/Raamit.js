@@ -11,7 +11,6 @@ import MediaQuery from 'react-responsive';
 import Icon from './Icon/Icon';
 import mapKeys from 'lodash/mapKeys';
 import urls from '../virkailija-raamit-oph.json';
-// import fetch from 'better-fetch';
 import {find} from 'ramda';
 import browserUpdate from 'browser-update';
 
@@ -26,9 +25,13 @@ export default class Raamit extends React.Component {
             this.getUserData();
         } catch (error) {
             // If failed, warm up CAS and try again
-            fetch(urls["cas.prequel"]).then(this.getUserData());
+            fetch(urls["cas.prequel"], {
+                headers: {
+                    'Caller-Id': 'virkailija-raamit'
+                }
+            }
+            ).then(this.getUserData());
         }
-
 
         this.getCategoryWidth = this.getCategoryWidth.bind(this);
     }
@@ -76,6 +79,9 @@ export default class Raamit extends React.Component {
             const response = await fetch(urls["cas.me"],{
                 credentials: 'include',
                 mode: 'cors',
+                headers: {
+                    'Caller-Id': 'virkailija-raamit'
+                }
             });
             const ud = await response.json();
             this.setState({
@@ -116,7 +122,10 @@ export default class Raamit extends React.Component {
 
         try {
             const response = await fetch(urls["lokalisointi.localisation"] + lang,{
-                credentials: 'include'
+                credentials: 'include',
+                headers: {
+                    'Caller-Id': 'virkailija-raamit'
+                }
             });
             Translations.setTranslations(await response.json());
         } catch (error) {
