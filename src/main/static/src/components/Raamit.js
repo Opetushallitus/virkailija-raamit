@@ -93,7 +93,7 @@ export default class Raamit extends React.Component {
             }
         } catch (error) {
             if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
-                        this.setState({userData});
+                this.setState({userData});
                 if (userData){
                     this.getTranslate();
                 }
@@ -102,8 +102,7 @@ export default class Raamit extends React.Component {
                 if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
                     alert('Problems with login, please reload page or log out and try again');
                 } else {
-                    console.log(error);
-                    window.location.href = urls["cas.login"] + window.location.origin + urls["virkailijan-stp-ui.etusivu"];
+                    throw error;
                 }
             }
         }
