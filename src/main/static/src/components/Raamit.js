@@ -75,8 +75,8 @@ export default class Raamit extends React.Component {
                 }
             } else { // real usage
                 console.log(error);
-                if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
-                    alert('Problems with login, please reload page or log out and try again');
+                if (window.location.href.indexOf('virkailijan-tyopoyta/?ticket=') > 0) {
+                    window.location.href = window.location.origin + urls["virkailijan-stp-ui.etusivu"]
                 } else {
                     // If failed, warm up CAS and try again
                     fetch(urls["cas.prequel"], {
