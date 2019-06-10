@@ -21,18 +21,7 @@ export default class Raamit extends React.Component {
             userData: []
         };
 
-        try {
-            this.getUserData();
-        } catch (error) {
-            // If failed, warm up CAS and try again
-            fetch(urls["cas.prequel"], {
-                headers: {
-                    'Caller-Id': 'virkailija-raamit'
-                }
-            }
-            ).then(this.getUserData());
-        }
-
+        this.getUserData();
         this.getCategoryWidth = this.getCategoryWidth.bind(this);
     }
 
@@ -74,40 +63,56 @@ export default class Raamit extends React.Component {
         })
     }
 
-    async getUserData(){
-        try {
-            const response = await fetch(urls["cas.me"],{
-                credentials: 'include',
-                mode: 'cors',
-                headers: {
-                    'Caller-Id': 'virkailija-raamit'
-                }
-            });
-            const ud = await response.json();
-            this.setState({
-                userData: ud
-            });
-            if (ud) {
-                window.myroles = ud.groups;
-                this.getTranslate();
-            }
-        } catch (error) {
+    getUserData(){
+            this.userDataPromise()
+                .then(respProm => respProm.json())
+                .then(data => this.setUserState(data))
+                .catch(error => {
             if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
-                        this.setState({userData});
+                this.setState({userData});
                 if (userData){
                     this.getTranslate();
                 }
             } else { // real usage
                 console.log(error);
-                if (window.location.href.indexOf('ticket=') > 0) { // to prevent strange cyclic cas login problems (atm related to sticky sessions)
-                    alert('Problems with login, please reload page or log out and try again');
+                if (window.location.href.indexOf('virkailijan-tyopoyta/?ticket=') > 0) {
+                    window.location.href = window.location.origin + urls["virkailijan-stp-ui.etusivu"]
                 } else {
-                    console.log(error);
-                    window.location.href = urls["cas.login"] + window.location.origin + urls["virkailijan-stp-ui.etusivu"];
+                    // If failed, warm up CAS and try again
+                    fetch(urls["cas.prequel"], {
+                            headers: {
+                                'Caller-Id': 'virkailija-raamit'
+                            }
+                        }
+                    ).then(x => {
+                        this.userDataPromise()
+                            .then(respRetry => respRetry.json())
+                            .then(retryData => this.setUserState(retryData))
+                            .catch(err => window.location.href = urls["cas.login"] + window.location.origin + urls["virkailijan-stp-ui.etusivu"])
+                    })
                 }
             }
-        }
+        })
     }
+
+    userDataPromise() {
+        return fetch(urls["cas.me"],{
+            credentials: 'include',
+            mode: 'cors',
+            headers: {
+                'Caller-Id': 'virkailija-raamit'
+            }
+        });
+    }
+
+    setUserState(ud) {
+        this.setState({
+            userData: ud
+        });
+        window.myroles = ud.groups;
+        this.getTranslate();
+    }
+
 
     async getTranslate(){
         let lang = 'fi';
