@@ -179,7 +179,7 @@
   },
   {
     "key":"rekisterit",
-    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski","app_varda"],
+    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski","app_varda", "app_ehoks"],
     "links":[
       {
         "key":"koski",
@@ -200,6 +200,11 @@
         "key":"varda",
         "href":"/varda",
         "requiresRole":["app_varda"]
+      },
+      {
+        "key":"ehoks",
+        "href":"/ehoks-virkailija-ui",
+        "requiresRole":["app_ehoks_read", "app_ehoks_crud"]
       }
     ]
   },
