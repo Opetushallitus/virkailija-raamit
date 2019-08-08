@@ -179,7 +179,7 @@
   },
   {
     "key":"rekisterit",
-    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski","app_varda", "app_ehoks"],
+    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski","app_varda", "app_ehoks", "app_oikeustulkkirekisteri"],
     "links":[
       {
         "key":"koski",
@@ -205,6 +205,11 @@
         "key":"ehoks",
         "href":"/ehoks-virkailija-ui",
         "requiresRole":["app_ehoks_read", "app_ehoks_crud", "app_ehoks_ophpaakayttaja"]
+      },
+      {
+        "key":"oikeustulkkirekisteri",
+        "href":"/oikeustulkkirekisteri-ui",
+        "requiresRole":["app_oikeustulkkirekisteri_oikeustulkki_crud"]
       }
     ]
   },
