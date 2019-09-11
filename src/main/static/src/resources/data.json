@@ -81,7 +81,7 @@
   },
   {
     "key":"koulutustarjonta",
-    "requiresRole":["app_tarjonta"],
+    "requiresRole":["app_tarjonta", "app_kouta"],
     "links":[
       {
         "key":"tarjontakoulutuksetjahaut",
@@ -102,6 +102,11 @@
         "key":"tarjontakoulutuksetjahautexcel",
         "href":"/tarjonta-app/index.html#/import",
         "requiresRole":["app_tarjonta"]
+      },
+      {
+        "key":"kouta",
+        "href":"/kouta",
+        "requiresRole":["app_kouta"]
       }
     ]
   },
