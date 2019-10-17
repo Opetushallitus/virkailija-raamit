@@ -158,7 +158,7 @@
   },
   {
     "key":"raportointi_ja_viestinta",
-    "requiresRole":["app_raportointi","app_ryhmasahkoposti","app_asiakirjapalvelu"],
+    "requiresRole":["app_raportointi","app_ryhmasahkoposti","app_asiakirjapalvelu","app_palaute"],
     "links":[
       {
         "key":"raportointi",
@@ -179,6 +179,11 @@
         "key":"kirje_kirjepohjat",
         "href":"/viestintapalvelu-ui/#/letter-templates",
         "requiresRole":["app_asiakirjapalvelu_create_template"]
+      },
+      {
+        "key":"palaute",
+        "href":"/palaute",
+        "requiresRole":["app_palaute"]
       }
     ]
   },
