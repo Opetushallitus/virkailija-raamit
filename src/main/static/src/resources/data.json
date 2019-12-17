@@ -1,12 +1,17 @@
 [
   {
-    "requiresRole":["app_organisaatiohallinta"],
+    "requiresRole":["app_organisaatiohallinta", "app_yksityisten_rekisteroityminen"],
     "key":"organisaatiot",
     "links":[
       {
         "key":"organisaatiotyllapito",
         "requiresRole":["app_organisaatiohallinta"],
         "href":"/organisaatio-ui/"
+      },
+      {
+        "key":"yksityistenrekisteroityminen",
+        "requiresRole":["app_yksityisten_rekisteroityminen"],
+        "href":"/varda-rekisterointi/virkailija"
       },
       {
         "key":"osoitepalvelu",
