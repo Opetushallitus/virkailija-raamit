@@ -422,7 +422,6 @@ export default class Raamit extends React.Component {
 
                             <div style={{
                                 display: 'flex',
-                                minWidth: 1200,
                                 boxShadow: this.state.fade ? '0px 1px 4px 0px rgba(0,0,0,0.20)' : '',
                                 transition: 'box-shadow .3s ease',
                                 zIndex: 1

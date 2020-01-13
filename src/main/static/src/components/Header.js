@@ -69,7 +69,6 @@ export default class Header extends React.Component {
             visibility:hover ? 'visible' : 'hidden',
             opacity: fade ? 100 : 0,
             height: hover ? 'auto' : 0,
-            width:'100%',
             borderLeft: borderColor,
             textAlign: 'left',
             transition: 'opacity ease .3s'
