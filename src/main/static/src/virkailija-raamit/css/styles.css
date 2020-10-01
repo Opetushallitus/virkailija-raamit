@@ -12,6 +12,13 @@
     background-color: #F6FCFF;
 }
 
+.virkailija-raamit-production {
+    background-color: #149ecb;
+}
+.virkailija-raamit-test {
+    background-color: #040066;
+}
+
 body{
     margin-top: 0 !important;
     margin: 0;

@@ -1352,7 +1352,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #149ecb; }
+}
 
 table {
   border-collapse: normal; }
@@ -1531,7 +1531,6 @@ hr {
   background-repeat: repeat-x;
   background-attachment: scroll;
   background-position: left bottom;
-  background-color: #149ecb;
   padding: 10px 0;
   height: 38px;
   position: relative;
@@ -1784,7 +1783,6 @@ label, .label {
           display: block;
           padding: 3px 10px;
           border-radius: 3px 3px 3px 3px;
-          background-color: #149ecb;
           color: #ffffff; }
         #navigation .level1 li a:hover span {
           background-color: #0f7a9d; }
@@ -2474,13 +2472,14 @@ button.edit-link {
     display: inline-block; }
     #breadcrumbs ul li a {
       text-decoration: none;
-      color: #149ECB; }
-      #breadcrumbs ul li a:hover, #breadcrumbs ul li a:active {
-        -webkit-text-shadow: "0 0 3px #ccc";
-        -moz-text-shadow: "0 0 3px #ccc";
-        -o-text-shadow: "0 0 3px #ccc";
-        -ms-text-shadow: "0 0 3px #ccc";
-        text-shadow: "0 0 3px #ccc"; }
+    }
+    #breadcrumbs ul li a:hover, #breadcrumbs ul li a:active {
+      -webkit-text-shadow: "0 0 3px #ccc";
+      -moz-text-shadow: "0 0 3px #ccc";
+      -o-text-shadow: "0 0 3px #ccc";
+      -ms-text-shadow: "0 0 3px #ccc";
+      text-shadow: "0 0 3px #ccc";
+    }
     #breadcrumbs ul li:last-of-type a {
       color: #3e3e3e; }
     #breadcrumbs ul li:last-of-type span {

@@ -13,6 +13,7 @@ import mapKeys from 'lodash/mapKeys';
 import urls from '../virkailija-raamit-oph.json';
 import {find} from 'ramda';
 import browserUpdate from 'browser-update';
+import { colors } from './colors';
 
 export default class Raamit extends React.Component {
     constructor(props){
@@ -231,6 +232,14 @@ export default class Raamit extends React.Component {
     render() {
         const myRole = this.state.userData.groups;
 
+        // Check if current URL contains the environment object's href
+        const isCurrentEnvironment = (environment) => {
+          return window.location.href.indexOf(environment.href) > -1;
+        };
+        const currentEnvironment = find(isCurrentEnvironment)(environments);
+        const isTestEnvironment = currentEnvironment && currentEnvironment.type === 'test';
+        const theme = isTestEnvironment ? colors.test : colors.production;
+
         const dataWithLinks = this.dataWithConcatenatedParentRoles.filter(item => {
             if (item.requiresRole && item.links) {
                 return item.requiresRole.some(requiredRole=> {
@@ -296,7 +305,6 @@ export default class Raamit extends React.Component {
             fontSize: fontSize,
             height: 100,
             paddingTop: 5,
-            backgroundColor:"#159ECB",
             color: "white",
             boxSizing: "border-box",
             zIndex: 100
@@ -333,9 +341,9 @@ export default class Raamit extends React.Component {
             fontSize:20,
             color: 'white',
             textDecoration: 'none',
-            boxShadow: 'inset 0 0 0 5px #159ECB',
+            boxShadow: theme.iconBoxShadow,
             zIndex: 2,
-            borderBottom: window.location.href.indexOf(urls["virkailijan-stp-ui.base"]) > -1 ? '5px solid #BCE5FF' : ''
+            borderBottom: window.location.href.indexOf(urls["virkailijan-stp-ui.base"]) > -1 ? theme.iconBorder : ''
         };
         const style={
             textAlign: 'center',
@@ -348,7 +356,6 @@ export default class Raamit extends React.Component {
             ...style,
             paddingTop: 15,
             maxWidth:'none',
-            backgroundColor:"#159ECB"
         };
 
         const base={
@@ -357,16 +364,6 @@ export default class Raamit extends React.Component {
             zIndex:100,
             top: 55
         };
-
-        // 'Luokka' / QA environment alert
-
-        // Check if current URL contains the environment object's href
-        const isCurrentEnvironment = (environment) => {
-            return window.location.href.indexOf(environment.href) > -1;
-        };
-
-        const currentEnvironment = find(isCurrentEnvironment)(environments);
-        const isTestEnvironment = currentEnvironment && currentEnvironment.type === 'test';
 
         const testEnvironmentAlertStyle = {
             display: 'inline-block',
@@ -389,7 +386,7 @@ export default class Raamit extends React.Component {
         dataWithoutLinks.forEach(resolvedHref);
 
         return(
-            <header className="virkailija-raamit">
+            <header className={`virkailija-raamit ${isTestEnvironment ? "virkailija-raamit-test" : "virkailija-raamit-production"}`}>
                 {/*
                  Display alert when not in production environment.
                  */}
@@ -427,6 +424,7 @@ export default class Raamit extends React.Component {
                                 zIndex: 1
                             }}>
                                 {dataWithLinks.map((item) => <Header
+                                    testEnvironment={isTestEnvironment}
                                     transkey={item.key}
                                     key={item.key}
                                     isIE11={isIE11}
@@ -445,6 +443,7 @@ export default class Raamit extends React.Component {
                             </div>
 
                             {dataWithoutLinks.map((item) => <Header
+                                testEnvironment={isTestEnvironment}
                                 transkey={item.key}
                                 key={item.key}
                                 href={item.resolvedHref}
@@ -478,6 +477,7 @@ export default class Raamit extends React.Component {
                             </a>
 
                             {dataWithLinks.map((item) => <Header
+                                testEnvironment={isTestEnvironment}
                                 transkey={item.key}
                                 key={item.key}
                                 links={item.links}
@@ -490,6 +490,7 @@ export default class Raamit extends React.Component {
                             />)}
 
                             {dataWithoutLinks.map((item) => <Header
+                                testEnvironment={isTestEnvironment}
                                 transkey={item.key}
                                 key={item.key}
                                 href={item.resolvedHref}
@@ -522,6 +523,7 @@ export default class Raamit extends React.Component {
                             </a>
 
                             {dataWithLinks.map((item) => <Header
+                                testEnvironment={isTestEnvironment}
                                 transkey={item.key}
                                 key={item.key}
                                 links={item.links}
@@ -534,6 +536,7 @@ export default class Raamit extends React.Component {
                             />)}
 
                             {dataWithoutLinks.map((item) => <Header
+                                testEnvironment={isTestEnvironment}
                                 transkey={item.key}
                                 key={item.key}
                                 href={item.resolvedHref}

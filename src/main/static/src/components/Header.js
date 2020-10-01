@@ -1,14 +1,13 @@
 import React from 'react';
 import Translation from './Translations';
 import Link from './Link';
-
-const headerBorderColor = "1px solid #56B6D6";
-const borderColor = "1px solid #F0F0F0";
+import { colors } from './colors';
 
 export default class Header extends React.Component {
     render() {
         const {
           transkey,
+          testEnvironment,
           isIE11,
           links,
           maxLinksLength,
@@ -36,18 +35,20 @@ export default class Header extends React.Component {
             currentPage = [(window.location.href.indexOf(href) > -1)];
         }
 
+        const theme = testEnvironment ? colors.test : colors.production;
+
         const textStyle={
             paddingLeft: links ? 10 : 0,
             paddingRight: links ? 10 : 0,
             textDecoration:'none',
             color: 'white',
-            borderLeft: headerBorderColor,
+            borderLeft: theme.headerBorderColor,
             boxSizing: 'border-box',
             textAlign: 'left',
             height: 45,
             cursor: media === 'desktop' ? 'pointer' : '',
-            backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '#1194bf' : '',
-            borderBottom: media === 'desktop' && currentPage.indexOf(true) > -1 ? '5px solid #BCE5FF' : ''
+            backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? theme.textBackground : '',
+            borderBottom: media === 'desktop' && currentPage.indexOf(true) > -1 ? theme.textBorder : ''
         };
 
         const textLinkStyle={
@@ -58,8 +59,8 @@ export default class Header extends React.Component {
             textDecoration:'none',
             color: 'white',
             boxSizing: 'border-box',
-            backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '#159ECB' : '',
-            borderBottom: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '5px solid #BCE5FF' : ''
+            backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? theme.textLinkBackground : '',
+            borderBottom: media !== 'desktop' && currentPage.indexOf(true) > -1 ? theme.textLinkBorder : ''
         };
 
         const linkStyle={
@@ -69,7 +70,7 @@ export default class Header extends React.Component {
             visibility:hover ? 'visible' : 'hidden',
             opacity: fade ? 100 : 0,
             height: hover ? 'auto' : 0,
-            borderLeft: borderColor,
+            borderLeft: theme.borderColor,
             textAlign: 'left',
             transition: 'opacity ease .3s'
         };
@@ -102,8 +103,8 @@ export default class Header extends React.Component {
                 <div
                     style={{
                         ...style,
-                        boxShadow: media === 'desktop' ? '0 -5px 0 0 #159ECB' : '',
-                        backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? '#1194bf' : '#159ECB',
+                      boxShadow: media === 'desktop' ? theme.tabBoxShadowLight : '',
+                      backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? theme.tabColorLight: theme.tabColorDark,
                     }}
                     key={transkey}
                 >
