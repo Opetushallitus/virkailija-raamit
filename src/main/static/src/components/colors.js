@@ -22,7 +22,7 @@ export const colors = {
     tabColorLight: "#040066",
     tabColorDark: "#040066",
     textBackground: '',
-    textBorder: '',
+    textBorder: '5px solid #FFF',
     textLinkBackground: '',
     textLinkBorder: '5px solid #FFF',
   }
