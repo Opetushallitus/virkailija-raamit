@@ -1362,7 +1362,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #149ecb; }
+}
 
 table {
   border-collapse: normal; }
@@ -1428,7 +1428,6 @@ dl {
 
 #raamit-header {
   margin-bottom: 20px;
-  background-color: #149ecb;
   padding-top: 10px;
   position: relative;
   min-width: 960px; }
