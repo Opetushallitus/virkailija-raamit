@@ -27,7 +27,7 @@
   },
   {
     "key":"jarjestelmanhallinta",
-    "requiresRole":["app_valintaperusteet","app_valintojentoteuttaminen"],
+    "requiresRole":["app_kayttooikeus","app_koodisto","app_lokalisointi","app_oppijanumerorekisteri_oppijoidentuonti"],
     "links":[
       {
         "key":"kaytonhallintaanomukset",
