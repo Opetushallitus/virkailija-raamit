@@ -209,7 +209,7 @@
   },
   {
     "key":"rekisterit",
-    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski","app_varda", "app_ehoks", "app_oikeustulkkirekisteri"],
+    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski","app_varda", "app_ehoks", "app_oikeustulkkirekisteri", "app_valpas"],
     "links":[
       {
         "key":"koski",
@@ -240,6 +240,11 @@
         "key":"oikeustulkkirekisteri",
         "href":"/oikeustulkkirekisteri-ui",
         "requiresRole":["app_oikeustulkkirekisteri_oikeustulkki_crud"]
+      },
+      {
+        "key":"valpas",
+        "href":"/valpas/virkailija",
+        "requiresRole":["app_valpas"]
       }
     ]
   },
