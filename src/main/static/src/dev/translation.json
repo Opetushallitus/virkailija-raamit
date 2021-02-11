@@ -922,5 +922,19 @@
     "key": "tutkintotilaisuudet",
     "value": "Tutkintotilaisuudet",
     "locale": "fi"
+  },
+  {
+    "accesscount": 0,
+    "id": 26306,
+    "category": "virkailijaraamit",
+    "key": "valpas",
+    "accessed": 1612871902855,
+    "created": 1612871902855,
+    "createdBy": "1.2.246.562.24.16928167145",
+    "modified": 1612871902855,
+    "modifiedBy": "1.2.246.562.24.16928167145",
+    "force": false,
+    "locale": "fi",
+    "value": "VALPAS"
   }
 ]
