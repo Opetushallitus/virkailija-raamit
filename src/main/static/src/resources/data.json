@@ -137,12 +137,12 @@
   },
   {
     "key":"hakemuksetjavalinnat",
-    "requiresRole":["app_hakemus"],
+    "requiresRole":["app_hakemus", "app_valintojentoteuttaminen", "app_valintaperusteet", "app_hakuperusteetadmin", "app_ataru"],
     "links":[
       {
         "key":"hauthakemukset",
         "href":"/haku-app/virkailija/hakemus",
-        "requiresRole":["app_hakujenhallinta","app_hakemus"]
+        "requiresRole":["app_hakemus"]
       },
       {
         "key":"valinnattoteuttaminen",
