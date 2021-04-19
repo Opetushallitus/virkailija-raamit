@@ -813,6 +813,20 @@
   },
   {
     "accesscount": 0,
+    "id": 22179,
+    "category": "virkailijaraamit",
+    "accessed": 1618818140545,
+    "created": 1618818140545,
+    "createdBy": "1.2.246.562.24.72630414243",
+    "modified": 1618818140545,
+    "modifiedBy": "1.2.246.562.24.72630414243",
+    "force": false,
+    "key": "hakukohderyhmapalvelu",
+    "value": "Hakukohderyhmäpalvelu",
+    "locale": "fi"
+  },
+  {
+    "accesscount": 0,
     "id": 15440,
     "category": "virkailijaraamit",
     "accessed": 1465386022305,
