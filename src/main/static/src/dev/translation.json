@@ -127,20 +127,6 @@
   },
   {
     "accesscount": 0,
-    "id": 12769,
-    "category": "virkailijaraamit",
-    "accessed": 1445862806896,
-    "created": 1445862806896,
-    "createdBy": "1.2.246.562.24.94392457652",
-    "modified": 1445603053996,
-    "modifiedBy": "1.2.246.562.24.25909319372",
-    "force": false,
-    "key": "hakuperusteet",
-    "value": "Maksuperusteet",
-    "locale": "fi"
-  },
-  {
-    "accesscount": 0,
     "id": 1143,
     "category": "virkailijaraamit",
     "accessed": 1392980271695,

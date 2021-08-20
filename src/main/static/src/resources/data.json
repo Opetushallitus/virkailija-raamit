@@ -142,7 +142,7 @@
   },
   {
     "key":"hakemuksetjavalinnat",
-    "requiresRole":["app_hakemus", "app_valintojentoteuttaminen", "app_valintaperusteet", "app_hakuperusteetadmin", "app_ataru", "app_hakukohderyhmapalvelu"],
+    "requiresRole":["app_hakemus", "app_valintojentoteuttaminen", "app_valintaperusteet", "app_ataru", "app_hakukohderyhmapalvelu"],
     "links":[
       {
         "key":"hauthakemukset",
@@ -168,11 +168,6 @@
         "key":"valintajononhallinta",
         "href":"/valintalaskenta-ui/app/jono/hallinta.html",
         "requiresRole":["app_valintojentoteuttaminen_crud_1.2.246.562.10.00000000001","app_valintojentoteuttaminenkk_crud"]
-      },
-      {
-        "key":"hakuperusteet",
-        "href":"/hakuperusteetadmin/",
-        "requiresRole":["app_hakuperusteetadmin"]
       },
       {
         "key":"hakukohderyhmapalvelu",
