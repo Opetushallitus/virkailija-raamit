@@ -6,7 +6,7 @@ import SignOut from './SignOut';
 import Translations from './Translations';
 import userData from '../dev/me.json';
 import translation from '../dev/translation.json';
-import opintopolkuLogo from '../virkailija-raamit/img/opintopolkufi.png';
+import opintopolkuLogo from '../virkailija-raamit/img/opintopolku-logo-uusi.svg';
 import MediaQuery from 'react-responsive';
 import Icon from './Icon/Icon';
 import mapKeys from 'lodash/mapKeys';
