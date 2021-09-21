@@ -52,9 +52,9 @@ body{
 }
 
 .opintopolkuLogo{
-    width: 144px;
+    width: 175px;
     padding-left: 15px;
-    margin-top: 4px;
+    margin-top: 10px;
 }
 
 @media (min-width: 1224px) {
