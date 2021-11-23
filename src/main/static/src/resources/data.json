@@ -14,6 +14,11 @@
         "href":"/organisaatio-service/ryhmat"
       },
       {
+        "key":"uusiorganisaatio",
+        "requiresRole":["app_organisaatiohallinta"],
+        "href":"/organisaatio/"
+      },
+      {
         "key":"yksityistenrekisteroityminen",
         "requiresRole":["app_yksityisten_rekisteroityminen"],
         "href":"/varda-rekisterointi/virkailija"

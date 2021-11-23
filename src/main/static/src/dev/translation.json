@@ -547,6 +547,20 @@
   },
   {
     "accesscount": 0,
+    "id": 1141,
+    "category": "virkailijaraamit",
+    "accessed": 1392980270566,
+    "created": 1389371735824,
+    "createdBy": "1.2.246.562.24.94392457652",
+    "modified": 1476342291027,
+    "modifiedBy": "1.2.246.562.24.25909319372",
+    "force": false,
+    "key": "uusiorganisaatio",
+    "value": "Uusi organisaatiopalvelu",
+    "locale": "fi"
+  },
+  {
+    "accesscount": 0,
     "id": 1151,
     "category": "virkailijaraamit",
     "accessed": 1392980270760,
