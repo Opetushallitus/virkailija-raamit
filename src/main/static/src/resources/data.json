@@ -6,12 +6,12 @@
       {
         "key":"organisaatiotyllapito",
         "requiresRole":["app_organisaatiohallinta"],
-        "href":"/organisaatio/"
+        "href":"/organisaatio-service/organisaatiot"
       },
       {
         "key":"ryhmatyllapito",
         "requiresRole":["app_organisaatiohallinta"],
-        "href":"/organisaatio/ryhmat"
+        "href":"/organisaatio-service/ryhmat"
       },
       {
         "key":"yksityistenrekisteroityminen",
