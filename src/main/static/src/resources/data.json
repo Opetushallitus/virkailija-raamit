@@ -285,6 +285,11 @@
         "requiresRole":["app_yki_jarjestaja"]
       }
     ]
+  },
+  {
+    "key":"akt",
+    "href":"/akt-virkailija",
+    "requiresRole":["app_akt"]
   }
 
 ]

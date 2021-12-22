@@ -936,5 +936,19 @@
     "force": false,
     "locale": "fi",
     "value": "VALPAS"
+  },
+  {
+    "accesscount":0,
+    "id":29946,
+    "force":false,
+    "category":"virkailijaraamit",
+    "key":"akt",
+    "accessed":1640160091619,
+    "created":1640160091619,
+    "createdBy":"1.2.246.562.24.28593654916",
+    "modified":1640160091619,
+    "modifiedBy":"1.2.246.562.24.28593654916",
+    "value":"AKT",
+    "locale":"fi"
   }
 ]

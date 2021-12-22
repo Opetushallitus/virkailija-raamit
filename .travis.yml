@@ -16,9 +16,9 @@ cache:
 env:
   global:
   # AWS_ACCESS_KEY_ID
-  - secure: "E9QDvoDdSq+ibLHvihDgOiitmZnh7J4ftaQ5XhSSITbYkGDD/2kJOIMl0tYrUrMopq4GRnYs8yw8J7tbN9LIW0D4rZVx9ryDfK6cwxdglD1565CC/8SRWFHCrunuKuygvPgTEhyNWIg08JDmrmUi321wZkF7oPalBjzCqdx66S4="
+  - secure: "BKtpaewxK05bj6d/SxP06NsqZVJpd1h6PhpqpRVjL+D9NnMPlc/unqD2TjT08yihzJhvhrbFq5elAnb21xUE+5scY7bAJAyP/3RwXTuRzibDvnBxYqbNyMVqqzVocSa65pFhEchp/RpTXEVx7i6j3caAQlWZzXKPwN7za+u6JVE="
   # AWS_SECRET_ACCESS_KEY
-  - secure: "ao9xJRFTIEFV2V7QB+GkHOxtvQHXZEUvN9WkGQlWdNc46+FztHYPcFM79OuKB7+8i/11uZ7Z8hfNKLuJnYr0qDxAhOK2YqvGeFVpHAEXUv/Lln5ikGHo0uzS9QTP58wKJ6h7I3UYbh47jDIivPtyEWOlHG0rVhqPSw7vkYNYT2E="
+  - secure: "M6/8B1uZh7gVy5VU0le6WEtjU0IgW6qZobVS/jjrQN8UBwyBJG1sf/Uc5nbj46XxOFnkZX32jyizo2WdV44ZS8GRXrGKTPI4s9X251ObthyxT53aL45QRfLZhZK1QdvGIvz5bO7wUDHeWI6SsO6yonqdltkYz8qmzzs7v7VP/VI="
   - CI: false
 
 install:
