@@ -288,7 +288,7 @@
   },
   {
     "key":"akt",
-    "href":"/akt-virkailija",
+    "href":"/akt/virkailija",
     "requiresRole":["app_akt"]
   }
 
