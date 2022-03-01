@@ -381,7 +381,10 @@ export default class Raamit extends React.Component {
             transform: 'rotate(-45deg)'
         };
 
-        const resolvedHref = item => item.resolvedHref = isTestEnvironment && item.testHref ? item.testHref : item.href;
+        const resolvedHref = item => {
+            item.resolvedHref = isTestEnvironment && item.testHref ? item.testHref : item.href;
+            item.links && item.links.forEach(resolvedHref);
+        };
         dataWithLinks.forEach(resolvedHref);
         dataWithoutLinks.forEach(resolvedHref);
 
