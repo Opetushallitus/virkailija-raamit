@@ -23,5 +23,10 @@
     "name": "Sieni",
     "type": "test",
     "href": "virkailija.sieniopintopolku.fi"
+  },
+  {
+    "name": "Dev",
+    "type": "test",
+    "href": "localhost"
   }
 ]
