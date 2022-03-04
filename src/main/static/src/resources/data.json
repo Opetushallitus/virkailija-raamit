@@ -248,9 +248,7 @@
       },
       {
         "key":"mpassid",
-        "href":"https://mpassid-rr.csc.fi/",
-        "testHref":" https://mpassid-rr-test.csc.fi/",
-        "target":"_blank",
+        "href":"/mpassid",
         "requiresRole":["app_mpassid"]
       }
     ]
