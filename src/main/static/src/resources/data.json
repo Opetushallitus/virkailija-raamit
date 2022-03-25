@@ -14,9 +14,9 @@
         "href":"/organisaatio-service/ryhmat"
       },
       {
-        "key":"ryhmatyllapito",
+        "key":"organisaatiotyllapitovanha",
         "requiresRole":["app_organisaatiohallinta"],
-        "href":"/organisaatio-service/ryhmat"
+        "href":"/organisaatio-ui/"
       },
       {
         "key":"yksityistenrekisteroityminen",
