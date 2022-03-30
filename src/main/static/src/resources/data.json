@@ -6,6 +6,16 @@
       {
         "key":"organisaatiotyllapito",
         "requiresRole":["app_organisaatiohallinta"],
+        "href":"/organisaatio-service/organisaatiot"
+      },
+      {
+        "key":"ryhmatyllapito",
+        "requiresRole":["app_organisaatiohallinta"],
+        "href":"/organisaatio-service/ryhmat"
+      },
+      {
+        "key":"organisaatiotyllapitovanha",
+        "requiresRole":["app_organisaatiohallinta"],
         "href":"/organisaatio-ui/"
       },
       {
@@ -17,11 +27,6 @@
         "key":"osoitepalvelu",
         "href":"/osoitekoostepalvelu/#/",
         "requiresRole":["app_osoite"]
-      },
-      {
-        "key":"kaytonhallintaytt",
-        "href":"/organisaatio-ui/html/yhteystietotyypit",
-        "requiresRole":["app_yhteystietotyyppienhallinta"]
       }
     ]
   },
