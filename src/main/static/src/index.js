@@ -8,6 +8,9 @@ function addStyle(href) {
     ss.type = "text/css";
     ss.rel = "stylesheet";
     ss.href = href;
+    if (window.nonce !== undefined) {
+        ss.nonce = window.nonce
+    }
     document.getElementsByTagName("head")[0].appendChild(ss);
 }
 
