@@ -238,7 +238,7 @@
       },
       {
         "key":"oikeustulkkirekisteri",
-        "href":"/oikeustulkkirekisteri-ui",
+        "href":"/otr/virkailija",
         "requiresRole":["app_oikeustulkkirekisteri_oikeustulkki_crud"]
       },
       {
