@@ -271,6 +271,13 @@
     "requiresRole":["app_amkpal"]
   },
   {
+    "key":"valssi",
+    "href":"https://valssi.rahtiapp.fi/virkailija-ui/",
+    "testHref":"https://valssi-qa.rahtiapp.fi/virkailija-ui/",
+    "target":"_blank",
+    "requiresRole":["app_valssi"]
+  },
+  {
     "key":"yki",
     "requiresRole":["app_yki_yllapitaja","app_yki_jarjestaja"],
     "links":[
