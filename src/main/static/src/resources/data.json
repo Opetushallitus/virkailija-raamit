@@ -100,6 +100,11 @@
         "key":"tuva-tyokalu",
         "href":"/eperusteet-amosaa-app/uusi/#/tutkintoonvalmentava",
         "requiresRole":["app_eperusteet_tuva"]
+      },
+	  {
+        "key":"koto-tyokalu",
+        "href":"/eperusteet-amosaa-app/uusi/#/kotoutumiskoulutus",
+        "requiresRole":["app_eperusteet_koto"]
       }
     ]
 
