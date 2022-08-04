@@ -214,7 +214,7 @@
   },
   {
     "key":"rekisterit",
-    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski","app_varda", "app_ehoks", "app_oikeustulkkirekisteri", "app_valpas", "app_mpassid"],
+    "requiresRole":["app_tiedonsiirto","app_suoritusrekisteri","app_koski","app_varda", "app_ehoks", "app_valpas", "app_mpassid"],
     "links":[
       {
         "key":"koski",
@@ -240,11 +240,6 @@
         "key":"ehoks",
         "href":"/ehoks-virkailija-ui",
         "requiresRole":["app_ehoks_read", "app_ehoks_crud", "app_ehoks_ophpaakayttaja"]
-      },
-      {
-        "key":"oikeustulkkirekisteri",
-        "href":"/oikeustulkkirekisteri-ui",
-        "requiresRole":["app_oikeustulkkirekisteri_oikeustulkki_crud"]
       },
       {
         "key":"valpas",
@@ -283,6 +278,22 @@
     "requiresRole":["app_valssi"]
   },
   {
+    "key":"kieli-ja-kaantaja-tutkinnot",
+    "requiresRole":["app_oikeustulkkirekisteri","app_oikeustulkkirekisteri_oikeustulkki_crud", "app_akt"],
+    "links":[
+      {
+        "key":"otr",
+        "href":"/oikeustulkkirekisteri-ui",
+        "requiresRole":["app_oikeustulkkirekisteri_oikeustulkki_crud"]
+      },
+      {
+        "key":"akr",
+        "href":"/akr/virkailija",
+        "requiresRole":["app_akt"]
+      }
+    ]
+  },
+  {
     "key":"yki",
     "requiresRole":["app_yki_yllapitaja","app_yki_jarjestaja"],
     "links":[
@@ -297,11 +308,5 @@
         "requiresRole":["app_yki_jarjestaja"]
       }
     ]
-  },
-  {
-    "key":"akt",
-    "href":"/akt/virkailija",
-    "requiresRole":["app_akt"]
   }
-
 ]
