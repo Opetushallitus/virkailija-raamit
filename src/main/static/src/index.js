@@ -15,9 +15,8 @@ function addStyle(href) {
 }
 
 function addInlineStyle(data) {
-    const ss = document.createElement("link");
+    const ss = document.createElement("style");
     ss.type = "text/css";
-    ss.rel = "stylesheet";
     ss.innerText = data;
     if (window.nonce !== undefined) {
         ss.nonce = window.nonce
