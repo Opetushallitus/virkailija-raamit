@@ -1,4 +1,4 @@
-name: Valssi
+name: Virkailija-raamit
 
 on:
   workflow_dispatch:
