@@ -279,7 +279,7 @@
   },
   {
     "key":"kieli-ja-kaantaja-tutkinnot",
-    "requiresRole":["app_akt", "app_oikeustulkkirekisteri_oikeustulkki_crud"],
+    "requiresRole":["app_akt", "app_oikeustulkkirekisteri_oikeustulkki_crud", "app_vkt"],
     "links":[
       {
         "key":"akr",
@@ -294,7 +294,7 @@
       {
         "key":"vkt",
         "href":"/vkt/virkailija",
-        "requiresRole":["app_akt"]
+        "requiresRole":["app_vkt"]
       },
       {
         "key":"oikeustulkkirek",
