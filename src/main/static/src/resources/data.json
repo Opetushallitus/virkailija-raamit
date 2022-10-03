@@ -279,17 +279,27 @@
   },
   {
     "key":"kieli-ja-kaantaja-tutkinnot",
-    "requiresRole":["app_oikeustulkkirekisteri","app_oikeustulkkirekisteri_oikeustulkki_crud", "app_akt"],
+    "requiresRole":["app_akt", "app_oikeustulkkirekisteri_oikeustulkki_crud", "app_vkt"],
     "links":[
-      {
-        "key":"otr",
-        "href":"/oikeustulkkirekisteri-ui",
-        "requiresRole":["app_oikeustulkkirekisteri_oikeustulkki_crud"]
-      },
       {
         "key":"akr",
         "href":"/akr/virkailija",
         "requiresRole":["app_akt"]
+      },
+      {
+        "key":"otr",
+        "href":"/otr/virkailija",
+        "requiresRole":["app_oikeustulkkirekisteri_oikeustulkki_crud"]
+      },
+      {
+        "key":"vkt",
+        "href":"/vkt/virkailija",
+        "requiresRole":["app_vkt"]
+      },
+      {
+        "key":"oikeustulkkirek",
+        "href":"/oikeustulkkirekisteri-ui",
+        "requiresRole":["app_oikeustulkkirekisteri_oikeustulkki_crud"]
       }
     ]
   },

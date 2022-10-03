@@ -967,21 +967,7 @@
   },
   {
     "accesscount":0,
-    "id":32643,
-    "accessed":1659607102538,
-    "category":"virkailijaraamit",
-    "created":1659607102538,
-    "createdBy":"1.2.246.562.24.28593654916",
-    "modified":1659607102538,
-    "modifiedBy":"1.2.246.562.24.28593654916",
-    "force":false,
-    "key":"akr",
-    "value":"Auktorisoitujen kääntäjien rekisteri",
-    "locale":"fi"
-  },
-  {
-    "accesscount":0,
-    "id":32642,
+    "id":32640,
     "accessed":1659606444668,
     "category":"virkailijaraamit",
     "created":1659606444668,
@@ -996,6 +982,48 @@
   {
     "accesscount":0,
     "id":32641,
+    "accessed":1659607102538,
+    "category":"virkailijaraamit",
+    "created":1659607102538,
+    "createdBy":"1.2.246.562.24.28593654916",
+    "modified":1659607102538,
+    "modifiedBy":"1.2.246.562.24.28593654916",
+    "force":false,
+    "key":"akr",
+    "value":"Auktorisoitujen kääntäjien rekisteri",
+    "locale":"fi"
+  },
+  {
+    "accesscount":0,
+    "id":32642,
+    "accessed":1664476055000,
+    "category":"virkailijaraamit",
+    "created":1664476055000,
+    "createdBy":"1.2.246.562.24.28593654916",
+    "modified":1664476055000,
+    "modifiedBy":"1.2.246.562.24.28593654916",
+    "force":false,
+    "key":"otr",
+    "value":"Oikeustulkkirekisteri",
+    "locale":"fi"
+  },
+  {
+    "accesscount":0,
+    "id":32643,
+    "accessed":1664476018000,
+    "category":"virkailijaraamit",
+    "created":1664476018000,
+    "createdBy":"1.2.246.562.24.28593654916",
+    "modified":1664476018000,
+    "modifiedBy":"1.2.246.562.24.28593654916",
+    "force":false,
+    "key":"vkt",
+    "value":"Valtionhallinnon kielitutkinnot",
+    "locale":"fi"
+  },
+  {
+    "accesscount":0,
+    "id":32644,
     "accessed":1659606356340,
     "category":"virkailijaraamit",
     "created":1659606356340,
@@ -1003,8 +1031,8 @@
     "modified":1659606356340,
     "modifiedBy":"1.2.246.562.24.28593654916",
     "force":false,
-    "key":"otr",
-    "value":"Oikeustulkkirekisteri",
+    "key":"oikeustulkkirek",
+    "value":"Vanha oikeustulkkirekisteri",
     "locale":"fi"
   }
 ]
