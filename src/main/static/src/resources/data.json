@@ -15,7 +15,7 @@
       },
       {
         "key":"yksityistenrekisteroityminen",
-        "requiresRole":["app_yksityisten_rekisteroityminen"],
+        "requiresRole":["app_organisaatioiden_rekisteroityminen"],
         "href":"/varda-rekisterointi/virkailija"
       },
       {
