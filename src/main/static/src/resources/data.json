@@ -14,7 +14,7 @@
         "href":"/organisaatio-service/ryhmat"
       },
       {
-        "key":"organisaatioidenrekisteroityminen",
+        "key":"yksityistenrekisteroityminen",
         "requiresRole":["app_organisaatioiden_rekisteroityminen"],
         "href":"/varda-rekisterointi/virkailija"
       },
