@@ -316,6 +316,11 @@
         "key":"tutkintotilaisuudet",
         "href":"/yki/auth/cas",
         "requiresRole":["app_yki_jarjestaja"]
+      },
+      {
+        "key":"maksuraportit",
+        "href":"/yki/auth/cas",
+        "requiresRole":["app_yki_yllapitaja"]
       }
     ]
   }
