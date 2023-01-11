@@ -114,6 +114,11 @@
     "requiresRole":["app_tarjonta", "app_kouta"],
     "links":[
       {
+        "key":"kouta",
+        "href":"/kouta",
+        "requiresRole":["app_kouta"]
+      },
+      {
         "key":"tarjontakoulutuksetjahaut",
         "href":"/tarjonta-app/index.html",
         "requiresRole":["app_tarjonta"]
@@ -127,16 +132,6 @@
         "key":"tarjontavalinnat",
         "href":"/tarjonta-app/index.html#/valintaPerusteKuvaus/search",
         "requiresRole":["app_valintaperustekuvaustenhallinta","app_valintaperustekuvaustenhallinta_kk"]
-      },
-      {
-        "key":"tarjontakoulutuksetjahautexcel",
-        "href":"/tarjonta-app/index.html#/import",
-        "requiresRole":["app_tarjonta"]
-      },
-      {
-        "key":"kouta",
-        "href":"/kouta",
-        "requiresRole":["app_kouta"]
       }
     ]
   },
@@ -145,19 +140,24 @@
     "requiresRole":["app_hakemus", "app_valintojentoteuttaminen", "app_valintaperusteet", "app_ataru", "app_hakukohderyhmapalvelu"],
     "links":[
       {
-        "key":"hauthakemukset",
-        "href":"/haku-app/virkailija/hakemus",
-        "requiresRole":["app_hakemus"]
+        "key":"ataruhakija",
+        "href":"/lomake-editori/applications",
+        "requiresRole":["app_ataru_hakemus"]
+      },
+      {
+        "key":"atarueditori",
+        "href":"/lomake-editori/",
+        "requiresRole":["app_ataru_editori"]
+      },
+      {
+        "key":"hakukohderyhmapalvelu",
+        "href":"/hakukohderyhmapalvelu/hakukohderyhmien-hallinta",
+        "requiresRole":["app_hakukohderyhmapalvelu"]
       },
       {
         "key":"valinnattoteuttaminen",
         "href":"/valintalaskenta-ui/",
         "requiresRole":["app_valintojentoteuttaminen"]
-      },
-      {
-        "key":"hakulomakkeenhallinta",
-        "href":"/hakulomakkeenhallinta-ui/app/index.html#/applicationSystemForm",
-        "requiresRole":["app_hakemus"]
       },
       {
         "key":"valinnatperusteet",
@@ -170,19 +170,14 @@
         "requiresRole":["app_valintojentoteuttaminen_crud_1.2.246.562.10.00000000001","app_valintojentoteuttaminenkk_crud"]
       },
       {
-        "key":"hakukohderyhmapalvelu",
-        "href":"/hakukohderyhmapalvelu/hakukohderyhmien-hallinta",
-        "requiresRole":["app_hakukohderyhmapalvelu"]
+        "key":"hakulomakkeenhallinta",
+        "href":"/hakulomakkeenhallinta-ui/app/index.html#/applicationSystemForm",
+        "requiresRole":["app_hakemus"]
       },
       {
-        "key":"ataruhakija",
-        "href":"/lomake-editori/applications",
-        "requiresRole":["app_ataru_hakemus"]
-      },
-      {
-        "key":"atarueditori",
-        "href":"/lomake-editori/",
-        "requiresRole":["app_ataru_editori"]
+        "key":"hauthakemukset",
+        "href":"/haku-app/virkailija/hakemus",
+        "requiresRole":["app_hakemus"]
       }
     ]
   },
