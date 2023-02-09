@@ -1034,19 +1034,5 @@
     "key":"vkt",
     "value":"Valtionhallinnon kielitutkinnot",
     "locale":"fi"
-  },
-  {
-    "accesscount":0,
-    "id":32644,
-    "accessed":1659606356340,
-    "category":"virkailijaraamit",
-    "created":1659606356340,
-    "createdBy":"1.2.246.562.24.28593654916",
-    "modified":1659606356340,
-    "modifiedBy":"1.2.246.562.24.28593654916",
-    "force":false,
-    "key":"oikeustulkkirek",
-    "value":"Vanha oikeustulkkirekisteri",
-    "locale":"fi"
   }
 ]

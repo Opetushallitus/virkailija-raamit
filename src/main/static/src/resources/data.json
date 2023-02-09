@@ -290,11 +290,6 @@
         "key":"vkt",
         "href":"/vkt/virkailija",
         "requiresRole":["app_vkt"]
-      },
-      {
-        "key":"oikeustulkkirek",
-        "href":"/oikeustulkkirekisteri-ui",
-        "requiresRole":["app_oikeustulkkirekisteri_oikeustulkki_crud"]
       }
     ]
   },
