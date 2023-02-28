@@ -267,8 +267,8 @@
   },
   {
     "key":"valssi",
-    "href":"https://valssi.rahtiapp.fi/virkailija-ui/",
-    "testHref":"https://valssi-qa.rahtiapp.fi/virkailija-ui/",
+    "href":"https://valssi.karvi.fi/",
+    "testHref":"https://qa-valssi.karvi.fi/",
     "target":"_blank",
     "requiresRole":["app_valssi"]
   },
