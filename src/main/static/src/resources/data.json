@@ -77,11 +77,6 @@
         "requiresRole":["app_eperusteet"]
       },
       {
-        "key":"ops-ty\u00f6kalu",
-        "href":"/eperusteet-ylops-app/",
-        "requiresRole":["app_eperusteet_ylops"]
-      },
-      {
         "key":"lops-tyokalu",
         "href":"/eperusteet-ylops-app/uusi",
         "requiresRole":["app_eperusteet_ylops"]
