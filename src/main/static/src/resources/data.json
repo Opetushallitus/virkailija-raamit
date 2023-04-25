@@ -89,7 +89,7 @@
 	  {
         "key":"amosaa-ops-tyokalu-uusi",
         "href":"/eperusteet-amosaa-app/uusi/#/ammatillinen",
-        "requiresRole":["app_eperusteet_amosaa_new"]
+        "requiresRole":["app_eperusteet_amosaa"]
       },
 	  {
         "key":"vst-tyokalu",
