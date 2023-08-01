@@ -436,6 +436,20 @@
   {
     "accesscount": 0,
     "force": false,
+    "accessed": 1690886103944,
+    "category": "virkailijaraamit",
+    "created": 1690886103944,
+    "createdBy": "1.2.246.562.24.28260174004",
+    "modified": 1690886103944,
+    "modifiedBy": "1.2.246.562.24.28260174004",
+    "key": "ludos",
+    "id": 37425,
+    "locale": "fi",
+    "value": "LUDOS"
+  },
+  {
+    "accesscount": 0,
+    "force": false,
     "accessed": 1666258987587,
     "category": "virkailijaraamit",
     "created": 1666258987587,
