@@ -1,28 +1,42 @@
 import React from 'react';
 import Translation from './Translations';
 import Link from './Link';
-import { colors } from './colors';
+import {colors} from './colors';
 
-export default class Header extends React.Component {
+type Props = {
+    transkey: any;
+    testEnvironment: any;
+    links?: any;
+    maxLinksLength?: any;
+    href: any;
+    target: any;
+    style: any;
+    hover?: any;
+    show?: any;
+    hide?: any;
+    fade?: any;
+    fadingOut?: any;
+    media?: any;
+}
+export default class Header extends React.Component<Props,{}> {
     render() {
         const {
-          transkey,
-          testEnvironment,
-          isIE11,
-          links,
-          maxLinksLength,
-          href,
-          target,
-          style,
-          hover,
-          show,
-          hide,
-          fade,
-          fadingOut,
-          media
+            transkey,
+            testEnvironment,
+            links,
+            maxLinksLength,
+            href,
+            target,
+            style,
+            hover,
+            show,
+            hide,
+            fade,
+            fadingOut,
+            media
         } = this.props;
 
-        let currentPage = [];
+        let currentPage: any[] = [];
 
         if (links !== undefined) {
             currentPage = links.map(({href}) => {
@@ -37,10 +51,10 @@ export default class Header extends React.Component {
 
         const theme = testEnvironment ? colors.test : colors.production;
 
-        const textStyle={
+        const textStyle: any = {
             paddingLeft: links ? 10 : 0,
             paddingRight: links ? 10 : 0,
-            textDecoration:'none',
+            textDecoration: 'none',
             color: 'white',
             borderLeft: theme.headerBorderColor,
             boxSizing: 'border-box',
@@ -51,23 +65,23 @@ export default class Header extends React.Component {
             borderBottom: media === 'desktop' && currentPage.indexOf(true) > -1 ? theme.textBorder : ''
         };
 
-        const textLinkStyle={
+        const textLinkStyle: any = {
             paddingLeft: 10,
             paddingRight: 10,
             height: 45,
             display: 'block',
-            textDecoration:'none',
+            textDecoration: 'none',
             color: 'white',
             boxSizing: 'border-box',
             backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? theme.textLinkBackground : '',
             borderBottom: media !== 'desktop' && currentPage.indexOf(true) > -1 ? theme.textLinkBorder : ''
         };
 
-        const linkStyle={
+        const linkStyle: any = {
             paddingTop: media === 'desktop' ? 5 : 0,
             paddingBottom: media === 'desktop' ? 5 : 0,
             flex: 1,
-            visibility:hover ? 'visible' : 'hidden',
+            visibility: hover ? 'visible' : 'hidden',
             opacity: fade ? 100 : 0,
             height: hover ? 'auto' : 0,
             borderLeft: theme.borderColor,
@@ -75,21 +89,17 @@ export default class Header extends React.Component {
             transition: 'opacity ease .3s'
         };
 
-        const containerHeight = (isIE11) => {
-            if (isIE11 && hover) {
-                return (maxLinksLength * 55);
-            }
-            else if (hover) {
+        const containerHeight = () => {
+            if (hover) {
                 return 'auto';
-            }
-            else {
+            } else {
                 return '0';
             }
         };
 
-        const containerStyle = {
+        const containerStyle: any = {
             backgroundColor: '#FFF',
-            height: links ? containerHeight(isIE11) : 40,
+            height: links ? containerHeight() : 40,
             flex: links ? 1 : '',
             display: links && media === 'desktop' ? 'flex' : 'block',
             flexDirection: 'column',
@@ -97,14 +107,13 @@ export default class Header extends React.Component {
             boxShadow: links ? '' : 'inset 0 0 0 5px #159ECB',
             zIndex: links ? '' : 2
         };
-
         return (
             <div className="nav-container" style={containerStyle}>
                 <div
                     style={{
                         ...style,
-                      boxShadow: media === 'desktop' ? theme.tabBoxShadowLight : '',
-                      backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? theme.tabColorLight: theme.tabColorDark,
+                        boxShadow: media === 'desktop' ? theme.tabBoxShadowLight : '',
+                        backgroundColor: media !== 'desktop' && currentPage.indexOf(true) > -1 ? theme.tabColorLight : theme.tabColorDark,
                     }}
                     key={transkey}
                 >
@@ -134,7 +143,7 @@ export default class Header extends React.Component {
                         onMouseEnter={show}
                         onMouseLeave={hide} style={linkStyle}
                     >
-                      {links ? links.map((item, ...rest) =>Link({...item}, hover, ...rest)) : ''}
+                        {links ? links.map((item) => <Link key={item.key} translationKey={item.key} resolvedHref={item.resolvedRef}/>) : ''}
                     </div> : ''
                 }
             </div>
