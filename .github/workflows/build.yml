@@ -68,7 +68,7 @@ jobs:
           export ARTIFACT_NAME="virkailija-raamit"
           mv -v target/virkailija-raamit-*.war $DOCKER_BUILD_DIR/artifact/$ARTIFACT_NAME.war
           cp -vr src/main/resources/oph-configuration $DOCKER_BUILD_DIR/config/
-          export BASE_IMAGE="baseimage-war-openjdk8:master"
+          export BASE_IMAGE="baseimage-war-openjdk8:ga-238"
           ./ci-tools/common/pull-image.sh
           ./ci-tools/github-build/build-war.sh $ARTIFACT_NAME
           ./ci-tools/github-build/upload-image.sh $ARTIFACT_NAME
