@@ -66,11 +66,6 @@
     "key":"eperusteet",
     "requiresRole":["app_eperusteet"],
     "links":[
-      {
-        "key":"eperusteet",
-        "href":"/eperusteet-app/",
-        "requiresRole":["app_eperusteet"]
-      },
 	  {
         "key":"eperusteet-laadinta",
         "href":"/eperusteet-app/uusi",
