@@ -76,15 +76,10 @@
         "href":"/eperusteet-ylops-app/uusi",
         "requiresRole":["app_eperusteet_ylops"]
       },
-      {
-        "key":"amosaa-ops-ty\u00f6kalu",
-        "href":"/eperusteet-amosaa-app/",
-        "requiresRole":["app_eperusteet_amosaa"]
-      },
 	  {
         "key":"amosaa-ops-tyokalu-uusi",
         "href":"/eperusteet-amosaa-app/uusi/#/ammatillinen",
-        "requiresRole":["app_eperusteet_amosaa_new"]
+        "requiresRole":["app_eperusteet_amosaa"]
       },
 	  {
         "key":"vst-tyokalu",
