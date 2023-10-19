@@ -69,7 +69,12 @@
 	  {
         "key":"eperusteet-laadinta",
         "href":"/eperusteet-app",
-        "requiresRole":["app_eperusteet"]
+        "requiresRole":["app_eperusteet", "app_eperusteet_maarays"]
+      },
+	  {
+        "key":"eperusteet-maarayskokoelma",
+        "href":"/eperusteet-app/#/maarayskokoelma",
+        "requiresRole":["app_eperusteet_maarays"]
       },
       {
         "key":"lops-tyokalu",
