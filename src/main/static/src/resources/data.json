@@ -68,12 +68,12 @@
     "links":[
 	  {
         "key":"eperusteet-laadinta",
-        "href":"/eperusteet-app",
+        "href":"/eperusteet-service/ui",
         "requiresRole":["app_eperusteet", "app_eperusteet_maarays"]
       },
 	  {
         "key":"eperusteet-maarayskokoelma",
-        "href":"/eperusteet-app/#/maarayskokoelma",
+        "href":"/eperusteet-service/ui/#/maarayskokoelma",
         "requiresRole":["app_eperusteet_maarays"]
       },
       {
