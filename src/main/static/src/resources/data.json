@@ -68,37 +68,37 @@
     "links":[
 	  {
         "key":"eperusteet-laadinta",
-        "href":"/eperusteet-app",
+        "href":"/eperusteet-service/ui",
         "requiresRole":["app_eperusteet", "app_eperusteet_maarays"]
       },
 	  {
         "key":"eperusteet-maarayskokoelma",
-        "href":"/eperusteet-app/#/maarayskokoelma",
+        "href":"/eperusteet-service/ui/#/maarayskokoelma",
         "requiresRole":["app_eperusteet_maarays"]
       },
       {
         "key":"lops-tyokalu",
-        "href":"/eperusteet-ylops-app",
+        "href":"/eperusteet-ylops-service/ui",
         "requiresRole":["app_eperusteet_ylops"]
       },
 	  {
         "key":"amosaa-ops-tyokalu-uusi",
-        "href":"/eperusteet-amosaa-app/#/ammatillinen",
+        "href":"/eperusteet-amosaa-service/ui/#/ammatillinen",
         "requiresRole":["app_eperusteet_amosaa"]
       },
 	  {
         "key":"vst-tyokalu",
-        "href":"/eperusteet-amosaa-app/#/vapaasivistystyo",
+        "href":"/eperusteet-amosaa-service/ui/#/vapaasivistystyo",
         "requiresRole":["app_eperusteet_vst"]
       },
 	  {
         "key":"tuva-tyokalu",
-        "href":"/eperusteet-amosaa-app/#/tutkintoonvalmentava",
+        "href":"/eperusteet-amosaa-service/ui/#/tutkintoonvalmentava",
         "requiresRole":["app_eperusteet_tuva"]
       },
 	  {
         "key":"koto-tyokalu",
-        "href":"/eperusteet-amosaa-app/#/kotoutumiskoulutus",
+        "href":"/eperusteet-amosaa-service/ui/#/kotoutumiskoulutus",
         "requiresRole":["app_eperusteet_koto"]
       }
     ]
