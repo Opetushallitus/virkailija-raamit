@@ -155,8 +155,8 @@
         "requiresRole":["app_hakukohderyhmapalvelu"]
       },
       {
-        "key":"valinnattoteuttaminen",
-        "href":"/valintalaskenta-ui/",
+        "key":"valinnattoteuttaminen_uusi",
+        "href":"/valintojen-toteuttaminen/",
         "requiresRole":["app_valintojentoteuttaminen"]
       },
       {
@@ -178,6 +178,11 @@
         "key":"hauthakemukset",
         "href":"/haku-app/virkailija/hakemus",
         "requiresRole":["app_hakemus"]
+      },
+      {
+        "key":"valinnattoteuttaminen",
+        "href":"/valintalaskenta-ui/",
+        "requiresRole":["app_valintojentoteuttaminen"]
       }
     ]
   },
