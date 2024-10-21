@@ -22,11 +22,6 @@
         "key":"osoitepalvelu",
         "href":"/organisaatio-service/osoitteet",
         "requiresRole":["app_osoite"]
-      },
-      {
-        "key":"vanha_osoitepalvelu",
-        "href":"/osoitekoostepalvelu/#/",
-        "requiresRole":["app_osoite"]
       }
     ]
   },
