@@ -15,7 +15,7 @@
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-responsive": "^1.2.1",
-    "react-scripts": "1.0.17"
+    "react-scripts": "2.0.3"
   },
   "devDependencies": {
     "renamer": "^0.6.1"
