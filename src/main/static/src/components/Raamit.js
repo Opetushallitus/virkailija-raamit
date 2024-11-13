@@ -9,7 +9,6 @@ import translation from '../dev/translation.json';
 import opintopolkuLogo from '../virkailija-raamit/img/opintopolku-logo-uusi.svg';
 import MediaQuery from 'react-responsive';
 import Icon from './Icon/Icon';
-import mapKeys from 'lodash/mapKeys';
 import urls from '../virkailija-raamit-oph.json';
 import {find} from 'ramda';
 import browserUpdate from 'browser-update';
@@ -174,10 +173,7 @@ export default class Raamit extends React.Component {
                 });
             }
 
-            // Map all item's properties to array's objects
-            return mapKeys(item, (key, value) => {
-                return value;
-            });
+            return item;
         });
     };
 

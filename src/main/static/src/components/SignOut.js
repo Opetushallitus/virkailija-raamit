@@ -35,7 +35,7 @@ export default ({userData, signOutStyle, device}) =>{
 
     if (device === 'desktop' || device === 'tab') {
         content = <span>
-            <a className="nav-link" href="https://wiki.eduuni.fi/x/TlPICw" target="_blank" style={desktopStyle}>
+            <a className="nav-link" href="https://wiki.eduuni.fi/x/TlPICw" target="_blank" rel="noopener noreferrer" style={desktopStyle}>
                 <Icon name="help"/> <Translation trans="ohjeet"/>
             </a>
             <a className="nav-link" href="/henkilo-ui/omattiedot" style={desktopStyle}>
@@ -46,7 +46,7 @@ export default ({userData, signOutStyle, device}) =>{
     }else if(device === 'mobile'){
         content = <span>
 
-            <a className="nav-link" href="https://wiki.eduuni.fi/x/TlPICw" target="_blank" style={mobileStyle}>
+            <a className="nav-link" href="https://wiki.eduuni.fi/x/TlPICw" target="_blank" rel="noopener noreferrer" style={mobileStyle}>
                 <div style={mobileStyle} className="links">
                     <Icon name="help"/> <Translation trans="ohjeet"/>
                 </div>
