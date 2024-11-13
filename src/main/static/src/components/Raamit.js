@@ -10,7 +10,6 @@ import opintopolkuLogo from '../virkailija-raamit/img/opintopolku-logo-uusi.svg'
 import MediaQuery from 'react-responsive';
 import Icon from './Icon/Icon';
 import urls from '../virkailija-raamit-oph.json';
-import {find} from 'ramda';
 import browserUpdate from 'browser-update';
 import { colors } from './colors';
 
@@ -232,7 +231,7 @@ export default class Raamit extends React.Component {
         const isCurrentEnvironment = (environment) => {
           return window.location.href.indexOf(environment.href) > -1;
         };
-        const currentEnvironment = find(isCurrentEnvironment)(environments);
+        const currentEnvironment = environments.find(isCurrentEnvironment);
         const isTestEnvironment = currentEnvironment && currentEnvironment.type === 'test';
         const theme = isTestEnvironment ? colors.test : colors.production;
 

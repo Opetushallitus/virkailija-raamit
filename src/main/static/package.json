@@ -9,8 +9,6 @@
   "homepage": "/virkailija-raamit",
   "dependencies": {
     "browser-update": "^3.2.2",
-    "flat": "^2.0.1",
-    "ramda": "^0.25.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-responsive": "^1.2.1",
