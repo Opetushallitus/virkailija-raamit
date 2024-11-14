@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './virkailija-raamit/css/styles.css';
 import App from './App';
-
+export {Raamit} from './components';
 function addStyle(href) {
     const ss = document.createElement("link");
     ss.type = "text/css";
