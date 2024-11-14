@@ -8,19 +8,32 @@
   "license": "ISC",
   "homepage": "/virkailija-raamit",
   "dependencies": {
-    "browser-update": "^3.2.2",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "react-responsive": "^1.2.1",
-    "react-scripts": "1.0.17"
+    "browser-update": "^3.3.55",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-responsive": "^10.0.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
-    "renamer": "^0.6.1"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "renamer": "^5.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && renamer --replace apply-raamit.js build/static/js/*.js && renamer --replace apply-raamit.css build/static/css/*.css",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
