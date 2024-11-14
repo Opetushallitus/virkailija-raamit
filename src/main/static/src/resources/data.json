@@ -284,7 +284,12 @@
       {
         "key":"vkt",
         "href":"/vkt/virkailija",
-        "requiresRole":["app_vkt"]
+        "requiresRole":["app_vkt_paakayttaja"]
+      },
+      {
+        "key":"vkt_tv",
+        "href":"/vkt/tv",
+        "requiresRole":["app_vkt_tutkinnon_vastaanottaja"]
       }
     ]
   },
