@@ -15,16 +15,6 @@
     "href": "virkailija.hahtuvaopintopolku.fi"
   },
   {
-    "name": "Kuuro",
-    "type": "test",
-    "href": "virkailija.testipolku.com"
-  },
-  {
-    "name": "Sieni",
-    "type": "test",
-    "href": "virkailija.sieniopintopolku.fi"
-  },
-  {
     "name": "Dev",
     "type": "test",
     "href": "localhost"
