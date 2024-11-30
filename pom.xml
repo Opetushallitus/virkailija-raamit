@@ -71,7 +71,7 @@
                             <goal>install-node-and-npm</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v10.10.0</nodeVersion>
+                            <nodeVersion>v17.9.1</nodeVersion>
                         </configuration>
                     </execution>
 
@@ -136,6 +136,11 @@
                                     <directory>${basedir}/src/main/static/build</directory>
                                     <filtering>true</filtering>
                                     <include>index.html</include>
+                                </resource>
+                                <resource>
+                                    <directory>${basedir}/src/main/static/src/resources</directory>
+                                    <filtering>false</filtering>
+                                    <include>data.json</include>
                                 </resource>
                             </resources>
                         </configuration>

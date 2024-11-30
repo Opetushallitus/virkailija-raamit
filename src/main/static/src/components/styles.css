@@ -1,0 +1,65 @@
+.virkailija-raamit .nav-link:hover,
+.virkailija-raamit .nav-link:hover,
+.virkailija-raamit .nav-link :hover {
+    text-decoration: none !important;
+}
+.virkailija-raamit .nav-menu {
+    background-color: #FFF;
+}
+
+.virkailija-raamit .nav-container:hover .links,
+.virkailija-raamit .nav-container:hover .nav-menu {
+    background-color: #F6FCFF;
+}
+
+.virkailija-raamit-production {
+    background-color: #149ecb;
+}
+.virkailija-raamit-test {
+    background-color: #040066;
+}
+
+body{
+    margin-top: 0 !important;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.links {
+    text-decoration: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    background-color: #FFF;
+}
+
+.linkCol > a{
+    word-wrap: break-word;
+    display: block;
+    width: 100%;
+    color: #666666;
+    text-decoration: none;
+}
+.virkailija-raamit .nav-container:hover .links:hover {
+    background-color: #E0F3FF;
+}
+.linkCol:first-child {
+    height: 0 !important;
+}
+.linkCol:hover {
+    background-color: #F6FBFF !important;
+}
+
+.opintopolkuLogo{
+    width: 175px;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+
+@media (min-width: 1224px) {
+    .links {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
