@@ -196,6 +196,12 @@
         "requiresRole":["app_ryhmasahkoposti"]
       },
       {
+        "key":"viestinvalitys_raportointi",
+        "href":"https://viestinvalitys.opintopolku.fi/raportointi",
+        "testHref": "https://viestinvalitys.testiopintopolku.fi/raportointi",
+        "requiresRole":["app_viestinvalitys_katselu"]
+      },
+      {
         "key":"kirje_kirjepohjat",
         "href":"/viestintapalvelu-ui/#/letter-templates",
         "requiresRole":["app_asiakirjapalvelu_create_template"]
