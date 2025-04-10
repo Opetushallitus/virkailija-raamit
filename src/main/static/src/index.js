@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './virkailija-raamit/css/styles.css';
 import App from './App';
 
@@ -31,7 +31,8 @@ function appendToBody() {
     addInlineStyle(`#raamit_app_root { position: relative; }`);
     addStyle("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
     addStyle('/virkailija-raamit/apply-raamit.css');
-    ReactDOM.render(<App />, window.document.getElementById('raamit_app_root'));
+    const root = ReactDOM.createRoot(window.document.getElementById('raamit_app_root'));
+    root.render(<App />);
 }
 
 if ((document.readyState === "complete" || document.readyState === "loaded") && window.virkailija_raamit_set_to_load !== true) {

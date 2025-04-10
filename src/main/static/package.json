@@ -9,9 +9,9 @@
   "homepage": "/virkailija-raamit",
   "dependencies": {
     "browser-update": "^3.3.55",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-responsive": "^10.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-responsive": "^10.0.1",
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
@@ -37,6 +37,9 @@
     ]
   },
   "overrides": {
-    "serialize-javascript": "6.0.2"
+    "serialize-javascript": "6.0.2",
+    "nth-check": "2.1.1",
+    "express": "4.21.2",
+    "glob": "11.0.1"
   }
 }
