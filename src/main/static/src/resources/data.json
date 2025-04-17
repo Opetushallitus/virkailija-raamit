@@ -165,14 +165,9 @@
         "requiresRole":["app_valintojentoteuttaminen_crud_1.2.246.562.10.00000000001","app_valintojentoteuttaminenkk_crud"]
       },
       {
-        "key":"hakulomakkeenhallinta",
-        "href":"/hakulomakkeenhallinta-ui/app/index.html#/applicationSystemForm",
-        "requiresRole":["app_hakemus"]
-      },
-      {
         "key":"hauthakemukset",
         "href":"/haku-app/virkailija/hakemus",
-        "requiresRole":["app_hakemus"]
+        "requiresRole":["app_hakemus_crud_1.2.246.562.10.00000000001"]
       }
     ]
   },
