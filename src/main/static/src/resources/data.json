@@ -178,8 +178,13 @@
   },
   {
     "key":"raportointi_ja_viestinta",
-    "requiresRole":["app_raportointi","app_ryhmasahkoposti","app_asiakirjapalvelu"],
+    "requiresRole":["app_raportointi","app_ryhmasahkoposti","app_asiakirjapalvelu","app_ovara-virkailija"],
     "links":[
+      {
+        "key":"ovara",
+        "href":"/ovara",
+        "requiresRole":["app_ovara-virkailija"]
+      },
       {
         "key":"raportointi",
         "href":"/virkailija-raamit/virkailija-raamit/raportointi.html",
