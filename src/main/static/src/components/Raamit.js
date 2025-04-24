@@ -17,18 +17,21 @@ export default class Raamit extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            userData: []
+            userData: {}
         };
+    }
 
+    componentDidMount() {
         this.getUserData();
         this.getCategoryWidth = this.getCategoryWidth.bind(this);
     }
 
-    componentWillUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps, nextState) {
         // Only update role basedata when userdata has changed
         if (nextState.userData !== this.state.userData) {
             this.dataWithConcatenatedParentRoles = this.getDataWithConcatenatedParentRoles(data);
         }
+        return true;  
     }
 
     showBrowserUpdate(lang) {
@@ -62,16 +65,13 @@ export default class Raamit extends React.Component {
         })
     }
 
-    getUserData(){
+    getUserData() {
             this.userDataPromise()
                 .then(respProm => respProm.json())
                 .then(data => this.setUserState(data))
                 .catch(error => {
             if (window.location.host.indexOf('localhost') === 0 || window.location.host.indexOf('10.0.2.2') === 0) { // dev mode (copypaste from upper)
-                this.setState({userData});
-                if (userData){
-                    this.getTranslate();
-                }
+                this.setUserState(userData);
             } else { // real usage
                 console.log(error);
                 if (window.location.href.indexOf('virkailijan-tyopoyta/?ticket=') > 0) {
@@ -109,13 +109,13 @@ export default class Raamit extends React.Component {
             userData: ud
         });
         window.myroles = ud.groups;
-        this.getTranslate();
+        this.getTranslate(ud);
     }
 
 
-    async getTranslate(){
+    async getTranslate(ud) {
         let lang = 'fi';
-        const groups = this.state.userData.groups;
+        const groups = ud.groups;
         for (let i = 0; i < groups.length; i++) {
             if (groups[i].indexOf('LANG_') === 0) {
                 lang = groups[i].substring(5);
