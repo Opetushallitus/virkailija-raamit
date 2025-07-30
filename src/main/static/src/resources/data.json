@@ -275,7 +275,7 @@
   },
   {
     "key":"kieli-ja-kaantaja-tutkinnot",
-    "requiresRole":["app_akt", "app_oikeustulkkirekisteri_oikeustulkki_crud", "app_vkt"],
+    "requiresRole":["app_akt", "app_oikeustulkkirekisteri_oikeustulkki_crud", "app_vkt", "Kielitutkintorekisteri-oph-pääkäyttäjä"],
     "links":[
       {
         "key":"akr",
