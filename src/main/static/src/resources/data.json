@@ -296,6 +296,11 @@
         "key":"vkt_tv",
         "href":"/vkt/tv",
         "requiresRole":["app_vkt_tutkinnon_vastaanottaja"]
+      },
+      {
+        "key":"ktr",
+        "href":"/kielitutkinnot",
+        "requiresRole":["Kielitutkintorekisteri-oph-pääkäyttäjä"]
       }
     ]
   },
