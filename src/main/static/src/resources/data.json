@@ -275,7 +275,7 @@
   },
   {
     "key":"kieli-ja-kaantaja-tutkinnot",
-    "requiresRole":["app_akt", "app_oikeustulkkirekisteri_oikeustulkki_crud", "app_vkt"],
+    "requiresRole":["app_akt", "app_oikeustulkkirekisteri_oikeustulkki_crud", "app_vkt", "app_kielitutkintorekisteri"],
     "links":[
       {
         "key":"akr",
@@ -296,6 +296,11 @@
         "key":"vkt_tv",
         "href":"/vkt/tv",
         "requiresRole":["app_vkt_tutkinnon_vastaanottaja"]
+      },
+      {
+        "key":"ktr",
+        "href":"/kielitutkinnot",
+        "requiresRole":["app_kielitutkintorekisteri"]
       }
     ]
   },
