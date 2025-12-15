@@ -42,8 +42,9 @@
       "serialize-javascript": "6.0.2",
       "nth-check": "2.1.1",
       "express": "4.21.2",
-      "glob": "8.1.0",
+      "glob": "10.3.12",
       "rimraf": "5.0.9",
+      "rimraf>glob": "10.3.12",
       "form-data": "3.0.4"
     }
   }
