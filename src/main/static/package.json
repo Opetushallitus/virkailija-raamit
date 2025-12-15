@@ -1,6 +1,7 @@
 {
   "name": "webapp",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.25.0",
   "description": "",
   "main": "apply-raamit.js",
   "keywords": [],
@@ -36,11 +37,14 @@
       "last 1 safari version"
     ]
   },
-  "overrides": {
-    "serialize-javascript": "6.0.2",
-    "nth-check": "2.1.1",
-    "express": "4.21.2",
-    "glob": "11.0.1",
-    "form-data": "3.0.4"
+  "pnpm": {
+    "overrides": {
+      "serialize-javascript": "6.0.2",
+      "nth-check": "2.1.1",
+      "express": "4.21.2",
+      "glob": "8.1.0",
+      "rimraf": "5.0.9",
+      "form-data": "3.0.4"
+    }
   }
 }
