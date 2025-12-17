@@ -59,49 +59,40 @@
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
-                <version>1.6</version>
+                <version>1.15.4</version>
                 <configuration>
                     <workingDirectory>src/main/static</workingDirectory>
                 </configuration>
 
                 <executions>
                     <execution>
-                        <id>install node and npm</id>
+                        <id>install node and corepack</id>
                         <goals>
-                            <goal>install-node-and-npm</goal>
+                            <goal>install-node-and-corepack</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v20.18.0</nodeVersion>
+                            <nodeVersion>v22.0.0</nodeVersion>
                         </configuration>
                     </execution>
 
                     <execution>
-                        <id>npm version</id>
+                        <id>pnpm install</id>
                         <goals>
-                            <goal>npm</goal>
+                            <goal>corepack</goal>
                         </goals>
+                        <phase>generate-resources</phase>
                         <configuration>
-                            <arguments>--version</arguments>
+                            <arguments>pnpm install --frozen-lockfile</arguments>
                         </configuration>
                     </execution>
 
                     <execution>
-                        <id>npm ci</id>
+                        <id>pnpm run build</id>
                         <goals>
-                            <goal>npm</goal>
+                            <goal>corepack</goal>
                         </goals>
                         <configuration>
-                            <arguments>ci</arguments>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>npm run build</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run build</arguments>
+                            <arguments>pnpm run build</arguments>
                         </configuration>
                     </execution>
 
