@@ -2,7 +2,7 @@
 Virkailijan työpöydän navigaatiovalikko.
 
 ### Raamien lokaali kehitys
-`cd src/main/static/` (Node 22 per `.nvmrc`)
+`cd src/main/static/`
 
 Asenna riippuvuudet pnpm:llä (jos pnpm puuttuu, aja `corepack enable`).
 
