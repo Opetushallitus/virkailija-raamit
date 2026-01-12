@@ -40,8 +40,8 @@
         "requiresRole":["app_kayttooikeus_kayttooikeusryhmien_luku", "app_kayttooikeus_rekisterinpitaja"]
       },
       {
-        "key":"palvelukayttajat",
-        "href":"/henkilo-ui/palvelukayttaja",
+        "key":"jarjestelmatunnus",
+        "href":"/henkilo-ui/jarjestelmatunnus",
         "requiresRole":["app_kayttooikeus_palvelukayttaja_crud", "app_kayttooikeus_rekisterinpitaja"]
       },
       {
