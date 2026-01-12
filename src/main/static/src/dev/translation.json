@@ -196,6 +196,22 @@
     "locale": "fi"
   },
   {
+      "id": null,
+      "namespace": "virkailijaraamit",
+      "key": "jarjestelmatunnukset",
+      "locale": "fi",
+      "value": "Järjestelmätunnukset",
+      "category": "virkailijaraamit",
+      "accessed": null,
+      "created": null,
+      "modified": null,
+      "force": null,
+      "modifiedBy": null,
+      "accesscount": null,
+      "createdBy": null,
+      "description": null
+  },
+  {
     "accesscount": 0,
     "id": 1191,
     "category": "virkailijaraamit",
