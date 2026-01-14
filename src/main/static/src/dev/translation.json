@@ -1092,5 +1092,21 @@
     "id": 39812,
     "locale": "fi",
     "value": "Valtionhallinnon kielitutkinnot"
+  },
+  {
+    "id": null,
+    "namespace": "virkailijaraamit",
+    "key": "suorituspalvelu",
+    "locale": "fi",
+    "value": "Suorituspalvelu",
+    "category": "virkailijaraamit",
+    "accessed": null,
+    "created": null,
+    "modified": null,
+    "force": null,
+    "modifiedBy": null,
+    "accesscount": null,
+    "createdBy": null,
+    "description": null
   }
 ]

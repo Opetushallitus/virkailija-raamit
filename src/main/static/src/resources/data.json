@@ -233,6 +233,11 @@
         "requiresRole":["app_koski"]
       },
       {
+        "key":"suorituspalvelu",
+        "href":"/suorituspalvelu",
+        "requiresRole":["app_suorituspalvelu"]
+      },
+      {
         "key":"rekisteritsuoritusrekisteri",
         "href":"/suoritusrekisteri/#/",
         "requiresRole":["app_suoritusrekisteri_read","app_suoritusrekisteri_read_update","app_suoritusrekisteri_crud"]
