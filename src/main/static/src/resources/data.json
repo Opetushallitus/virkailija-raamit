@@ -229,7 +229,7 @@
     "links":[
       {
         "key":"koski",
-        "href":"/koski/virkailija",
+        "href":"/koski",
         "requiresRole":["app_koski"]
       },
       {
