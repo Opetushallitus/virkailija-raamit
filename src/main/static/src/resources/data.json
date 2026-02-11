@@ -330,17 +330,17 @@
     "links":[
       {
         "key":"jarjestajarekisteri",
-        "href":"/yki/auth/cas",
+        "href":"/yki/jarjestajarekisteri",
         "requiresRole":["app_yki_yllapitaja"]
       },
       {
         "key":"tutkintotilaisuudet",
-        "href":"/yki/auth/cas",
+        "href":"/yki/tutkintotilaisuudet",
         "requiresRole":["app_yki_jarjestaja"]
       },
       {
         "key":"maksuraportit",
-        "href":"/yki/auth/cas",
+        "href":"/yki/maksuraportit",
         "requiresRole":["app_yki_yllapitaja"]
       }
     ]
