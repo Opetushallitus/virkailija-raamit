@@ -326,12 +326,12 @@
   },
   {
     "key":"yki",
-    "requiresRole":["app_yki_yllapitaja","app_yki_jarjestaja"],
+    "requiresRole":["app_yki_yllapitaja","app_yki_jarjestaja", "app_yki_ilmoittautumiset_r"],
     "links":[
       {
         "key":"jarjestajarekisteri",
         "href":"/yki/jarjestajarekisteri",
-        "requiresRole":["app_yki_yllapitaja"]
+        "requiresRole":["app_yki_yllapitaja", "app_yki_ilmoittautumiset_r"]
       },
       {
         "key":"tutkintotilaisuudet",
