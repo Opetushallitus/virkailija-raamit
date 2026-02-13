@@ -326,7 +326,7 @@
   },
   {
     "key":"yki",
-    "requiresRole":["app_yki_yllapitaja","app_yki_jarjestaja", "app_yki_ilmoittautumiset_r"],
+    "requiresRole":["app_yki"],
     "links":[
       {
         "key":"jarjestajarekisteri",
