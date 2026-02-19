@@ -335,7 +335,7 @@
       },
       {
         "key":"tutkintotilaisuudet",
-        "href":"/yki/tutkintotilaisuudet",
+        "href":"/yki/auth/cas",
         "requiresRole":["app_yki_jarjestaja"]
       },
       {
