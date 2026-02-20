@@ -326,12 +326,12 @@
   },
   {
     "key":"yki",
-    "requiresRole":["app_yki_yllapitaja","app_yki_jarjestaja"],
+    "requiresRole":["app_yki"],
     "links":[
       {
         "key":"jarjestajarekisteri",
-        "href":"/yki/auth/cas",
-        "requiresRole":["app_yki_yllapitaja"]
+        "href":"/yki/jarjestajarekisteri",
+        "requiresRole":["app_yki_yllapitaja", "app_yki_ilmoittautumiset_r"]
       },
       {
         "key":"tutkintotilaisuudet",
@@ -340,7 +340,7 @@
       },
       {
         "key":"maksuraportit",
-        "href":"/yki/auth/cas",
+        "href":"/yki/maksuraportit",
         "requiresRole":["app_yki_yllapitaja"]
       }
     ]
