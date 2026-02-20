@@ -996,6 +996,22 @@
     "locale": "fi"
   },
   {
+    "id": null,
+    "namespace": "virkailijaraamit",
+    "key": "yki_v2_jarjestajarekisteri",
+    "locale": "fi",
+    "value": "UUSI Järjestäjärekisteri",
+    "category": "virkailijaraamit",
+    "accessed": null,
+    "created": null,
+    "modified": null,
+    "force": null,
+    "accesscount": null,
+    "modifiedBy": null,
+    "createdBy": null,
+    "description": null
+  },
+  {
     "accesscount": 0,
     "id": 8619,
     "category": "virkailijaraamit",

@@ -342,6 +342,11 @@
         "key":"maksuraportit",
         "href":"/yki/maksuraportit",
         "requiresRole":["app_yki_yllapitaja"]
+      },
+      {
+        "key":"yki_v2_jarjestajarekisteri",
+        "href":"/yki/v2/virkailija/jarjestajarekisteri",
+        "requiresRole":["app_yki_yllapitaja"]
       }
     ]
   },
