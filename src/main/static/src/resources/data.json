@@ -196,11 +196,6 @@
         "requiresRole":["app_ovara-virkailija"]
       },
       {
-        "key":"raportointi",
-        "href":"/virkailija-raamit/virkailija-raamit/raportointi.html",
-        "requiresRole":["app_raportointi"]
-      },
-      {
         "key":"kirje_raportointi",
         "href":"/viestintapalvelu-ui/#/reportLetters",
         "requiresRole":["app_asiakirjapalvelu"]
