@@ -30,9 +30,14 @@
     "requiresRole":["app_valintaperusteet","app_valintojentoteuttaminen"],
     "links":[
       {
-        "key":"kaytonhallintaanomukset",
-        "href":"/henkilo-ui/henkilohaku",
-        "requiresRole":["app_kayttooikeus_rekisterinpitaja", "app_oppijanumerorekisteri_oppijoidentuonti", "app_kayttooikeus_crud"]
+        "key":"virkailijantiedot",
+        "href":"/henkilo-ui/virkailijahaku",
+        "requiresRole":["app_kayttooikeus_rekisterinpitaja", "app_kayttooikeus_read", "app_kayttooikeus_crud", "app_kayttooikeus_access_rights_report"]
+      },
+      {
+        "key":"oppijantiedot",
+        "href":"/henkilo-ui/oppijahaku",
+        "requiresRole":["app_oppijanumerorekisteri_rekisterinpitaja", "app_oppijanumerorekisteri_oppijoidentuonti", "app_oppijanumerorekisteri_yleistunniste_luonti"]
       },
       {
         "key":"kaytonhallintaryhmat",
