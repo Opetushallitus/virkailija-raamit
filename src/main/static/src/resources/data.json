@@ -132,7 +132,7 @@
   },
   {
     "key":"hakemuksetjavalinnat",
-    "requiresRole":["app_hakemus", "app_valintojentoteuttaminen", "app_valintaperusteet", "app_ataru", "app_hakukohderyhmapalvelu", "app_tutu_esittelija"],
+    "requiresRole":["app_hakemus", "app_valintojentoteuttaminen", "app_valintaperusteet", "app_ataru", "app_hakukohderyhmapalvelu", "app_tutu_esittelija", "app_tutu_crud"],
     "links":[
       {
         "key":"ataruhakija",
@@ -147,7 +147,7 @@
       {
         "key":"tutukasittely",
         "href":"/tutu-frontend",
-        "requiresRole":["app_tutu_esittelija"]
+        "requiresRole":["app_tutu_esittelija", "app_tutu_crud"]
       },
       {
         "key":"hakukohderyhmapalvelu",
