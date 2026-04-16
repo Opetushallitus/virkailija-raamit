@@ -338,6 +338,38 @@
     "locale": "fi"
   },
   {
+    "id": null,
+    "namespace": "virkailijaraamit",
+    "key": "virkailijantiedot",
+    "locale": "fi",
+    "value": "Virkailijoiden käyttöoikeudet",
+    "category": "virkailijaraamit",
+    "accesscount": null,
+    "modifiedBy": null,
+    "accessed": null,
+    "created": null,
+    "modified": null,
+    "force": null,
+    "createdBy": null,
+    "description": null
+  },
+  {
+    "id": null,
+    "namespace": "virkailijaraamit",
+    "key": "oppijantiedot",
+    "locale": "fi",
+    "value": "Oppijoiden henkilötiedot",
+    "category": "virkailijaraamit",
+    "accesscount": null,
+    "modifiedBy": null,
+    "accessed": null,
+    "created": null,
+    "modified": null,
+    "force": null,
+    "createdBy": null,
+    "description": null
+  },
+  {
     "accesscount": 0,
     "id": 1110,
     "category": "virkailijaraamit",
