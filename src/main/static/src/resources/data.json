@@ -193,7 +193,7 @@
   },
   {
     "key":"raportointi_ja_viestinta",
-    "requiresRole":["app_raportointi","app_ryhmasahkoposti","app_asiakirjapalvelu","app_ovara-virkailija"],
+    "requiresRole":["app_raportointi","app_ryhmasahkoposti","app_asiakirjapalvelu","app_ovara-virkailija","app_tiedotuspalvelu"],
     "links":[
       {
         "key":"ovara",
@@ -220,6 +220,11 @@
         "key":"kirje_kirjepohjat",
         "href":"/viestintapalvelu-ui/#/letter-templates",
         "requiresRole":["app_asiakirjapalvelu_create_template"]
+      },
+      {
+        "key":"tiedotuspalvelu",
+        "href":"/tiedotuspalvelu/",
+        "requiresRole":["app_tiedotuspalvelu"]
       }
     ]
   },
