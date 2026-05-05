@@ -147,7 +147,7 @@
       {
         "key":"tutukasittely",
         "href":"/tutu-frontend",
-        "requiresRole":["app_tutu_esittelija", "app_tutu_crud"]
+        "requiresRole":["app_tutu"]
       },
       {
         "key":"hakukohderyhmapalvelu",
