@@ -1016,7 +1016,7 @@
   {
     "id": null,
     "namespace": "virkailijaraamit",
-    "key": "yki_v2_jarjestajarekisteri",
+    "key": "jarjestajarekisteri_new",
     "locale": "fi",
     "value": "UUSI Järjestäjärekisteri",
     "category": "virkailijaraamit",
@@ -1024,7 +1024,23 @@
     "created": null,
     "modified": null,
     "force": null,
-    "accesscount": null,
+    "accesscount": 0,
+    "modifiedBy": null,
+    "createdBy": null,
+    "description": null
+  },
+  {
+    "id": null,
+    "namespace": "virkailijaraamit",
+    "key": "tutkintotilaisuudet_new",
+    "locale": "fi",
+    "value": "UUSI Tutkintotilaisuudet",
+    "category": "virkailijaraamit",
+    "accessed": null,
+    "created": null,
+    "modified": null,
+    "force": null,
+    "accesscount": 0,
     "modifiedBy": null,
     "createdBy": null,
     "description": null
