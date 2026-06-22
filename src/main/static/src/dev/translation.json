@@ -1014,6 +1014,38 @@
     "locale": "fi"
   },
   {
+    "id": null,
+    "namespace": "virkailijaraamit",
+    "key": "jarjestajarekisteri_new",
+    "locale": "fi",
+    "value": "UUSI Järjestäjärekisteri",
+    "category": "virkailijaraamit",
+    "accessed": null,
+    "created": null,
+    "modified": null,
+    "force": null,
+    "accesscount": 0,
+    "modifiedBy": null,
+    "createdBy": null,
+    "description": null
+  },
+  {
+    "id": null,
+    "namespace": "virkailijaraamit",
+    "key": "tutkintotilaisuudet_new",
+    "locale": "fi",
+    "value": "UUSI Tutkintotilaisuudet",
+    "category": "virkailijaraamit",
+    "accessed": null,
+    "created": null,
+    "modified": null,
+    "force": null,
+    "accesscount": 0,
+    "modifiedBy": null,
+    "createdBy": null,
+    "description": null
+  },
+  {
     "accesscount": 0,
     "id": 8619,
     "category": "virkailijaraamit",

@@ -334,9 +334,19 @@
     "requiresRole":["app_yki"],
     "links":[
       {
+        "key":"jarjestajarekisteri_new",
+        "href":"/yki/v2/auth/login",
+        "requiresRole":["app_yki_yllapitaja", "app_yki_ilmoittautumiset_r"]
+      },
+      {
         "key":"jarjestajarekisteri",
         "href":"/yki/jarjestajarekisteri",
         "requiresRole":["app_yki_yllapitaja", "app_yki_ilmoittautumiset_r"]
+      },
+      {
+        "key":"tutkintotilaisuudet_new",
+        "href":"/yki/v2/auth/login",
+        "requiresRole":["app_yki_jarjestaja"]
       },
       {
         "key":"tutkintotilaisuudet",
