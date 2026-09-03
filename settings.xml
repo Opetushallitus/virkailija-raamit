@@ -1,0 +1,53 @@
+<!-- Maven settings -tiedosto CI-buildia varten, tarvitaan jotta voidaan autentikoitua Github Packages -repoon -->
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <!-- artifactory.opintopolku.fi poistuu käytöstä. Riippuvuuksien pom-tiedostot
+         (mm. fi.vm.sade.generic:build-parent) tuovat sen repot mukanaan, joten ohjataan
+         ne GitHub Packagesiin. Sama id kuin serverillä, jotta autentikointi periytyy. -->
+    <mirrors>
+        <mirror>
+            <id>github</id>
+            <name>Artifactory-repot ohjataan GitHub Packagesiin</name>
+            <url>https://maven.pkg.github.com/opetushallitus/*</url>
+            <mirrorOf>oph-sade-artifactory,oph-sade-artifactory-snapshots,oph-sade-artifactory-releases,ext-snapshot-local-artifactory-snapshots,plugin-local-release,libs-3rd-party,vaadin-addons,atomikos,bedatadriven,cpdetector,shibboleth,com.springsource.repository.bundles.external,com.springsource.repository.bundles.release,com.springsource.repository.maven.milestone,com.springsource.repository.maven.snapshot</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <activeProfiles>
+        <activeProfile>github</activeProfile>
+    </activeProfiles>
+
+    <profiles>
+        <profile>
+            <id>github</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <name>Central Repository</name>
+                    <url>https://repo.maven.apache.org/maven2</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>github</id>
+                    <url>https://maven.pkg.github.com/opetushallitus/*</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <servers>
+        <server>
+            <id>github</id>
+            <username>private-token</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+    </servers>
+</settings>

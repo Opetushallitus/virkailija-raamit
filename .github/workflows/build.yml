@@ -34,7 +34,7 @@ jobs:
       - name: Build with Maven
         env:
           CI: false
-        run: mvn clean install -B -Dbranch=${GITHUB_REF_NAME} -Drevision=${GITHUB_SHA} -DbuildNumber=${GITHUB_RUN_NUMBER}
+        run: mvn clean install -B --settings settings.xml -Dbranch=${GITHUB_REF_NAME} -Drevision=${GITHUB_SHA} -DbuildNumber=${GITHUB_RUN_NUMBER}
 
       - uses: actions/cache@v4
         id: restore-build
