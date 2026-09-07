@@ -6,6 +6,7 @@
         <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
 
         <!-- komentoriviparametrit -->
+        <build/>
         <branch/>
         <revision/>
         <buildversiontxt/>
