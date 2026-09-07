@@ -2,6 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
+
+        <!-- komentoriviparametrit -->
+        <branch/>
+        <revision/>
+        <buildversiontxt/>
+        <buildversion_prefix/>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>jakarta.servlet</groupId>
@@ -220,6 +230,38 @@
                                 </requireJavaVersion>
                                 <dependencyConvergence/>
                             </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>${maven-antrun-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>write buildversion.txt</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <echo message="writing target/${project.build.finalName}/buildversion.txt"/>
+                                <echo file="target/${project.build.finalName}/buildversion.txt">
+                                    <![CDATA[artifactId=${project.artifactId}
+                    version=${project.version}
+                    buildNumber=${build}
+                    branchName=${branch}
+                    vcsRevision=${revision}
+                    buildTtime=${maven.build.timestamp}
+                    ]]>
+                                </echo>
+                                <loadfile property="buildversiontxt"
+                                          srcFile="target/${project.build.finalName}/buildversion.txt"/>
+                                <echo message="${buildversiontxt}"/>
+                                <echo file="target/mavenversion.txt">${project.version}</echo>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
