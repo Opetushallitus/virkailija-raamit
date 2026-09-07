@@ -251,12 +251,12 @@
                                 <echo message="writing target/${project.build.finalName}/buildversion.txt"/>
                                 <echo file="target/${project.build.finalName}/buildversion.txt">
                                     <![CDATA[artifactId=${project.artifactId}
-                    version=${project.version}
-                    buildNumber=${build}
-                    branchName=${branch}
-                    vcsRevision=${revision}
-                    buildTtime=${maven.build.timestamp}
-                    ]]>
+version=${project.version}
+buildNumber=${build}
+branchName=${branch}
+vcsRevision=${revision}
+buildTtime=${maven.build.timestamp}
+]]>
                                 </echo>
                                 <loadfile property="buildversiontxt"
                                           srcFile="target/${project.build.finalName}/buildversion.txt"/>
