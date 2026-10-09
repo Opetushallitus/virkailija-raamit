@@ -103,7 +103,7 @@
       },
 	  {
         "key":"koto-tyokalu",
-        "href":"/eperusteet-amosaa-service/ui/#/kotoutumiskoulutus",
+        "href":"/eperusteet-amosaa-service/ui/#/kotoutuminen",
         "requiresRole":["app_eperusteet_koto"]
       }
     ]
